@@ -43,7 +43,7 @@ int dadosNuevos(int vD[5], int vB[2])
             vD[x] = 0;
         }
     }
-    // Esta segunda iteración filtra los dados que no han sido bloqueados (es decir, los que no son 0)
+    // Esta segunda iteración filtra los dados que no han sido bloqueados (es decir, los que no son 0);
     for (x = 0; x < t; x++)
     {
         if (vD[x] != 0) // Si el dado no es 0, lo mueve al principio del vector
