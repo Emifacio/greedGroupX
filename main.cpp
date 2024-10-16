@@ -4,29 +4,28 @@
 using namespace std;
 
 
-// En el main solo queda la inclusi髇 de las bibliotecas y el uso de las funciones.
 int main()
 {
 
-    // Inicializa la semilla para generar n鷐eros aleatorios con base en el tiempo actual
+    // Inicializa la semilla para generar n煤meros aleatorios con base en el tiempo actual
     srand(time(0));
 
-    // Variables para los tama駉s de los dados y arrays.
+    // Variables para los tama帽os de los dados y arrays.
     int x, tam = 2, t = 5, vB[2] = {}, vD[t] = {}, nT = 0, vDn[t] = {}, cD = 0, puntaje = 0;
-    char pregunta = 'S'; // Variable para la decisi髇 del usuario de continuar o no
+    char pregunta = 'S'; // Variable para la decisi贸n del usuario de continuar o no
 
-    // Llama a la funci髇 para generar los dados bloqueadores y mostrar su valor
+    // Llama a la funci贸n para generar los dados bloqueadores y mostrar su valor
     tiradaBloqueadores(vB, tam);
     cout << "===================================" << endl;
 
-    // Llama a la funci髇 para generar los dados del jugador
+    // Llama a la funci贸n para generar los dados del jugador
     tiradaDeDados(vD, t);
     cout << "===================================" << endl;
 
-    // Llama a la funci髇 para filtrar los dados bloqueados y devuelve cu醤tos quedan
+    // Llama a la funci贸n para filtrar los dados bloqueados y devuelve cu谩ntos quedan
     cD = dadosNuevos(vD, vB);
 
-    // Muestra los dados disponibles despu閟 de filtrar los bloqueados
+    // Muestra los dados disponibles despu茅s de filtrar los bloqueados
     mostrarDados(vD, cD);
     cout << endl;
 
