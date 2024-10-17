@@ -3,6 +3,24 @@
 using namespace std;
 
 
+
+int mostrarMenu() {
+
+    cout << "Bienvenido al menu principal" << endl;
+    cout << endl;
+    int selection = 0;
+        cout << " Please choose from the following options - \n";
+        cout << " 1. Set username and password.\n";
+        cout << " 2. Set launch codes.\n";
+        cout << " 3. Login.\n";
+        cout << " 4. Enter launch codes.\n";
+        cout << " 5. Exit.\n";
+        cout << "\t";
+        cin >> selection;
+        return selection;
+}
+
+
 // Esta función genera los "dados bloqueadores" que son 2 dados aleatorios.
 void tiradaBloqueadores(int v[], int t)
 {
