@@ -9,16 +9,43 @@ int mostrarMenu() {
     cout << "Bienvenido al menu principal" << endl;
     cout << endl;
     int selection = 0;
-        cout << " Please choose from the following options - \n";
-        cout << " 1. Set username and password.\n";
-        cout << " 2. Set launch codes.\n";
-        cout << " 3. Login.\n";
-        cout << " 4. Enter launch codes.\n";
-        cout << " 5. Exit.\n";
+        cout << " Por favor elija una de las siguientes opciones - \n";
+        cout << " 1. Modo un jugador.\n";
+        cout << " 2. Modo dos jugadores.\n";
+        cout << " 3. Estadisticas.\n";
+        cout << " 4. Creditos.\n";
+        cout << " 5. Salir  .\n";
         cout << "\t";
         cin >> selection;
         return selection;
 }
+
+
+
+procesarSeleccion(int selection) {
+    switch (selection) {
+        case 1:
+            cout << "Has seleccionado la opción 1 (Modo un jugador)" << endl;
+
+            break;
+        case 2:
+            cout << "Has seleccionado la opción 2 (Modo dos jugadores)" << endl;
+            break;
+        case 3:
+            cout << "Has seleccionado la opción 3 (Estadísticas)" << endl;
+            break;
+        case 4:
+            cout << "Has seleccionado la opción 4 (Créditos)" << endl;
+            break;
+        case 5:
+            cout << "Ha salido del programa" << endl;
+            break;
+        default:
+            cout << "Opción no válida" << endl;
+            break;
+    }
+}
+
 
 
 // Esta función genera los "dados bloqueadores" que son 2 dados aleatorios.
