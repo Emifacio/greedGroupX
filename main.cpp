@@ -6,6 +6,10 @@ using namespace std;
 
 int main()
 {
+        int seleccion = mostrarMenu();
+
+        procesarSeleccion(seleccion);
+
 
     // Inicializa la semilla para generar números aleatorios con base en el tiempo actual
     srand(time(0));
