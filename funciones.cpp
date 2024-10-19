@@ -2,6 +2,22 @@
 #include "funciones.h"
 using namespace std;
 
+void pedirNombre(string jugador1, string jugador2){
+cout   << "Jugador 1, Ingrese su nombre:  /n"<< endl;
+cin >> jugador1;
+cout   << "Jugador 2, Ingrese su nombre:  /n"<< endl;
+cin >> jugador2;
+}
+
+
+void acumularPuntaje(puntajeJ1, puntajeJ2, puntajeRonda[]){
+
+for (puntajeRonda = 0 ;  puntajeRonda < 3 ; i++ ){
+    puntajeJ1++
+    puntajeJ2++
+    }
+}
+
 
 
 int mostrarMenu() {
@@ -26,19 +42,23 @@ procesarSeleccion(int selection) {
     switch (selection) {
         case 1:
             cout << "Has seleccionado la opción 1 (Modo un jugador)" << endl;
-
+            //juegaModo1Jugador();
             break;
         case 2:
             cout << "Has seleccionado la opción 2 (Modo dos jugadores)" << endl;
             break;
+            // JuegaModo2Jugadores();
         case 3:
             cout << "Has seleccionado la opción 3 (Estadísticas)" << endl;
             break;
+            // mostrarEstadisticas();
         case 4:
             cout << "Has seleccionado la opción 4 (Créditos)" << endl;
             break;
+            // mostrarCreditos();
         case 5:
-            cout << "Ha salido del programa" << endl;
+            cout << "Gracias por jugar GreedX, espero verte pronto nuevamente!" << endl;
+           // mostrarRecord();
             break;
         default:
             cout << "Opción no válida" << endl;
@@ -117,7 +137,7 @@ void mostrarDados(int vD[], int nT)
 
 
 
-// Esta función suma los valores de los dados que no han sido bloqueados.
+// Esta función suma los valores de los dados que no han sido bloqueados. Es decir, suma CADA TIRADA.
 int sumarDados(int vD[], int t)
 {
     int x, aP = 0; // `aP` acumula los puntos
@@ -127,4 +147,6 @@ int sumarDados(int vD[], int t)
     }
     return aP; // Devuelve la suma total de los puntos
 }
+
+
 
