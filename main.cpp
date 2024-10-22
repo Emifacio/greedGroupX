@@ -1,6 +1,5 @@
 #include<iostream>
 #include<ctime>
-
 #include "funciones.h"
 
 using namespace std;
@@ -10,18 +9,27 @@ int main(){
 
 
      srand(time(0));
-
+    string jugador1, jugador2;
     int x, ronda, aPt = 0, aP[3] = {}, aPt2 = 0, aP2[3] = {};
     bool duplicar;
     char pregunta = 'S';
-    string nombre1, nombre2;
-    cout << "Ingresar Nombres : "<< endl;
-    cin >> nombre1;
-    cin >> nombre2;
+    int eleccion;
+
+
+
+    void mostrarCartelGreed();
+
+    pedirNombre(jugador1,jugador2);
+
+    eleccion = mostrarMenu();
+
+    procesarSeleccion(eleccion);
+
     cout << endl;
     cout << "==================================="<< endl;
     cout << endl;
-    cout << "    Es el Turno de " << nombre1 <<"." <<endl;
+
+    cout << "    Es el Turno de " << jugador1 <<"." <<endl;
     cout << endl;
     cout << "           A JUGAR!!"<< endl;
     cout << endl;
@@ -126,7 +134,7 @@ int main(){
             }
             else
             {
-                cout << nombre1 << " consiguio en la ronda " << ronda+1 << " : "<< aP[ronda] <<"pts!" <<endl;
+                cout << jugador1 << " consiguio en la ronda " << ronda+1 << " : "<< aP[ronda] <<"pts!" <<endl;
                 //TODO: mensaje personalizado si fue una buena ronda o no.
                cout << "------------------------------------------" << endl;
                cout << endl;
@@ -135,7 +143,7 @@ int main(){
         while(pregunta != 'N');
 
         cout << endl;
-        cout << "Es el turno de " << nombre2 << "." << endl;
+        cout << "Es el turno de " << jugador2 << "." << endl;
         cout << endl;
         cout << "BUENA SUERTE!"<< endl;
         cout << endl;
@@ -233,7 +241,7 @@ int main(){
               else
           {
                 //cout << "Pasamos al siguiente jugador ! " << endl;
-                cout << nombre2 << " consiguio en la ronda " << ronda+1 << " : "<< aP[ronda] <<"pts!" <<endl;
+                cout << jugador2 << " consiguio en la ronda " << ronda+1 << " : "<< aP[ronda] <<"pts!" <<endl;
                 cout <<"Nada mal!" <<endl;
                 cout << endl;
                 cout << "===================================" << endl;
@@ -243,7 +251,7 @@ int main(){
         while(pregunta != 'N' && ronda != 2);
         cout << endl;
         // TODO eliminar esta linea en la ultima ronda
-        cout << "Es el Turno de " << nombre1 << "." << endl;
+        cout << "Es el Turno de " << jugador1 << "." << endl;
     }
     for(x = 0; x < 3; x++)
     {
@@ -257,19 +265,19 @@ int main(){
     cout << endl;
     cout << "===================================" << endl;
     cout << endl;
-    cout << "Puntaje total de las 3 rondas de " << nombre1 << " es : " << aPt << "pts!!" << endl;
+    cout << "Puntaje total de las 3 rondas de " << jugador1 << " es : " << aPt << "pts!!" << endl;
     cout << endl;
-    cout << "Puntaje total de las 3 rondas de " << nombre2 << " es : " << aPt2 << "pts!!" << endl;
+    cout << "Puntaje total de las 3 rondas de " << jugador2 << " es : " << aPt2 << "pts!!" << endl;
     if(aPt > aPt2)
     {
         cout << endl;
-        cout << "El puntaje mas alto fue conseguido por " << nombre1 << "!!!" << endl;
+        cout << "El puntaje mas alto fue conseguido por " << jugador1 << "!!!" << endl;
         cout << endl;
         cout << "===================================" << endl;
         cout << endl;
         cout << " ********************************************" << endl;
         cout << "**********************************************" << endl;
-        cout <<"        "<< nombre1 << " #GANASTE!! #FELICITACIONES!!!!" << endl;
+        cout <<"    "<< jugador1 << " #GANASTE!! #FELICITACIONES!!!!" << endl;
         cout << "**********************************************" << endl;
         cout << " ********************************************" << endl;
         cout << endl;
@@ -277,11 +285,11 @@ int main(){
     else
     {
         cout << endl;
-        cout << "El puntaje mas alto fue conseguido por " << nombre2 << "!!!" << endl;
+        cout << "El puntaje mas alto fue conseguido por " << jugador2 << "!!!" << endl;
         cout << endl;
         cout << " ********************************************" << endl;
         cout << "**********************************************" << endl;
-        cout << "    "<<nombre2 << " #GANASTE!! #FELICITACIONES!!!!" << endl;
+        cout << "    "<< jugador2 << " #GANASTE!! #FELICITACIONES!!!!" << endl;
         cout << "**********************************************" << endl;
         cout << " ********************************************" << endl;
         cout << endl;
@@ -297,6 +305,17 @@ int main(){
     cout << endl;
     cout << "===================================" << endl;
     cout << endl;
+
+
+
+
+
+
+
+
+    //TODO ofrecer jugar una nueva partida.
+
+
     return 0;
 }
 
