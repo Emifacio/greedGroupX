@@ -1,7 +1,7 @@
 #include <iostream>
 #include "funciones.h"
 using namespace std;
-
+/*
 void pedirNombre(string jugador1, string jugador2){
 cout   << "Jugador 1, Ingrese su nombre:  /n"<< endl;
 cin >> jugador1;
@@ -10,7 +10,7 @@ cin >> jugador2;
 }
 
 
-void acumularPuntaje(puntajeJ1, puntajeJ2, puntajeRonda[]){
+//void acumularPuntaje(puntajeJ1, puntajeJ2, puntajeRonda[]){
 
 for (puntajeRonda = 0 ;  puntajeRonda < 3 ; i++ ){
     puntajeJ1++
@@ -33,6 +33,7 @@ int mostrarMenu() {
         cout << " 5. Salir  .\n";
         cout << "\t";
         cin >> selection;
+
         return selection;
 }
 
@@ -64,22 +65,23 @@ procesarSeleccion(int selection) {
             cout << "Opción no válida" << endl;
             break;
     }
+    return 0;
 }
 
-
+*/
 
 // Esta función genera los "dados bloqueadores" que son 2 dados aleatorios.
-void tiradaBloqueadores(int v[], int t)
+void tiradaBloqueadores(int v[],int t)
 {
-    t = 2; // Inicializa la cantidad de dados bloqueadores (2)
-    int x, dado;
-    cout << "Dados bloqueadores " << endl;
-    cout << "===================================" << endl;
-    for (x = 0; x < 2; x++) // Itera dos veces para generar dos dados bloqueadores
+    t=2;
+    int x,dado;
+    cout<<"Dados bloqueadores "<<endl;
+    cout<<"==================================="<<endl;
+    for(x=0; x<2; x++)
     {
-        dado = (rand() % 6 + 1); // Genera un número aleatorio entre 1 y 6
-        v[x] = dado; // Guarda el dado generado en el vector `v`
-        cout << "Dado " << x + 1 << " = " << v[x] << endl; // Muestra el valor de cada dado bloqueador
+        dado=(rand()%6+1);
+        v[x]=dado;
+
     }
 }
 
@@ -90,15 +92,84 @@ void tiradaDeDados(int vD[], int tam)
 {
     tam = 5; // Define que el jugador lanza 5 dados
     int x;
-    cout << "Dados " << endl;
+    cout << "Tirada de Dados " << endl;
     cout << "===================================" << endl;
-    for (x = 0; x < 5; x++) // Itera cinco veces para generar cinco dados
+    for (x = 0; x < tam; x++) // Itera cinco veces para generar cinco dados
     {
         vD[x] = (rand() % 6 + 1); // Genera un número aleatorio entre 1 y 6 para cada dado
-        cout << "Dado " << x + 1 << " = " << vD[x] << endl; // Muestra el valor de cada dado
+        }
+}
+
+bool dadosIguales(int vD[], int t)
+{
+    int x,referencia,c=0;
+    referencia=vD[0];
+    for(x=0; x<t; x++)
+    {
+        if(referencia==vD[x])
+        {
+            c++;
+        }
+    }
+    if(c>1 && c==t)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+
+
+}
+
+//cout<<"dados con descuentos"<<endl;
+int dadosNuevos(int vD[], int t, int vB[2])
+{
+    t;
+    vD[t]= {};
+    int x,cD=0;
+    for(x=0; x<t; x++)
+    {
+        if(vD[x]==vB[0] || vD[x]==vB[1])
+        {
+            vD[x]=0;
+
+        }
+    }
+    for(x=0; x<t; x++)
+    {
+        if(vD[x]!=0)
+        {
+            vD[cD]=vD[x];
+            cD++;
+        }
+    }
+   return cD;
+}
+
+
+void mostrarDados(int vD[], int tam)
+{
+    int x;
+    for(x=0; x<tam; x++)
+    {
+        cout<< "Dado : " << vD[x] << endl;
     }
 }
 
+int sumarDados(int vD[], int t)
+{
+    int x, aP = 0; // `aP` acumula los puntos
+    for (x = 0; x < t; x++) // Itera sobre los dados no bloqueados
+    {
+        aP += vD[x]; // Suma el valor de cada dado
+    }
+    return aP; // Devuelve la suma total de los puntos
+}
+
+
+/*
 // Esta función filtra los dados que coinciden con los bloqueadores y devuelve cuántos dados quedan disponibles.
 int dadosNuevos(int vD[5], int vB[2])
 {
@@ -134,19 +205,9 @@ void mostrarDados(int vD[], int nT)
         cout << "Dado " << vD[x] << " - ";
     }
 }
-
+*/
 
 
 // Esta función suma los valores de los dados que no han sido bloqueados. Es decir, suma CADA TIRADA.
-int sumarDados(int vD[], int t)
-{
-    int x, aP = 0; // `aP` acumula los puntos
-    for (x = 0; x < t; x++) // Itera sobre los dados no bloqueados
-    {
-        aP += vD[x]; // Suma el valor de cada dado
-    }
-    return aP; // Devuelve la suma total de los puntos
-}
-
 
 
