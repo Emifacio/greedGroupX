@@ -21,9 +21,9 @@ int main(){
     cout << endl;
     cout << "==================================="<< endl;
     cout << endl;
-    cout << "Es el Turno de " << nombre1 <<" !!!" <<endl;
+    cout << "    Es el Turno de " << nombre1 <<"." <<endl;
     cout << endl;
-    cout << "       A JUGAR!!"<< endl;
+    cout << "           A JUGAR!!"<< endl;
     cout << endl;
 
     for (ronda = 0; ronda < 3; ronda++) {
@@ -65,7 +65,6 @@ int main(){
         cout << "Puntos Tirada : " << puntaje << "pts" << endl;
         aP[ronda] += puntaje;
         cout << "Puntos Ronda : " << aP[ronda] << "pts"<< endl;
-        cout << endl;
         cout << "==================================="<< endl;
         cout << endl;
 ///pregunta continuacion de tirada
@@ -74,7 +73,9 @@ int main(){
             if(duplicar != true)
             {
                 cout << "Desea continuar tirando (S para seguir o N para sumar los puntos acumulados): " << endl;
+                cout << endl;
                 cin >> pregunta;
+                cout << endl;
             }
             else
             {
@@ -107,7 +108,7 @@ int main(){
                 {
                     puntaje = puntaje*2;
                 }
-
+                cout << "===================================" << endl;
                 cout << "Puntos Tirada: " << puntaje << "pts" << endl;
                 if(puntaje != 0)
                 {
@@ -120,17 +121,21 @@ int main(){
                     cout << "Te quedaste sin dados!! Sumas : " << aP[ronda] << "pts!" << endl;
                     pregunta = 'N';
                 }
-
+            cout << "===================================" << endl;
+            cout << endl;
             }
             else
             {
                 cout << nombre1 << " consiguio en la ronda " << ronda+1 << " : "<< aP[ronda] <<"pts!" <<endl;
                 //TODO: mensaje personalizado si fue una buena ronda o no.
                cout << "------------------------------------------" << endl;
+               cout << endl;
              }
         }
         while(pregunta != 'N');
-        cout << "Es el turno de " << nombre2 << "!" << endl;
+
+        cout << endl;
+        cout << "Es el turno de " << nombre2 << "." << endl;
         cout << endl;
         cout << "BUENA SUERTE!"<< endl;
         cout << endl;
@@ -177,7 +182,10 @@ int main(){
             if(duplicar != true)
             {
                 cout << "Desea continuar tirando ('S' para seguir o 'N' para sumar los puntos acumulados) : " << endl;
+                cout << endl;
                 cin >> pregunta;
+                cout << endl;
+
             }
             else
             {
@@ -225,11 +233,17 @@ int main(){
               else
           {
                 //cout << "Pasamos al siguiente jugador ! " << endl;
-                cout << " Puntos Ronda : " << aP2[ronda] << endl;
+                cout << nombre2 << " consiguio en la ronda " << ronda+1 << " : "<< aP[ronda] <<"pts!" <<endl;
+                cout <<"Nada mal!" <<endl;
+                cout << endl;
+                cout << "===================================" << endl;
+                cout << endl;
             }
         }
         while(pregunta != 'N' && ronda != 2);
-        cout << "Es el Turno de " << nombre1 << "!" << endl;
+        cout << endl;
+        // TODO eliminar esta linea en la ultima ronda
+        cout << "Es el Turno de " << nombre1 << "." << endl;
     }
     for(x = 0; x < 3; x++)
     {
@@ -249,19 +263,27 @@ int main(){
     if(aPt > aPt2)
     {
         cout << endl;
-        cout << "El puntaje mas alto fue : " << aPt << " conseguido por " << nombre1 << endl;
+        cout << "El puntaje mas alto fue conseguido por " << nombre1 << "!!!" << endl;
         cout << endl;
         cout << "===================================" << endl;
         cout << endl;
-        cout << nombre1 << " #GANASTE!! #FELICITACIONES!!!!" << endl;
+        cout << " ********************************************" << endl;
+        cout << "**********************************************" << endl;
+        cout <<"        "<< nombre1 << " #GANASTE!! #FELICITACIONES!!!!" << endl;
+        cout << "**********************************************" << endl;
+        cout << " ********************************************" << endl;
         cout << endl;
     }
     else
     {
         cout << endl;
-        cout << "El puntaje mas alto fue : " << aPt2 << " conseguido por "<< nombre2 << endl;
+        cout << "El puntaje mas alto fue conseguido por " << nombre2 << "!!!" << endl;
         cout << endl;
-        cout << nombre2 << " #GANASTE!! #FELICITACIONES!!!!" << endl;
+        cout << " ********************************************" << endl;
+        cout << "**********************************************" << endl;
+        cout << "    "<<nombre2 << " #GANASTE!! #FELICITACIONES!!!!" << endl;
+        cout << "**********************************************" << endl;
+        cout << " ********************************************" << endl;
         cout << endl;
     }
     cout << endl;
@@ -271,7 +293,7 @@ int main(){
     cout << endl;
     cout << "===================================" << endl;
     cout << endl;
-    cout << "    <3  GRACIAS POR JUGAR!!! <3" << endl;
+    cout << "   <3  GRACIAS POR JUGAR!!! <3" << endl;
     cout << endl;
     cout << "===================================" << endl;
     cout << endl;
