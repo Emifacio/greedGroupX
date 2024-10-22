@@ -1,23 +1,29 @@
 #include <iostream>
+
+#define FUNCIONES_H
+
+#include <string>
 #include "funciones.h"
 using namespace std;
-/*
-void pedirNombre(string jugador1, string jugador2){
-cout   << "Jugador 1, Ingrese su nombre:  /n"<< endl;
+
+
+void mostrarCartelGreed() {
+    cout<< endl;
+    cout << "  GGGGG    RRRRR    EEEEE   EEEEE   DDDDD   \n";
+    cout << " G        R    R   E       E       D    D  \n";
+    cout << " G  GGG   RRRRR    EEEE    EEEE    D    D  \n";
+    cout << " G    G   R  R     E       E       D    D  \n";
+    cout << "  GGGGG   R   R    EEEEE   EEEEE   DDDDD   \n";
+    cout << endl;
+}
+
+
+void pedirNombre(string &jugador1, string &jugador2){
+cout   << "Ingresar nombre del jugador nro1 :  "<< endl;
 cin >> jugador1;
-cout   << "Jugador 2, Ingrese su nombre:  /n"<< endl;
+cout   << "Ingresar nombre del jugador nro2 :  "<< endl;
 cin >> jugador2;
 }
-
-
-//void acumularPuntaje(puntajeJ1, puntajeJ2, puntajeRonda[]){
-
-for (puntajeRonda = 0 ;  puntajeRonda < 3 ; i++ ){
-    puntajeJ1++
-    puntajeJ2++
-    }
-}
-
 
 
 int mostrarMenu() {
@@ -39,7 +45,7 @@ int mostrarMenu() {
 
 
 
-procesarSeleccion(int selection) {
+void procesarSeleccion(int selection) {
     switch (selection) {
         case 1:
             cout << "Has seleccionado la opción 1 (Modo un jugador)" << endl;
@@ -47,8 +53,8 @@ procesarSeleccion(int selection) {
             break;
         case 2:
             cout << "Has seleccionado la opción 2 (Modo dos jugadores)" << endl;
+            //JuegaModo2Jugadores();
             break;
-            // JuegaModo2Jugadores();
         case 3:
             cout << "Has seleccionado la opción 3 (Estadísticas)" << endl;
             break;
@@ -65,10 +71,21 @@ procesarSeleccion(int selection) {
             cout << "Opción no válida" << endl;
             break;
     }
-    return 0;
 }
 
-*/
+void JuegaModo2Jugadores(string &jugador1,
+    string &jugador2,
+    int &ronda,
+    int aP[3],
+    int aP2[3],
+    int &aPt,
+    int &aPt2,
+    bool &duplicar,
+    char &pregunta){
+
+    }
+
+
 
 // Esta función genera los "dados bloqueadores" que son 2 dados aleatorios.
 void tiradaBloqueadores(int v[],int t)
