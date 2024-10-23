@@ -8,7 +8,7 @@ using namespace std;
 int main(){
 
 
-     srand(time(0));
+    srand(time(0));
     string jugador1, jugador2;
     int x, ronda, aPt = 0, aP[3] = {}, aPt2 = 0, aP2[3] = {};
     bool duplicar;
@@ -17,18 +17,17 @@ int main(){
 
 
 
-    void mostrarCartelGreed();
+    mostrarCartelGreed();
 
     pedirNombre(jugador1,jugador2);
-
-    eleccion = mostrarMenu();
-
-    procesarSeleccion(eleccion);
-
     cout << endl;
     cout << "==================================="<< endl;
     cout << endl;
 
+    eleccion = mostrarMenu();
+    procesarSeleccion(eleccion);
+
+    cout << endl;
     cout << "    Es el Turno de " << jugador1 <<"." <<endl;
     cout << endl;
     cout << "           A JUGAR!!"<< endl;
@@ -38,36 +37,37 @@ int main(){
         int x, tam = 2, t = 5, vB[2] = {}, vD[t] = {}, cD = 0, puntaje = 0, cDtiradas = 1;
 
 
-
         cout << "==================================="<< endl;
+        cout << endl;
+        cout << endl;
         cout << "Ronda Nro : " << ronda + 1 << endl;
         cout << "===================================" << endl;
         tiradaBloqueadores(vB, tam);
-
         mostrarDados(vB, tam);
         cout << endl;
         cout << "==================================="<< endl;
 
         tiradaDeDados(vD, t);
-
         cout << "Tirada Nro : " << cDtiradas << endl;
         cout << "===================================" << endl;
-
         mostrarDados(vD, t);
         cout << endl;
+
+
         duplicar = dadosIguales(vD, t);
         //TODO if para representar la respuesta numerica en palabra SI/NO
         cout << "Son iguales? " << duplicar << endl;
         cout << "===================================" << endl;
-        cD = dadosNuevos(vD, t, vB);
-        ///actualizacion tama├▒o de dados
-        t = cD;
 
+        cD = dadosNuevos(vD, t, vB);
+        ///actualizacion tamanio de dados
+        t = cD;
         mostrarDados(vD, t);
         cout << endl;
+
+
         puntaje = sumarDados(vD, t);
-        if(duplicar == true)
-        {
+        if(duplicar == true){
             puntaje = puntaje*2;
         }
         cout << "Puntos Tirada : " << puntaje << "pts" << endl;
@@ -75,34 +75,43 @@ int main(){
         cout << "Puntos Ronda : " << aP[ronda] << "pts"<< endl;
         cout << "==================================="<< endl;
         cout << endl;
-///pregunta continuacion de tirada
+
+
+        //Pregunta si desea continuar tirando
         do
         {
-            if(duplicar != true)
-            {
+            if(duplicar != true){
                 cout << "Desea continuar tirando (S para seguir o N para sumar los puntos acumulados): " << endl;
-                cout << endl;
                 cin >> pregunta;
                 cout << endl;
-            }
-            else
-            {
+            } else {
                 pregunta = 'S';
             }
-            cout << endl;
-            system("cls");
-            if( pregunta == 'S')
-            {
+            //cout << endl;
 
+            //limpiar la pantalla
+            system("cls");
+
+
+            // Volver a mostrar los dados bloqueadores después de limpiar la pantalla
+            cout << "Dados bloqueadores:" << endl;
+            mostrarDados(vB, tam);
+            cout << endl;
+
+                if( pregunta == 'S') {
                 tiradaDeDados(vD, t);
                 cDtiradas++;
                 cout << "Tirada Nro : " << cDtiradas << endl;
                 cout << endl;
                 mostrarDados(vD, t);
                 cout << endl;
+
+
                 duplicar = dadosIguales(vD, t);
                 cout << "Son iguales? " << duplicar << endl;
                 cout << "===================================" << endl;
+
+
                 cD = dadosNuevos(vD, t, vB);
                 ///cout<<" cD "<<cD;
                 cout << endl;
@@ -112,41 +121,37 @@ int main(){
                 cout << endl;
 
                 puntaje = sumarDados(vD, t);
-                if(duplicar == true)
-                {
+                if(duplicar == true) {
                     puntaje = puntaje*2;
                 }
                 cout << "===================================" << endl;
                 cout << "Puntos Tirada: " << puntaje << "pts" << endl;
-                if(puntaje != 0)
-                {
+                if(puntaje != 0) {
                     aP[ronda] += puntaje;
-                    cout << "Puntos Ronda : " << aP[ronda] << "pts" << endl;
-                }
-                else
-                {
+                cout << "Puntos Ronda : " << aP[ronda] << "pts" << endl;
+                } else {
                     aP[ronda] = 0;
                     cout << "Te quedaste sin dados!! Sumas : " << aP[ronda] << "pts!" << endl;
                     pregunta = 'N';
                 }
-            cout << "===================================" << endl;
-            cout << endl;
-            }
-            else
-            {
+                cout << "===================================" << endl;
+                cout << endl;
+            } else {
                 cout << jugador1 << " consiguio en la ronda " << ronda+1 << " : "<< aP[ronda] <<"pts!" <<endl;
                 //TODO: mensaje personalizado si fue una buena ronda o no.
-               cout << "------------------------------------------" << endl;
-               cout << endl;
+                cout << "------------------------------------------" << endl;
+                cout << endl;
              }
-        }
-        while(pregunta != 'N');
+        } while(pregunta != 'N');
+
 
         cout << endl;
         cout << "Es el turno de " << jugador2 << "." << endl;
         cout << endl;
         cout << "BUENA SUERTE!"<< endl;
         cout << endl;
+
+
         t = 5;
         cD = 0;
         puntaje = 0;
@@ -190,18 +195,22 @@ int main(){
             if(duplicar != true)
             {
                 cout << "Desea continuar tirando ('S' para seguir o 'N' para sumar los puntos acumulados) : " << endl;
-                cout << endl;
                 cin >> pregunta;
                 cout << endl;
-
             }
             else
             {
                 pregunta = 'S';
             }
+            // Limpiar la pantalla
+            system("cls");
+
+            // Volver a mostrar los dados bloqueadores después de limpiar la pantalla
+            cout << "Dados bloqueadores:" << endl;
+            mostrarDados(vB, tam);
             cout << endl;
-            if( pregunta == 'S')
-            {
+            cout << endl;
+            if( pregunta == 'S') {
                 tiradaDeDados(vD, t);
                 cDtiradas++;
                 cout << "Tirada Nro : " << cDtiradas << endl;
@@ -239,20 +248,22 @@ int main(){
                 }
             }
               else
-          {
+              {
                 //cout << "Pasamos al siguiente jugador ! " << endl;
                 cout << jugador2 << " consiguio en la ronda " << ronda+1 << " : "<< aP[ronda] <<"pts!" <<endl;
                 cout <<"Nada mal!" <<endl;
                 cout << endl;
                 cout << "===================================" << endl;
                 cout << endl;
-            }
+               }
         }
-        while(pregunta != 'N' && ronda != 2);
+        while(pregunta != 'N');
         cout << endl;
         // TODO eliminar esta linea en la ultima ronda
+        if(ronda!=2){
         cout << "Es el Turno de " << jugador1 << "." << endl;
-    }
+        }
+        }
     for(x = 0; x < 3; x++)
     {
         aPt += aP[x];

@@ -49,18 +49,30 @@ void procesarSeleccion(int selection) {
     switch (selection) {
         case 1:
             cout << "Has seleccionado la opción 1 (Modo un jugador)" << endl;
+            cout << endl;
+            cout << "==================================="<< endl;
+            cout << endl;
             //juegaModo1Jugador();
             break;
         case 2:
             cout << "Has seleccionado la opción 2 (Modo dos jugadores)" << endl;
+            cout << endl;
+            cout << "==================================="<< endl;
+            cout << endl;
             //JuegaModo2Jugadores();
             break;
         case 3:
             cout << "Has seleccionado la opción 3 (Estadísticas)" << endl;
+            cout << endl;
+            cout << "==================================="<< endl;
+            cout << endl;
             break;
             // mostrarEstadisticas();
         case 4:
             cout << "Has seleccionado la opción 4 (Créditos)" << endl;
+            cout << endl;
+            cout << "==================================="<< endl;
+            cout << endl;
             break;
             // mostrarCreditos();
         case 5:
