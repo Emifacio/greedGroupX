@@ -6,6 +6,10 @@ using namespace std;
 
 int main()
 {
+        int seleccion = mostrarMenu();
+
+        procesarSeleccion(seleccion);
+
 
     // Inicializa la semilla para generar números aleatorios con base en el tiempo actual
     srand(time(0));
@@ -13,6 +17,7 @@ int main()
     // Variables para los tamaños de los dados y arrays.
     int x, tam = 2, t = 5, vB[2] = {}, vD[t] = {}, nT = 0, vDn[t] = {}, cD = 0, puntaje = 0;
     char pregunta = 'S'; // Variable para la decisión del usuario de continuar o no
+    bool duplicar;///Variable para saber si hay que duplicar el puntaje
 
     // Llama a la función para generar los dados bloqueadores y mostrar su valor
     tiradaBloqueadores(vB, tam);
@@ -21,6 +26,9 @@ int main()
     // Llama a la función para generar los dados del jugador
     tiradaDeDados(vD, t);
     cout << "===================================" << endl;
+
+    duplicar=dadosIguales(vD,t);
+    cout<<"son iguales o no "<<duplicar<<endl;///Es para verificar despues se elimina!
 
     // Llama a la función para filtrar los dados bloqueados y devuelve cuántos quedan
     cD = dadosNuevos(vD, vB);
@@ -32,6 +40,12 @@ int main()
     // Suma los puntos de los dados disponibles
     puntaje = sumarDados(vD, cD);
     cout << "puntaje " << puntaje << endl;
+///Condicion para duplicar el puntaje
+    if(duplicar==true)
+        {
+            puntaje=puntaje*2;
+        }
+        cout<<"puntaje "<<puntaje<<endl;
 
     // Bucle para permitir al usuario decidir si continuar o no con la tirada de dados
     do
