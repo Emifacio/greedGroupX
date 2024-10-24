@@ -1,4 +1,8 @@
 #include <iostream>
+
+#define FUNCIONES_H
+
+#include <string>
 #include "funciones.h"
 using namespace std;
 
@@ -19,6 +23,24 @@ for (puntajeRonda = 0 ;  puntajeRonda < 3 ; i++ ){
 }
 
 
+void mostrarCartelGreed() {
+    cout<< endl;
+    cout << "  GGGGG    RRRRR    EEEEE   EEEEE   DDDDD   \n";
+    cout << " G        R    R   E       E       D    D  \n";
+    cout << " G  GGG   RRRRR    EEEE    EEEE    D    D  \n";
+    cout << " G    G   R  R     E       E       D    D  \n";
+    cout << "  GGGGG   R   R    EEEEE   EEEEE   DDDDD   \n";
+    cout << endl;
+}
+
+
+void pedirNombre(string &jugador1, string &jugador2){
+cout   << "Ingresar nombre del jugador nro1 :  "<< endl;
+cin >> jugador1;
+cout   << "Ingresar nombre del jugador nro2 :  "<< endl;
+cin >> jugador2;
+}
+
 
 int mostrarMenu() {
 
@@ -33,8 +55,10 @@ int mostrarMenu() {
         cout << " 5. Salir  .\n";
         cout << "\t";
         cin >> selection;
+
         return selection;
 }
+
 
 
 
@@ -54,6 +78,36 @@ procesarSeleccion(int selection) {
             // mostrarEstadisticas();
         case 4:
             cout << "Has seleccionado la opci�n 4 (Cr�ditos)" << endl;
+
+void procesarSeleccion(int selection) {
+    switch (selection) {
+        case 1:
+            cout << "Has seleccionado la opci�n 1 (Modo un jugador)" << endl;
+            cout << endl;
+            cout << "==================================="<< endl;
+            cout << endl;
+            //juegaModo1Jugador();
+            break;
+        case 2:
+            cout << "Has seleccionado la opci�n 2 (Modo dos jugadores)" << endl;
+            cout << endl;
+            cout << "==================================="<< endl;
+            cout << endl;
+            //JuegaModo2Jugadores();
+            break;
+        case 3:
+            cout << "Has seleccionado la opci�n 3 (Estad�sticas)" << endl;
+            cout << endl;
+            cout << "==================================="<< endl;
+            cout << endl;
+            break;
+            // mostrarEstadisticas();
+        case 4:
+            cout << "Has seleccionado la opci�n 4 (Cr�ditos)" << endl;
+            cout << endl;
+            cout << "==================================="<< endl;
+            cout << endl;
+
             break;
             // mostrarCreditos();
         case 5:
@@ -61,25 +115,54 @@ procesarSeleccion(int selection) {
            // mostrarRecord();
             break;
         default:
+
             cout << "Opci�n no v�lida" << endl;
+
+            cout << "Opci�n no v�lida" << endl;
+
             break;
     }
 }
 
 
 
+
 // Esta funci�n genera los "dados bloqueadores" que son 2 dados aleatorios.
 void tiradaBloqueadores(int v[], int t)
+
+void JuegaModo2Jugadores(string &jugador1,
+    string &jugador2,
+    int &ronda,
+    int aP[3],
+    int aP2[3],
+    int &aPt,
+    int &aPt2,
+    bool &duplicar,
+    char &pregunta){
+
+    }
+
+
+
+// Esta funci�n genera los "dados bloqueadores" que son 2 dados aleatorios.
+void tiradaBloqueadores(int v[],int t)
+
 {
-    t = 2; // Inicializa la cantidad de dados bloqueadores (2)
-    int x, dado;
-    cout << "Dados bloqueadores " << endl;
-    cout << "===================================" << endl;
-    for (x = 0; x < 2; x++) // Itera dos veces para generar dos dados bloqueadores
+    t=2;
+    int x,dado;
+    cout<<"Dados bloqueadores "<<endl;
+    cout<<"==================================="<<endl;
+    for(x=0; x<2; x++)
     {
+
         dado = (rand() % 6 + 1); // Genera un n�mero aleatorio entre 1 y 6
         v[x] = dado; // Guarda el dado generado en el vector `v`
         cout << "Dado " << x + 1 << " = " << v[x] << endl; // Muestra el valor de cada dado bloqueador
+
+        dado=(rand()%6+1);
+        v[x]=dado;
+
+
     }
 }
 
@@ -90,10 +173,11 @@ void tiradaDeDados(int vD[], int tam)
 {
     tam = 5; // Define que el jugador lanza 5 dados
     int x;
-    cout << "Dados " << endl;
+    cout << "Tirada de Dados " << endl;
     cout << "===================================" << endl;
-    for (x = 0; x < 5; x++) // Itera cinco veces para generar cinco dados
+    for (x = 0; x < tam; x++) // Itera cinco veces para generar cinco dados
     {
+
         vD[x] = (rand() % 6 + 1); // Genera un n�mero aleatorio entre 1 y 6 para cada dado
         cout << "Dado " << x + 1 << " = " << vD[x] << endl; // Muestra el valor de cada dado
     }
@@ -124,6 +208,83 @@ bool dadosIguales(int vD[], int t)
 }
 
 // Esta funci�n filtra los dados que coinciden con los bloqueadores y devuelve cu�ntos dados quedan disponibles.
+
+        vD[x] = (rand() % 6 + 1); // Genera un n�mero aleatorio entre 1 y 6 para cada dado
+        }
+}
+
+bool dadosIguales(int vD[], int t)
+{
+    int x,referencia,c=0;
+    referencia=vD[0];
+    for(x=0; x<t; x++)
+    {
+        if(referencia==vD[x])
+        {
+            c++;
+        }
+    }
+    if(c>1 && c==t)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+
+
+}
+
+//cout<<"dados con descuentos"<<endl;
+int dadosNuevos(int vD[], int t, int vB[2])
+{
+    t;
+    vD[t]= {};
+    int x,cD=0;
+    for(x=0; x<t; x++)
+    {
+        if(vD[x]==vB[0] || vD[x]==vB[1])
+        {
+            vD[x]=0;
+
+        }
+    }
+    for(x=0; x<t; x++)
+    {
+        if(vD[x]!=0)
+        {
+            vD[cD]=vD[x];
+            cD++;
+        }
+    }
+   return cD;
+}
+
+
+void mostrarDados(int vD[], int tam)
+{
+    int x;
+    for(x=0; x<tam; x++)
+    {
+        cout<< "Dado : " << vD[x] << endl;
+    }
+}
+
+int sumarDados(int vD[], int t)
+{
+    int x, aP = 0; // `aP` acumula los puntos
+    for (x = 0; x < t; x++) // Itera sobre los dados no bloqueados
+    {
+        aP += vD[x]; // Suma el valor de cada dado
+    }
+    return aP; // Devuelve la suma total de los puntos
+}
+
+
+/*
+// Esta funci�n filtra los dados que coinciden con los bloqueadores y devuelve cu�ntos dados quedan disponibles.
+
 int dadosNuevos(int vD[5], int vB[2])
 {
     int x, t = 5, cD = 0; // `t` es el n�mero de dados (5), `cD` es el contador de dados que quedan
@@ -158,7 +319,10 @@ void mostrarDados(int vD[], int nT)
         cout << "Dado " << vD[x] << " - ";
     }
 }
+*/
 
+
+// Esta funci�n suma los valores de los dados que no han sido bloqueados. Es decir, suma CADA TIRADA.
 
 
 // Esta funci�n suma los valores de los dados que no han sido bloqueados. Es decir, suma CADA TIRADA.
@@ -171,6 +335,8 @@ int sumarDados(int vD[], int t)
     }
     return aP; // Devuelve la suma total de los puntos
 }
+
+
 
 
 
