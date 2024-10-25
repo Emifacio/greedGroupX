@@ -1,6 +1,8 @@
 #include<iostream>
 #include<ctime>
 #include "funciones.h"
+//#include "ranking.h"
+#include "carteles.h"
 
 using namespace std;
 
@@ -14,12 +16,13 @@ int main(){
     bool duplicar;
     char pregunta = 'S';
     int eleccion;
+//  int ranking[]{};
 
 
 
     mostrarCartelGreed();
-
     pedirNombre(jugador1,jugador2);
+
     cout << endl;
     cout << "==================================="<< endl;
     cout << endl;
@@ -27,35 +30,24 @@ int main(){
     eleccion = mostrarMenu();
     procesarSeleccion(eleccion);
 
-    cout << endl;
-    cout << "    Es el Turno de " << jugador1 <<"." <<endl;
-    cout << endl;
-    cout << "           A JUGAR!!"<< endl;
-    cout << endl;
+    cartelPrimerTurno(jugador1);
 
     for (ronda = 0; ronda < 3; ronda++) {
         int x, tam = 2, t = 5, vB[2] = {}, vD[t] = {}, cD = 0, puntaje = 0, cDtiradas = 1;
 
-
-        cout << "==================================="<< endl;
-        cout << endl;
-        cout << endl;
-        cout << "Ronda Nro : " << ronda + 1 << endl;
-        cout << "===================================" << endl;
+        cartelRonda(ronda);
         tiradaBloqueadores(vB, tam);
         mostrarDados(vB, tam);
         cout << endl;
         cout << "==================================="<< endl;
 
         tiradaDeDados(vD, t);
-        cout << "Tirada Nro : " << cDtiradas << endl;
-        cout << "===================================" << endl;
+        cartelNroTirada(cDtiradas);
         mostrarDados(vD, t);
         cout << endl;
 
-
+        ///TODO if para representar la respuesta numerica en palabra SI/NO
         duplicar = dadosIguales(vD, t);
-        //TODO if para representar la respuesta numerica en palabra SI/NO
         cout << "Son iguales? " << duplicar << endl;
         cout << "===================================" << endl;
 
@@ -318,12 +310,6 @@ int main(){
     cout << endl;
 
 
-
-
-
-
-
-
     //TODO ofrecer jugar una nueva partida.
 
 
@@ -331,48 +317,8 @@ int main(){
 }
 
 
-      /* string jugador1 , jugador2;
-
-       pedirNombre(jugador1, jugador2);
-
-       int puntaje1 = acumularPuntaje1(), puntaje2 = acumularPuntaje2();
-
-        int seleccion = mostrarMenu();
-
-        procesarSeleccion(seleccion);
 
 
-    // Inicializa la semilla para generar números aleatorios con base en el tiempo actual
-    srand(time(0));
 
-    // Variables para los tamaños de los dados y arrays.
-    int x, tam = 2, t = 5, vB[2] = {}, vD[t] = {}, nT = 0, vDn[t] = {}, cD = 0, puntaje = 0;
-    char pregunta = 'S'; // Variable para la decisión del usuario de continuar o no
 
-    // Llama a la función para generar los dados bloqueadores y mostrar su valor
-    tiradaBloqueadores(vB, tam);
-    cout << "===================================" << endl;
 
-    // Llama a la función para generar los dados del jugador
-    tiradaDeDados(vD, t);
-    cout << "===================================" << endl;
-
-    // Llama a la función para filtrar los dados bloqueados y devuelve cuántos quedan
-    cD = dadosNuevos(vD, vB);
-
-    // Muestra los dados disponibles después de filtrar los bloqueados
-    mostrarDados(vD, cD);
-    cout << endl;
-
-    // Suma los puntos de los dados disponibles
-    puntaje = sumarDados(vD, cD);
-    cout << "puntaje " << puntaje << endl;
-
-    // Bucle para permitir al usuario decidir si continuar o no con la tirada de dados
-    do
-    {
-        cout << "Desea continuar tirando (S para seguir o N para sumar los puntos acumulados):" << endl;
-        cin >> pregunta; // Recibe la respuesta del usuario
-    }
-    while (pregunta != 'N'); // Repite mientras el usuario no quiera detenerse (es decir, si la respuesta es diferente de 'N')
- */
