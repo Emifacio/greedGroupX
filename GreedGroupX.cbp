@@ -32,9 +32,13 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="carteles.cpp" />
+		<Unit filename="carteles.h" />
 		<Unit filename="funciones.cpp" />
 		<Unit filename="funciones.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="ranking.cpp" />
+		<Unit filename="ranking.h" />
 		<Extensions>
 			<lib_finder disable_auto="1" />
 		</Extensions>
