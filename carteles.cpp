@@ -5,6 +5,8 @@
 #include "funciones.h"
 #include "ranking.h"
 using namespace std;
+//#include "ranking.h"
+
 
 void mostrarCartelGreed() {
     cout<< endl;
@@ -111,8 +113,8 @@ cout << "Tirada Nro : " << cDtiradas << endl;
 cout << "===================================" << endl;
 }
 
-void cartelDuplicaONo(duplica){
-    if(duplica = true){
+void cartelDuplicaONo(bool duplicar){
+    if(duplicar = true){
         cout << "Duplicas puntos!! Los dados son iguales." << endl;
         cout << "Tu siguiente tirada es automatica." << endl;
             }else{

@@ -11,4 +11,4 @@ void procesarSeleccion(int selection);
 void cartelPrimerTurno(string jugador1);
 void cartelRonda(int ronda);
 void cartelNroTirada(int cDtiradas);
-void cartelDuplicaONo(bool duplica);
+void cartelDuplicaONo(bool duplicar);

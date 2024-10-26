@@ -48,7 +48,7 @@ int main(){
 
 
         duplicar = dadosIguales(vD, t);
-        cartelDuplicaONo(duplica);
+        cartelDuplicaONo(duplicar);
 
 
         cD = dadosNuevos(vD, t, vB);
