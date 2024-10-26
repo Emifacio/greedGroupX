@@ -46,10 +46,10 @@ int main(){
         mostrarDados(vD, t);
         cout << endl;
 
-        ///TODO if para representar la respuesta numerica en palabra SI/NO
+
         duplicar = dadosIguales(vD, t);
-        cout << "Son iguales? " << duplicar << endl;
-        cout << "===================================" << endl;
+        cartelDuplicaONo(duplica);
+
 
         cD = dadosNuevos(vD, t, vB);
         ///actualizacion tamanio de dados
@@ -57,11 +57,12 @@ int main(){
         mostrarDados(vD, t);
         cout << endl;
 
-
+       // TODO verificar que solo duplique el puntaje de la tirada y automaticamente tire otra vez.
         puntaje = sumarDados(vD, t);
         if(duplicar == true){
             puntaje = puntaje*2;
         }
+
         cout << "Puntos Tirada : " << puntaje << "pts" << endl;
         aP[ronda] += puntaje;
         cout << "Puntos Ronda : " << aP[ronda] << "pts"<< endl;
@@ -316,6 +317,237 @@ int main(){
     return 0;
 }
 
+
+/// Funcionalidad 1 Jugador
+
+/*#include<iostream>
+#include<ctime>
+using namespace std;
+///funcion tirada bloqueadores
+void tiradaBloqueadores(int v[],int t)
+{
+    t=2;
+    int x,dado;
+    cout<<"Dados bloqueadores "<<endl;
+    cout<<"==================================="<<endl;
+    for(x=0; x<2; x++)
+    {
+        dado=(rand()%6+1);
+        v[x]=dado;
+
+    }
+}
+///funcion tirada dados
+void tiradaDeDados(int vD[],int tam)
+{
+    tam=5;
+    int x;
+    cout<<"Tirada de Dados "<<endl;
+    cout<<"==================================="<<endl;
+    for(x=0; x<tam; x++)
+    {
+        vD[x]=(rand()%6+1);
+
+    }
+}
+bool dadosIguales(int vD[], int t)
+{
+    int x,referencia,c=0;
+    referencia=vD[0];
+    for(x=0; x<t; x++)
+    {
+        if(referencia==vD[x])
+        {
+            c++;
+        }
+    }
+    if(c>1 && c==t)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+
+
+}
+
+//cout<<"dados con descuentos"<<endl;
+int dadosNuevos(int vD[],int t,int vB[2])
+{
+    t;
+    vD[t]= {};
+    int x,cD=0;
+    for(x=0; x<t; x++)
+    {
+        if(vD[x]==vB[0] || vD[x]==vB[1])
+        {
+            vD[x]=0;
+
+        }
+    }
+    for(x=0; x<t; x++)
+    {
+        if(vD[x]!=0)
+        {
+            vD[cD]=vD[x];
+            cD++;
+        }
+    }
+    return cD;
+}
+///funcion mostrar dados
+void mostrarDados(int vD[], int tam)
+{
+    int x;
+    for(x=0; x<tam; x++)
+    {
+        cout<<"Dado = "<<vD[x]<<endl;
+    }
+}
+///funcion suma de dados
+int sumarDados(int vD[],int t)
+{
+    int x,aP=0;
+
+
+
+    for(x=0; x<t; x++)
+    {
+        aP+=vD[x];
+    }
+
+    return aP;
+}
+
+int main()
+{
+    srand(time(0));
+
+    int x,ronda,aPt,aP[3]= {};
+
+
+    for(ronda=0; ronda<3; ronda++)
+    {
+        int x,tam=2,t=5,vB[2]= {},vD[t]= {},cD=0,puntaje=0,cDtiradas=1;
+        bool duplicar;
+        char pregunta='S';
+
+        cout<<"==================================="<<endl;
+        cout<<"Numero de ronda : "<<ronda+1<<endl;
+        cout<<"==================================="<<endl;
+        tiradaBloqueadores(vB,tam);
+
+        mostrarDados(vB,tam);
+        cout<<endl;
+        cout<<"==================================="<<endl;
+
+        tiradaDeDados(vD,t);
+
+        cout<<"Numero de tirada : "<<cDtiradas<<endl;
+
+        mostrarDados(vD,t);
+        cout<<endl;
+        duplicar=dadosIguales(vD,t);
+        cout<<"son iguales o no "<<duplicar<<endl;
+        cout<<"==================================="<<endl;
+        cD=dadosNuevos(vD,t,vB);
+        ///actualizacion tama├▒o de dados
+        t=cD;
+
+        mostrarDados(vD,t);
+        cout<<endl;
+        puntaje=sumarDados(vD,t);
+        if(duplicar==true)
+        {
+            puntaje=puntaje*2;
+        }
+        cout<<"puntaje "<<puntaje<<endl;
+        aP[ronda]+=puntaje;
+        cout<<"Puntaje total ronda "<<aP[ronda]<<endl;
+///pregunta continuacion de tirada
+        do
+        {
+            if(duplicar!=true)
+            {
+                cout<<"Desea continuar tirando (S para seguir o N para sumar los puntos acumulados):"<<endl;
+                cin>>pregunta;
+            }
+            else
+            {
+                pregunta='S';
+            }
+            cout<<endl;
+            if(pregunta=='S')
+            {
+
+                tiradaDeDados(vD,t);
+                cDtiradas++;
+                cout<<"Numero de tirada : "<<cDtiradas<<endl;
+                cout<<endl;
+                mostrarDados(vD,t);
+                cout<<endl;
+                duplicar=dadosIguales(vD,t);
+                cout<<"son iguales o no "<<duplicar<<endl;
+                cout<<"==================================="<<endl;
+                cD=dadosNuevos(vD,t,vB);
+                ///cout<<" cD "<<cD;
+                cout<<endl;
+                t=cD;
+
+                mostrarDados(vD,t);
+                cout<<endl;
+
+                puntaje=sumarDados(vD,t);
+                if(duplicar==true)
+                {
+                    puntaje=puntaje*2;
+                }
+
+                cout<<"puntaje "<<puntaje<<endl;
+                if(puntaje!=0)
+                {
+                    aP[ronda]+=puntaje;
+                    cout<<"Puntaje total ronda "<<aP[ronda]<<endl;
+                }
+                else
+                {
+                    aP[ronda]=0;
+                    cout<<"Puntaje en cero, te quedaste sin dados!! "<<aP[ronda]<<endl;
+                    pregunta='N';
+
+
+
+                }
+
+            }
+            else
+            {
+                cout<<"Pasamos a la siguiente ronda !"<<endl;
+
+
+
+                cout<<"esto dejo Puntaje total ronda "<<aP[ronda]<<endl;
+            }
+
+
+
+        }
+        while(pregunta!='N');
+        cout<<"Pasamos a la ronda "<<ronda+2<<endl;
+
+    }
+    for(x=0; x<3; x++)
+    {
+        aPt+=aP[x];
+    }
+
+
+    cout<<"Puntaje total de las 3 rondas : "<<aPt<<endl;
+    return 0;
+}
+*/
 
 
 

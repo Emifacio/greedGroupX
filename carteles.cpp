@@ -110,3 +110,13 @@ void cartelNroTirada(int cDtiradas){
 cout << "Tirada Nro : " << cDtiradas << endl;
 cout << "===================================" << endl;
 }
+
+void cartelDuplicaONo(duplica){
+    if(duplica = true){
+        cout << "Duplicas puntos!! Los dados son iguales." << endl;
+        cout << "Tu siguiente tirada es automatica." << endl;
+            }else{
+                cout << "No duplicas puntos. Hay un dado o mas distintos." << endl;
+                    }
+        cout << "===================================" << endl;
+    }
