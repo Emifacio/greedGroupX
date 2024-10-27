@@ -10,9 +10,10 @@ using namespace std;
 void tiradaBloqueadores(int v[],int t)
 {
     t=2;
-    int x,dado;
-    cout<<"Dados bloqueadores "<<endl;
-    cout<<"==================================="<<endl;
+    int x, dado;
+    cout << "==================================="<<endl;
+    cout << "Dados bloqueadores " << endl;
+    cout << "==================================="<<endl;
     for(x=0; x<2; x++)
     {
         dado=tirarDado();
@@ -92,7 +93,6 @@ void mostrarDados(int vD[], int tam){
     for(x = 0; x<tam; x++){
         cout << "Dado : " << vD[x] << endl;
     }
-     cout << endl;
 }
 
 int sumarDados(int vD[], int t){

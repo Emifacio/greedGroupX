@@ -9,8 +9,6 @@ int main(){
     srand(time(0));
     string jugador1, jugador2;
     int x, ronda, aPt = 0, aP[3] = {}, aPt2 = 0, aP2[3] = {};
-    bool duplicar;
-    char pregunta = 'S';
     int eleccion;
 //  int ranking[]{};
 
@@ -26,6 +24,8 @@ int main(){
 
     for (ronda = 0; ronda < 3; ronda++) {
         int x, tam = 2, t = 5, vB[2] = {}, vD[t] = {}, cD = 0, puntaje = 0, cDtiradas = 1;
+        bool duplicar;
+        char pregunta = 'S';
 
         mostrarRonda(ronda);
         tiradaBloqueadores(vB, tam);
@@ -62,18 +62,18 @@ int main(){
         //Pregunta si desea continuar tirando
         do
         {
-            if(duplicar != true){
-                preguntaContinuarTirando(pregunta);
-                } else {
+            if(duplicar == true){
                 pregunta = 'S';
+                } else {
+                pregunta = preguntaContinuarTirando(pregunta);
                 }
 /// Primera pantalla hasta aqui------------------------------------------------------------------------------------------
             //limpiar la pantalla
             system("cls");
 
-            // Volver a mostrar los dados bloqueadores después de limpiar la pantalla
-            cout << "Dados bloqueadores:" << endl;
+            mostrarTituloDadosBloqueadores();
             mostrarDados(vB, tam);
+
             mostrarBarraDivisora();
 
             if( pregunta == 'S') {
@@ -98,7 +98,9 @@ int main(){
             if(duplicar == true) {
                     puntaje = puntaje*2;
             }
+
             mostrarPuntajeTirada(puntaje);
+
             if(puntaje != 0) {
             aP[ronda] += puntaje;
             mostrarPuntajeRonda(ronda, aP);
@@ -125,85 +127,83 @@ int main(){
         tiradaBloqueadores(vB, tam);
 
         mostrarDados(vB, tam);
-
+        mostrarBarraDivisora();
         tiradaDeDados(vD, t);
         mostrarNroTirada(cDtiradas);
         mostrarDados(vD, t);
-        duplicar = dadosIguales(vD, t);
-        mostrarDuplicaONo(duplicar);
-        // Llama a la función para filtrar los dados bloqueados y devuelve cuántos quedan
         cD = dadosNuevos(vD, t, vB);
-         t = cD;
-        //Muestra los dados disponibles después de filtrar los bloqueados
+        t = cD;
+        mostrarTituloDadosQSuman();
         mostrarDados(vD, t);
-         // Suma los puntos de los dados disponibles
+
+        duplicar = dadosIguales(vD, t);
         puntaje = sumarDados(vD, t);
-        // Duplica si corresponde
+        if(puntaje != 0){
+            mostrarDuplicaONo(duplicar);
+                }
         if(duplicar == true)
-        {
+            {
             puntaje = puntaje*2;
-        }
+            }
         aP2[ronda] += puntaje;
         mostrarResumenPuntaje(puntaje, ronda, aP2);
 
         //pregunta continuacion de tirada
-        do
-        {
-            if(duplicar != true)
-            {
-                preguntaContinuarTirando(pregunta);
-            }
-            else
-            {
+        do {
+            if(duplicar == true) {
                 pregunta = 'S';
-            }
+                }
+            else {
+                pregunta = preguntaContinuarTirando(pregunta);
+                   }
             // Limpiar la pantalla
             system("cls");
 
-            // Volver a mostrar los dados bloqueadores después de limpiar la pantalla
-            cout << "Dados bloqueadores:" << endl;
-            mostrarDados(vB, tam);
-                if( pregunta == 'S') {
-                tiradaDeDados(vD, t);
-                cDtiradas++;
-                mostrarNroTirada(cDtiradas);
-                mostrarDados(vD, t);
-                duplicar = dadosIguales(vD, t);
-                mostrarDuplicaONo(duplicar);
-                cD = dadosNuevos(vD, t, vB);
-                ///cout<<" cD "<<cD; actualiza DADOS NUEVOS
-                t = cD;
+            if( pregunta == 'S') {
+                    mostrarTituloDadosBloqueadores();
+                    mostrarDados(vB,tam);
+                    mostrarBarraDivisora();
+                    tiradaDeDados(vD, t);
+                    cDtiradas++;
+                    mostrarNroTirada(cDtiradas);
+                    mostrarDados(vD, t);
+                    cD = dadosNuevos(vD, t, vB);
+                    t = cD;
+                    mostrarTituloDadosQSuman();
+                    mostrarDados(vD, t);
 
-                mostrarDados(vD, t);
+                    duplicar = dadosIguales(vD, t);
+                    puntaje = sumarDados(vD, t);
 
-                puntaje = sumarDados(vD, t);
-                if(duplicar == true && puntaje != 0)
-                {
-                    puntaje = puntaje*2;
-                }
-                mostrarPuntajeTirada(puntaje);
-                if( puntaje != 0)
-                {
-                    aP2[ronda] += puntaje;
-                    mostrarPuntajeRonda(ronda, aP2);
+                    if(puntaje != 0){
+                        mostrarDuplicaONo(duplicar);
+                            }
+                    if(duplicar == true && puntaje != 0) {
+                        puntaje = puntaje*2;
+                            }
+
+                    mostrarPuntajeTirada(puntaje);
+
+                    if( puntaje != 0){
+                        aP2[ronda] += puntaje;
+                        mostrarPuntajeRonda(ronda, aP2);
+                        } else {
+                            aP2[ronda] = 0;
+                            mostrarMsjSumaCero();
+                            pregunta = 'N';
+                                }
                     } else {
-                    aP2[ronda] = 0;
-                    mostrarMsjSumaCero();
-                    pregunta = 'N';
-                }
+                        mostrarMsjFinRondas(jugador2, ronda, aP);
+                        }
+                        }
+                        while(pregunta != 'N');
+                        if(ronda != 2){
+                            mostrarMsjCambioJugador(jugador1);
+                        }
             }
-              else
-              {
-               mostrarMsjFinRondas(jugador2, ronda, aP);
-                }
-        }
-        while(pregunta != 'N');
-        cout << endl;
-        if(ronda!=2){
-        cout << "Es el Turno de " << jugador1 << "." << endl;
-        // TODO eliminar esta linea en la ultima ronda
-        }
-        }
+
+
+    //Recuento de puntos acumulados
     for(x = 0; x < 3; x++)
     {
         aPt += aP[x];
@@ -212,7 +212,6 @@ int main(){
     {
         aPt2 += aP2[x];
     }
-    mostrarTotalPtsAmbosJugadores(jugador1, jugador2, aPt, aPt2);
     if(aPt > aPt2)
     {
         mostrarGanador(jugador1);
@@ -221,6 +220,7 @@ int main(){
     {
         mostrarGanador(jugador2);
     }
+    mostrarTotalPtsAmbosJugadores(jugador1, jugador2, aPt, aPt2);
     mostrarMsjFinalJuego();
 
     //TODO ofrecer jugar una nueva partida.
