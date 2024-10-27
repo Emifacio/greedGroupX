@@ -1,9 +1,8 @@
 #include <iostream>
-
 #define FUNCIONES_H
-
 #include <string>
 #include "funciones.h"
+//#include "ranking.h"
 using namespace std;
 
 void pedirNombre(string jugador1, string jugador2){
@@ -21,6 +20,7 @@ for (puntajeRonda = 0 ;  puntajeRonda < 3 ; i++ ){
     puntajeJ2++
     }
 }
+
 
 
 void mostrarCartelGreed() {
@@ -145,6 +145,9 @@ void JuegaModo2Jugadores(string &jugador1,
 
 
 // Esta funci�n genera los "dados bloqueadores" que son 2 dados aleatorios.
+
+// Esta funci�n genera los "dados bloqueadores" que son 2 dados aleatorios.
+
 void tiradaBloqueadores(int v[],int t)
 
 {
@@ -155,15 +158,24 @@ void tiradaBloqueadores(int v[],int t)
     for(x=0; x<2; x++)
     {
 
+
         dado = (rand() % 6 + 1); // Genera un n�mero aleatorio entre 1 y 6
         v[x] = dado; // Guarda el dado generado en el vector `v`
         cout << "Dado " << x + 1 << " = " << v[x] << endl; // Muestra el valor de cada dado bloqueador
 
         dado=(rand()%6+1);
+
+        dado=tirarDado();
+
         v[x]=dado;
 
 
     }
+}
+
+
+int tirarDado(){
+    return rand() % 6 + 1;
 }
 
 
@@ -177,6 +189,7 @@ void tiradaDeDados(int vD[], int tam)
     cout << "===================================" << endl;
     for (x = 0; x < tam; x++) // Itera cinco veces para generar cinco dados
     {
+
 
         vD[x] = (rand() % 6 + 1); // Genera un n�mero aleatorio entre 1 y 6 para cada dado
         cout << "Dado " << x + 1 << " = " << vD[x] << endl; // Muestra el valor de cada dado
@@ -210,8 +223,13 @@ bool dadosIguales(int vD[], int t)
 // Esta funci�n filtra los dados que coinciden con los bloqueadores y devuelve cu�ntos dados quedan disponibles.
 
         vD[x] = (rand() % 6 + 1); // Genera un n�mero aleatorio entre 1 y 6 para cada dado
+
+        vD[x] = tirarDado(); // Genera un n�mero aleatorio entre 1 y 6 para cada dado
+
         }
 }
+
+
 
 bool dadosIguales(int vD[], int t)
 {
@@ -236,38 +254,33 @@ bool dadosIguales(int vD[], int t)
 
 }
 
-//cout<<"dados con descuentos"<<endl;
+// Esta funci�n filtra los dados que coinciden con los bloqueadores y devuelve cu�ntos dados quedan disponibles.
 int dadosNuevos(int vD[], int t, int vB[2])
 {
-    t;
-    vD[t]= {};
-    int x,cD=0;
-    for(x=0; x<t; x++)
-    {
-        if(vD[x]==vB[0] || vD[x]==vB[1])
-        {
-            vD[x]=0;
-
+    t;  // `t` es el n�mero de dados (5), `cD` es el contador de dados que quedan
+    vD[t] = {};
+    int x, cD = 0;
+    for(x = 0; x<t; x++) { // Itera sobre los 5 dados
+            // Si el dado actual coincide con alguno de los dados bloqueadores, lo elimina (lo convierte en 0)
+        if(vD[x] == vB[0] || vD[x] == vB[1]) {
+            vD[x] = 0;
+        }
+    } for(x = 0; x<t; x++) { // Esta segunda iteraci�n filtra los dados que no han sido bloqueados (es decir, los que no son 0)
+        if(vD[x] != 0) { // Si el dado no es 0, lo mueve al principio del vector
+            vD[cD] = vD[x]; // Reorganiza los dados para eliminar espacios vac�os (0)
+            cD++; // Incrementa el contador de dados disponibles
         }
     }
-    for(x=0; x<t; x++)
-    {
-        if(vD[x]!=0)
-        {
-            vD[cD]=vD[x];
-            cD++;
-        }
-    }
-   return cD;
+   return cD; // Devuelve cu�ntos dados no fueron bloqueados
 }
 
-
+// Esta funci�n muestra los dados actuales despu�s de haber sido filtrados.
 void mostrarDados(int vD[], int tam)
 {
     int x;
-    for(x=0; x<tam; x++)
+    for(x = 0; x<tam; x++)// Muestra los dados disponibles despu�s de filtrar los bloqueados
     {
-        cout<< "Dado : " << vD[x] << endl;
+        cout << "Dado : " << vD[x] << endl;
     }
 }
 
@@ -280,6 +293,7 @@ int sumarDados(int vD[], int t)
     }
     return aP; // Devuelve la suma total de los puntos
 }
+
 
 
 /*
@@ -335,6 +349,11 @@ int sumarDados(int vD[], int t)
     }
     return aP; // Devuelve la suma total de los puntos
 }
+
+
+
+
+
 
 
 
