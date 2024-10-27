@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1730047254 source:c:\users\emili\documents\programación i\ejercicios\trabajosenclase\greedgroupx\greedgroupx\main.cpp
+1730065903 source:c:\users\emili\documents\programación i\ejercicios\trabajosenclase\greedgroupx\greedgroupx\main.cpp
 	<iostream>
 	<ctime>
 	"funciones.h"
@@ -8,12 +8,12 @@
 
 1729821058 c:\users\emili\documents\programación i\ejercicios\trabajosenclase\greedgroupx\greedgroupx\funciones.h
 
-1730047925 source:c:\users\emili\documents\programación i\ejercicios\trabajosenclase\greedgroupx\greedgroupx\funciones.cpp
+1730065903 source:c:\users\emili\documents\programación i\ejercicios\trabajosenclase\greedgroupx\greedgroupx\funciones.cpp
 	<iostream>
 	<string>
 	"funciones.h"
 
-1730047810 source:c:\users\emili\documents\programación i\ejercicios\trabajosenclase\greedgroupx\greedgroupx\carteles.cpp
+1730068748 source:c:\users\emili\documents\programación i\ejercicios\trabajosenclase\greedgroupx\greedgroupx\carteles.cpp
 	<iostream>
 	<string>
 	"funciones.h"
@@ -21,7 +21,7 @@
 
 1729821297 c:\users\emili\documents\programación i\ejercicios\trabajosenclase\greedgroupx\greedgroupx\ranking.h
 
-1730046973 c:\users\emili\documents\programación i\ejercicios\trabajosenclase\greedgroupx\greedgroupx\carteles.h
+1730064327 c:\users\emili\documents\programación i\ejercicios\trabajosenclase\greedgroupx\greedgroupx\carteles.h
 
 1729821267 source:c:\users\emili\documents\programación i\ejercicios\trabajosenclase\greedgroupx\greedgroupx\ranking.cpp
 	<ctime>

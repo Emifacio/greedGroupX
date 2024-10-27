@@ -9,6 +9,7 @@ void pedirNombre(string &jugador1, string &jugador2);
 int mostrarMenu();
 void procesarSeleccion(int selection);
 void mostrarPrimerTurno(string jugador1);
+void mostrarTituloDadosBloqueadores();
 void mostrarRonda(int ronda);
 void mostrarTituloDadosQSuman();
 void mostrarNroTirada(int cDtiradas);
