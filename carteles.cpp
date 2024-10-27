@@ -1,4 +1,4 @@
-/// Funciones de carteles para mostrar durante el programa.
+/// Funciones de mostrares para mostrar durante el programa.
 #include <iostream>
 #define FUNCIONES_H
 #include <string>
@@ -8,7 +8,7 @@ using namespace std;
 //#include "ranking.h"
 
 
-void mostrarCartelGreed() {
+void mostrarmostrarGreed() {
     cout<< endl;
     cout << "  GGGGG    RRRRR    EEEEE   EEEEE   DDDDD   \n";
     cout << " G        R    R   E       E       D    D  \n";
@@ -91,34 +91,139 @@ void procesarSeleccion(int selection) {
 }
 
 
-void cartelPrimerTurno(string jugador1){
+void mostrarPrimerTurno(string jugador1){
     cout << endl;
     cout << "    Es el Turno de " << jugador1 <<"." <<endl;
     cout << endl;
     cout << "           A JUGAR!!"<< endl;
     cout << endl;
+    cout << "==================================="<< "\n\n";
 }
 
 
-void cartelRonda(int ronda){
-        cout << "==================================="<< endl;
-        cout << endl;
-        cout << endl;
-        cout << "Ronda Nro : " << ronda + 1 << endl;
-        cout << "===================================" << endl;
+void mostrarRonda(int ronda){
+        cout << "*******************"<< endl;
+        cout << "** Ronda Nro : " << ronda + 1 << " **" <<endl;
+        cout << "*******************" << "\n\n";
+
 }
 
-void cartelNroTirada(int cDtiradas){
-cout << "Tirada Nro : " << cDtiradas << endl;
-cout << "===================================" << endl;
+void mostrarTituloDadosQSuman(){
+    cout << endl;
+    cout << "==================================="<< endl;
+    cout << "Dados que suman : " << endl;
+    cout << "==================================="<< endl;
+    cout << endl;
 }
 
-void cartelDuplicaONo(bool duplicar){
-    if(duplicar = true){
-        cout << "Duplicas puntos!! Los dados son iguales." << endl;
-        cout << "Tu siguiente tirada es automatica." << endl;
+void mostrarDuplicaONo(bool duplicar){
+    if(duplicar == true){
+        cout << "*Duplica puntos: Los dados son iguales." << endl;
+        cout << "**Siguiente tirada automatica." << endl;
             }else{
-                cout << "No duplicas puntos. Hay un dado o mas distintos." << endl;
+                cout << "*No duplica: Uno o mas dados distintos." << endl;
                     }
-        cout << "===================================" << endl;
+         cout << endl;
+         }
+
+void mostrarResumenPuntaje(int puntaje, int ronda, int aP[]) {
+    cout << " **************************" << endl;
+    cout << "** Puntos Tirada : " << puntaje << " pts **" << endl;
+    cout << " **************************" << endl;
+    cout << endl;
+    cout << " **************************" << endl;
+    cout << "**  Puntos Ronda : " << aP[ronda] << " pts **" << endl;
+    cout << " **************************" << endl;
+    cout << endl;
+}
+
+char preguntaContinuarTirando(char pregunta){
+    cout << "Desea continuar tirando (S para seguir o N para sumar los puntos acumulados): " << endl;
+    cin >> pregunta;
+    cout << endl;
+
+    return pregunta;
     }
+
+void mostrarNroTirada(int cDtiradas) {
+    cout << "Tirada Nro : " << cDtiradas << "\n\n";
+}
+
+void mostrarPuntajeTirada(int puntaje){
+    cout << " **************************" << endl;
+    cout << "** Puntos Tirada : " << puntaje << " pts **" << endl;
+    cout << " **************************" << endl;
+    cout << endl;
+}
+
+void mostrarPuntajeRonda(int ronda, int aP[]){
+    cout << " **************************" << endl;
+    cout << "**  Puntos Ronda : " << aP[ronda] << " pts **" << endl;
+    cout << " **************************" << endl;
+    cout << endl;
+    }
+
+void mostrarMsjCambioJugador(string jugador){
+                cout << endl;
+                cout << "Es el turno de " << jugador << "." << endl;
+                cout << endl;
+                cout << "BUENA SUERTE!"<< endl;
+                cout << endl;
+                }
+
+void mostrarMsjSumaCero(){
+                    cout << "Todos tus dados fueron bloqueados!! Sumas : 0pts." << endl;
+                }
+
+void mostrarMsjFinRondas(string jugador, int ronda, int aP[]){
+    cout << jugador << " consiguio en la ronda " << ronda+1 << " : "<< aP[ronda] <<"pts!" <<endl;
+    cout <<"Nada mal!" <<endl;
+    cout << endl;
+    cout << "===================================" << endl;
+    cout << endl;
+}
+
+
+void mostrarTotalPtsAmbosJugadores(string jugador1, string jugador2,int acumuladoPuntajeTotalJugador1,int acumuladoPuntajeTotalJugador2){
+    cout << endl;
+    cout << "===================================" << endl;
+    cout << endl;
+    cout << "Puntaje total de las 3 rondas de " << jugador1 << " es : " << acumuladoPuntajeTotalJugador1 << "pts!!" << endl;
+    cout << endl;
+    cout << "Puntaje total de las 3 rondas de " << jugador2 << " es : " << acumuladoPuntajeTotalJugador2 << "pts!!" << endl;
+    }
+
+void mostrarGanador(string jugador){
+        cout << endl;
+        cout << "El puntaje mas alto fue conseguido por " << jugador << "!!!" << endl;
+        cout << endl;
+        cout << "===================================" << endl;
+        cout << endl;
+        cout << " ********************************************" << endl;
+        cout << "**********************************************" << endl;
+        cout <<"    "<< jugador << " #GANASTE!! #FELICITACIONES!!!!" << endl;
+        cout << "**********************************************" << endl;
+        cout << " ********************************************" << endl;
+        cout << endl;
+}
+
+void mostrarMsjFinalJuego(){
+    cout << endl;
+    cout << "===================================" << endl;
+    cout << endl;
+    cout << "    EL JUEGO HA FINALIZADO"<<endl;
+    cout << endl;
+    cout << "===================================" << endl;
+    cout << endl;
+    cout << "   <3  GRACIAS POR JUGAR!!! <3" << endl;
+    cout << endl;
+    cout << "===================================" << endl;
+    cout << endl;
+    }
+
+
+void mostrarBarraDivisora(){
+    cout << endl;
+    cout << "==================================="<< endl;
+    cout << endl;
+}
