@@ -25,3 +25,5 @@ void mostrarTotalPtsAmbosJugadores(std::string jugador1, std::string jugador2, i
 void mostrarGanador(std::string jugador);
 void mostrarMsjFinalJuego();
 void mostrarBarraDivisora();
+///probar
+void titilar(std::string mensaje, int posicionC, int posicionF);

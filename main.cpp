@@ -1,6 +1,7 @@
 #include<iostream>
 #include<ctime>
 #include "funciones.h"
+#include "rlutil.h"
 //#include "ranking.h"
 #include "carteles.h"
 using namespace std;
@@ -14,6 +15,9 @@ int main()
 
 int main(){
     srand(time(0));
+
+
+    ///-------
     string jugador1, jugador2;
     int x, ronda, aPt = 0, aP[3] = {}, aPt2 = 0, aP2[3] = {};
     bool duplicar;
@@ -32,7 +36,31 @@ int main(){
     mostrarPrimerTurno(jugador1);
 
     for (ronda = 0; ronda < 3; ronda++) {
+
         int x, tam = 2, t = 5, vB[2] = {}, vD[t] = {}, cD = 0, puntaje = 0, cDtiradas = 1;
+    ///probar dados dibujados
+    int vFila[6]{rand()%6+1,rand()%6+1,rand()%6+1,rand()%6+1,rand()%6+1,rand()%6+1};
+    bool seleccionados[6]{};
+
+    rlutil::hidecursor();  // Oculta el cursor
+    rlutil::saveDefaultColor();
+
+    for(int i=1; i<=5; i++)
+    {
+     dibujarCuadrado(i*10,vFila[i-1]);
+     dibujarSombra(i*10,vFila[i-1]);
+    }
+
+    for(int i=1; i<=5; i++)
+    {
+        int columna=rand()%5;
+        while(seleccionados[columna]){
+            columna=rand()%5;
+        }
+        seleccionados[columna]=true;
+      vD[columna]=tirarDado((columna+1)*10,vFila[columna]);
+    }
+    ///---------------------------
 
         mostrarRonda(ronda);
         tiradaBloqueadores(vB, tam);
@@ -40,7 +68,7 @@ int main(){
 
         mostrarBarraDivisora();
 
-        tiradaDeDados(vD, t);
+        //tiradaDeDados(vD, t);
         mostrarNroTirada(cDtiradas);
         mostrarDados(vD, t);
 
