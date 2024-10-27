@@ -17,7 +17,6 @@ void tiradaBloqueadores(int v[],int t)
     {
         dado=tirarDado();
         v[x]=dado;
-
     }
 }
 
@@ -87,20 +86,20 @@ int dadosNuevos(int vD[], int t, int vB[2])
 }
 
 // Esta función muestra los dados actuales después de haber sido filtrados.
-void mostrarDados(int vD[], int tam)
-{
+void mostrarDados(int vD[], int tam){
     int x;
-    for(x = 0; x<tam; x++)// Muestra los dados disponibles después de filtrar los bloqueados
-    {
+    // Muestra los dados disponibles después de filtrar los bloqueados
+    for(x = 0; x<tam; x++){
         cout << "Dado : " << vD[x] << endl;
     }
+     cout << endl;
 }
 
-int sumarDados(int vD[], int t)
-{
+int sumarDados(int vD[], int t){
     int x, aP = 0; // `aP` acumula los puntos
-    for (x = 0; x < t; x++) // Itera sobre los dados no bloqueados
-    {
+
+     // Itera sobre los dados no bloqueados
+    for (x = 0; x < t; x++){
         aP += vD[x]; // Suma el valor de cada dado
     }
     return aP; // Devuelve la suma total de los puntos
