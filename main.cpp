@@ -1,12 +1,23 @@
 #include<iostream>
 #include<ctime>
 #include "funciones.h"
+#include "rlutil.h"
 //#include "ranking.h"
 #include "carteles.h"
 using namespace std;
 
+
+
+
+int main()
+{
+
+
 int main(){
     srand(time(0));
+
+
+    ///-------
     string jugador1, jugador2;
     int x, ronda, aPt = 0, aP[3] = {}, aPt2 = 0, aP2[3] = {};
     int eleccion;
@@ -23,9 +34,36 @@ int main(){
     mostrarPrimerTurno(jugador1);
 
     for (ronda = 0; ronda < 3; ronda++) {
+
         int x, tam = 2, t = 5, vB[2] = {}, vD[t] = {}, cD = 0, puntaje = 0, cDtiradas = 1;
+
+    ///probar dados dibujados
+    int vFila[6]{rand()%6+1,rand()%6+1,rand()%6+1,rand()%6+1,rand()%6+1,rand()%6+1};
+    bool seleccionados[6]{};
+
+    rlutil::hidecursor();  // Oculta el cursor
+    rlutil::saveDefaultColor();
+
+    for(int i=1; i<=5; i++)
+    {
+     dibujarCuadrado(i*10,vFila[i-1]);
+     dibujarSombra(i*10,vFila[i-1]);
+    }
+
+    for(int i=1; i<=5; i++)
+    {
+        int columna=rand()%5;
+        while(seleccionados[columna]){
+            columna=rand()%5;
+        }
+        seleccionados[columna]=true;
+      vD[columna]=tirarDado((columna+1)*10,vFila[columna]);
+    }
+    ///---------------------------
+
         bool duplicar;
         char pregunta = 'S';
+
 
         mostrarRonda(ronda);
         tiradaBloqueadores(vB, tam);
@@ -33,7 +71,7 @@ int main(){
 
         mostrarBarraDivisora();
 
-        tiradaDeDados(vD, t);
+        //tiradaDeDados(vD, t);
         mostrarNroTirada(cDtiradas);
         mostrarDados(vD, t);
 
@@ -260,6 +298,12 @@ void tiradaDeDados(int vD[],int tam)
     {
         vD[x]=(rand()%6+1);
 
+
+
+        int seleccion = mostrarMenu();
+
+        procesarSeleccion(seleccion);
+
     }
 }
 bool dadosIguales(int vD[], int t)
@@ -281,6 +325,7 @@ bool dadosIguales(int vD[], int t)
     {
         return false;
     }
+
 
 
 }
@@ -337,10 +382,46 @@ int main()
 {
     srand(time(0));
 
+
+    // Variables para los tamaños de los dados y arrays.
+    int x, tam = 2, t = 5, vB[2] = {}, vD[t] = {}, nT = 0, vDn[t] = {}, cD = 0, puntaje = 0;
+    char pregunta = 'S'; // Variable para la decisión del usuario de continuar o no
+    bool duplicar;///Variable para saber si hay que duplicar el puntaje
+
     int x,ronda,aPt,aP[3]= {};
 
 
+
+
+    // Llama a la función para generar los dados del jugador
+    tiradaDeDados(vD, t);
+    cout << "===================================" << endl;
+
+    duplicar=dadosIguales(vD,t);
+    cout<<"son iguales o no "<<duplicar<<endl;///Es para verificar despues se elimina!
+
+    // Llama a la función para filtrar los dados bloqueados y devuelve cuántos quedan
+    cD = dadosNuevos(vD, vB);
+
+    // Muestra los dados disponibles después de filtrar los bloqueados
+    mostrarDados(vD, cD);
+    cout << endl;
+
+    // Suma los puntos de los dados disponibles
+    puntaje = sumarDados(vD, cD);
+    cout << "puntaje " << puntaje << endl;
+///Condicion para duplicar el puntaje
+    if(duplicar==true)
+        {
+            puntaje=puntaje*2;
+        }
+        cout<<"puntaje "<<puntaje<<endl;
+
+    // Bucle para permitir al usuario decidir si continuar o no con la tirada de dados
+    do
+
     for(ronda=0; ronda<3; ronda++)
+
     {
         int x,tam=2,t=5,vB[2]= {},vD[t]= {},cD=0,puntaje=0,cDtiradas=1;
         bool duplicar;

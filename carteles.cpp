@@ -63,18 +63,18 @@ void procesarSeleccion(int selection) {
             //JuegaModo2Jugadores();
             break;
         case 3:
-            cout << "Has seleccionado la opcion 3 (Estadísticas)" << endl;
-            /*Estadísticas: Deberá mostrar, si existe, el nombre
-            y el puntaje del jugador que haya obtenido el puntaje más alto.
-            Tener en cuenta que al cerrar la aplicación el puntaje se restablecerá.*/
+            cout << "Has seleccionado la opcion 3 (EstadÃ­sticas)" << endl;
+            /*EstadÃ­sticas: DeberÃ¡ mostrar, si existe, el nombre
+            y el puntaje del jugador que haya obtenido el puntaje mÃ¡s alto.
+            Tener en cuenta que al cerrar la aplicaciÃ³n el puntaje se restablecerÃ¡.*/
             cout << endl;
             cout << "==================================="<< endl;
             cout << endl;
                    //mostrarRanking();
             break;
         case 4:
-            cout << "Has seleccionado la opcion 4 (Créditos)" << endl;
-            /*Créditos: Deberá mostrar el nombre del equipo (inventar uno)
+            cout << "Has seleccionado la opcion 4 (CrÃ©ditos)" << endl;
+            /*CrÃ©ditos: DeberÃ¡ mostrar el nombre del equipo (inventar uno)
             junto con sus respectivos legajos, apellidos y nombres.*/
             cout << endl;
             cout << "==================================="<< endl;
@@ -206,7 +206,7 @@ void mostrarTotalPtsAmbosJugadores(string jugador1, string jugador2,int acumulad
 void imprimirPatronAlternado(int tamano) {
     for (int i = 0; i < tamano; i++) {
         for (int j = 0; j < tamano; j++) {
-            // Condición para alternar espacios y asteriscos
+            // CondiciÃ³n para alternar espacios y asteriscos
             if ((i + j) % 2 == 0) {
                 cout << "*";
             } else {
@@ -253,4 +253,29 @@ void mostrarMsjFinalJuego(){
 void mostrarBarraDivisora(){
     cout << endl;
     cout << "==================================="<< endl;
+
+    cout << endl;
+}
+
+void titilar(string mensaje, int posicionC, int posicionF){
+	for(int x=0; x<20; x++)
+	{
+		if(x%2==0)
+		{
+			rlutil::setColor(rlutil::LIGHTGREEN);
+			rlutil::setBackgroundColor(rlutil::RED);
+		}
+		else
+		{
+			rlutil::setColor(rlutil::RED);
+			rlutil::setBackgroundColor(rlutil::LIGHTGREEN);
+		}
+		rlutil::locate(posicionC,posicionF);
+
+		cout << mensaje << endl;
+		rlutil::msleep(100);
+	}
+}
+
    }
+
