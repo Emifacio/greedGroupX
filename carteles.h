@@ -8,7 +8,12 @@ void mostrarmostrarGreed() ;
 void pedirNombre(std::string &jugador1, std::string &jugador2);
 int mostrarMenu();
 void procesarSeleccion(int selection);
+
 void mostrarPrimerTurno(std::string jugador1);
+
+void mostrarPrimerTurno(string jugador1);
+void mostrarTituloDadosBloqueadores();
+
 void mostrarRonda(int ronda);
 void mostrarTituloDadosQSuman();
 void mostrarNroTirada(int cDtiradas);

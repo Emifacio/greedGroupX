@@ -63,18 +63,18 @@ void procesarSeleccion(int selection) {
             //JuegaModo2Jugadores();
             break;
         case 3:
-            cout << "Has seleccionado la opcion 3 (Estadísticas)" << endl;
-            /*Estadísticas: Deberá mostrar, si existe, el nombre
-            y el puntaje del jugador que haya obtenido el puntaje más alto.
-            Tener en cuenta que al cerrar la aplicación el puntaje se restablecerá.*/
+            cout << "Has seleccionado la opcion 3 (EstadÃ­sticas)" << endl;
+            /*EstadÃ­sticas: DeberÃ¡ mostrar, si existe, el nombre
+            y el puntaje del jugador que haya obtenido el puntaje mÃ¡s alto.
+            Tener en cuenta que al cerrar la aplicaciÃ³n el puntaje se restablecerÃ¡.*/
             cout << endl;
             cout << "==================================="<< endl;
             cout << endl;
                    //mostrarRanking();
             break;
         case 4:
-            cout << "Has seleccionado la opcion 4 (Créditos)" << endl;
-            /*Créditos: Deberá mostrar el nombre del equipo (inventar uno)
+            cout << "Has seleccionado la opcion 4 (CrÃ©ditos)" << endl;
+            /*CrÃ©ditos: DeberÃ¡ mostrar el nombre del equipo (inventar uno)
             junto con sus respectivos legajos, apellidos y nombres.*/
             cout << endl;
             cout << "==================================="<< endl;
@@ -100,11 +100,16 @@ void mostrarPrimerTurno(string jugador1){
     cout << "==================================="<< "\n\n";
 }
 
+void mostrarTituloDadosBloqueadores(){
+                    cout << "==================================="<<endl;
+                    cout << "Dados bloqueadores:" << endl;
+                    cout << "==================================="<<endl;
+                    }
 
 void mostrarRonda(int ronda){
-        cout << "*******************"<< endl;
-        cout << "** Ronda Nro : " << ronda + 1 << " **" <<endl;
-        cout << "*******************" << "\n\n";
+        cout << "       *******************"<< endl;
+        cout << "       ** Ronda Nro : " << ronda + 1 << " **" <<endl;
+        cout << "       *******************" << "\n\n";
 
 }
 
@@ -118,22 +123,24 @@ void mostrarTituloDadosQSuman(){
 
 void mostrarDuplicaONo(bool duplicar){
     if(duplicar == true){
+        cout << endl;
         cout << "*Duplica puntos: Los dados son iguales." << endl;
         cout << "**Siguiente tirada automatica." << endl;
             }else{
+                cout << endl;
                 cout << "*No duplica: Uno o mas dados distintos." << endl;
                     }
          cout << endl;
          }
 
 void mostrarResumenPuntaje(int puntaje, int ronda, int aP[]) {
-    cout << " **************************" << endl;
-    cout << "** Puntos Tirada : " << puntaje << " pts **" << endl;
-    cout << " **************************" << endl;
+    cout << "   **************************" << endl;
+    cout << "   ** Puntos Tirada : " << puntaje << " pts **" << endl;
+    cout << "   **************************" << endl;
     cout << endl;
-    cout << " **************************" << endl;
-    cout << "**  Puntos Ronda : " << aP[ronda] << " pts **" << endl;
-    cout << " **************************" << endl;
+    cout << "   **************************" << endl;
+    cout << "   **  Puntos Ronda : " << aP[ronda] << " pts **" << endl;
+    cout << "   **************************" << endl;
     cout << endl;
 }
 
@@ -150,24 +157,28 @@ void mostrarNroTirada(int cDtiradas) {
 }
 
 void mostrarPuntajeTirada(int puntaje){
-    cout << " **************************" << endl;
+    cout << " ****************************" << endl;
     cout << "** Puntos Tirada : " << puntaje << " pts **" << endl;
-    cout << " **************************" << endl;
+    cout << " ****************************" << endl;
     cout << endl;
 }
 
 void mostrarPuntajeRonda(int ronda, int aP[]){
-    cout << " **************************" << endl;
+    cout << " *****************************" << endl;
     cout << "**  Puntos Ronda : " << aP[ronda] << " pts **" << endl;
-    cout << " **************************" << endl;
+    cout << " *****************************" << endl;
     cout << endl;
     }
 
 void mostrarMsjCambioJugador(string jugador){
                 cout << endl;
-                cout << "Es el turno de " << jugador << "." << endl;
+                cout << "           *   *   *                   "<<endl;
                 cout << endl;
-                cout << "BUENA SUERTE!"<< endl;
+                cout << "   -----------------------------" << endl;
+                cout << "       ES EL TURNO DE " << jugador << "!" << endl;
+                cout << endl;
+                cout << "           BUENA SUERTE!"<< endl;
+                cout << "   -----------------------------" << endl;
                 cout << endl;
                 }
 
@@ -176,48 +187,65 @@ void mostrarMsjSumaCero(){
                 }
 
 void mostrarMsjFinRondas(string jugador, int ronda, int aP[]){
-    cout << jugador << " consiguio en la ronda " << ronda+1 << " : "<< aP[ronda] <<"pts!" <<endl;
-    cout <<"Nada mal!" <<endl;
+    cout <<"* "<< "En la ronda " << ronda+1 <<" "<< jugador << " consiguio : "<< aP[ronda] <<"pts." <<endl;
     cout << endl;
-    cout << "===================================" << endl;
     cout << endl;
+    cout << "                *    *    *" << endl;
 }
 
 
 void mostrarTotalPtsAmbosJugadores(string jugador1, string jugador2,int acumuladoPuntajeTotalJugador1,int acumuladoPuntajeTotalJugador2){
     cout << endl;
-    cout << "===================================" << endl;
     cout << endl;
-    cout << "Puntaje total de las 3 rondas de " << jugador1 << " es : " << acumuladoPuntajeTotalJugador1 << "pts!!" << endl;
+    cout << "       Puntaje total de " << jugador1 << " : " << acumuladoPuntajeTotalJugador1 << "pts" << endl;
     cout << endl;
-    cout << "Puntaje total de las 3 rondas de " << jugador2 << " es : " << acumuladoPuntajeTotalJugador2 << "pts!!" << endl;
+    cout << "       Puntaje total de " << jugador2 << " : " << acumuladoPuntajeTotalJugador2 << "pts" << endl;
+    cout << endl;
     }
+
+void imprimirPatronAlternado(int tamano) {
+    for (int i = 0; i < tamano; i++) {
+        for (int j = 0; j < tamano; j++) {
+            // CondiciÃ³n para alternar espacios y asteriscos
+            if ((i + j) % 2 == 0) {
+                cout << "*";
+            } else {
+                cout << " ";
+            }
+        }
+        cout << endl;
+    }
+}
 
 void mostrarGanador(string jugador){
         cout << endl;
-        cout << "El puntaje mas alto fue conseguido por " << jugador << "!!!" << endl;
+        cout << "EL JUGADOR QUE CONSIGUIO EL MEJOR PUNTAJE FUE : ..." << endl;
         cout << endl;
-        cout << "===================================" << endl;
+        imprimirPatronAlternado(53);
+        cout << endl;
+        cout << endl;
+        cout << "               ** " <<  jugador << "!!! **" << endl;
+        cout << endl;
         cout << endl;
         cout << " ********************************************" << endl;
-        cout << "**********************************************" << endl;
-        cout <<"    "<< jugador << " #GANASTE!! #FELICITACIONES!!!!" << endl;
-        cout << "**********************************************" << endl;
+        cout << endl;
+        cout <<"    "<< jugador << " #GANASTE! #FELICITACIONES!!!" << endl;
+        cout << endl;
         cout << " ********************************************" << endl;
         cout << endl;
 }
 
 void mostrarMsjFinalJuego(){
     cout << endl;
-    cout << "===================================" << endl;
+    cout << "                *    *    *" << endl;
     cout << endl;
-    cout << "    EL JUEGO HA FINALIZADO"<<endl;
+    cout << "           EL JUEGO HA FINALIZADO"<<endl;
     cout << endl;
-    cout << "===================================" << endl;
+    cout << "                *    *    *" << endl;
     cout << endl;
-    cout << "   <3  GRACIAS POR JUGAR!!! <3" << endl;
+    cout << "            GRACIAS POR JUGAR!!!" << endl;
     cout << endl;
-    cout << "===================================" << endl;
+    cout << "                *    *    *" << endl;
     cout << endl;
     }
 
@@ -225,6 +253,7 @@ void mostrarMsjFinalJuego(){
 void mostrarBarraDivisora(){
     cout << endl;
     cout << "==================================="<< endl;
+
     cout << endl;
 }
 
@@ -247,3 +276,6 @@ void titilar(string mensaje, int posicionC, int posicionF){
 		rlutil::msleep(100);
 	}
 }
+
+   }
+
