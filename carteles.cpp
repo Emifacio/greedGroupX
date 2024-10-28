@@ -208,9 +208,9 @@ void imprimirPatronAlternado(int tamano) {
         for (int j = 0; j < tamano; j++) {
             // Condición para alternar espacios y asteriscos
             if ((i + j) % 2 == 0) {
-                cout << "*";
+                cout << " *";
             } else {
-                cout << " ";
+                cout << "  ";
             }
         }
         cout << endl;
@@ -221,7 +221,7 @@ void mostrarGanador(string jugador){
         cout << endl;
         cout << "EL JUGADOR QUE CONSIGUIO EL MEJOR PUNTAJE FUE : ..." << endl;
         cout << endl;
-        imprimirPatronAlternado(53);
+        imprimirPatronAlternado(26);
         cout << endl;
         cout << endl;
         cout << "               ** " <<  jugador << "!!! **" << endl;
