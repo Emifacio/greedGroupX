@@ -8,23 +8,17 @@ using namespace std;
 
 
 
-
-int main()
-{
-
-
 int main(){
     srand(time(0));
 
 
-    ///-------
     string jugador1, jugador2;
     int x, ronda, aPt = 0, aP[3] = {}, aPt2 = 0, aP2[3] = {};
     int eleccion;
 //  int ranking[]{};
 
     mostrarmostrarGreed();
-    pedirNombre(jugador1,jugador2);
+    pedirNombre(jugador1, jugador2);
 
     mostrarBarraDivisora();
 
@@ -32,6 +26,7 @@ int main(){
     procesarSeleccion(eleccion);
 
     mostrarPrimerTurno(jugador1);
+ // agregar 1 segundo de espera;
 
     for (ronda = 0; ronda < 3; ronda++) {
 
@@ -40,6 +35,8 @@ int main(){
     ///probar dados dibujados
     int vFila[6]{rand()%6+1,rand()%6+1,rand()%6+1,rand()%6+1,rand()%6+1,rand()%6+1};
     bool seleccionados[6]{};
+    bool duplicar;
+    char pregunta = 'S';
 
     rlutil::hidecursor();  // Oculta el cursor
     rlutil::saveDefaultColor();
@@ -50,20 +47,15 @@ int main(){
      dibujarSombra(i*10,vFila[i-1]);
     }
 
-    for(int i=1; i<=5; i++)
-    {
+    for(int i=1; i<=5; i++) {
         int columna=rand()%5;
         while(seleccionados[columna]){
             columna=rand()%5;
         }
         seleccionados[columna]=true;
-      vD[columna]=tirarDado((columna+1)*10,vFila[columna]);
+      vD[columna]=tirarDadoRlutil((columna+1)*10,vFila[columna]);
     }
     ///---------------------------
-
-        bool duplicar;
-        char pregunta = 'S';
-
 
         mostrarRonda(ronda);
         tiradaBloqueadores(vB, tam);
