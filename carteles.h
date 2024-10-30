@@ -1,4 +1,10 @@
 #pragma once
+#include<iostream>
+#include<ctime>
+#include "funciones.h"
+#include "rlutil.h"
+//#include "ranking.h"
+#include "carteles.h"
 
 
 /**Etiquetas de funciones de mostrares para
@@ -11,10 +17,11 @@ void procesarSeleccion(int selection);
 
 void mostrarPrimerTurno(std::string jugador1);
 
-void mostrarPrimerTurno(string jugador1);
+void mostrarPrimerTurno(std::string jugador1);
 void mostrarTituloDadosBloqueadores();
 
 void mostrarRonda(int ronda);
+void mostrarEspacioPDados();
 void mostrarTituloDadosQSuman();
 void mostrarNroTirada(int cDtiradas);
 void mostrarDuplicaONo(bool duplicar);

@@ -4,6 +4,8 @@
 #include <string>
 #include "funciones.h"
 #include "ranking.h"
+#include "rlutil.h"
+#include "carteles.h"
 using namespace std;
 //#include "ranking.h"
 
@@ -15,7 +17,7 @@ void mostrarmostrarGreed() {
     cout << " G  GGG   RRRRR    EEEE    EEEE    D    D  \n";
     cout << " G    G   R  R     E       E       D    D  \n";
     cout << "  GGGGG   R   R    EEEEE   EEEEE   DDDDD   \n";
-    cout << endl;
+
 }
 
 
@@ -107,12 +109,29 @@ void mostrarTituloDadosBloqueadores(){
                     }
 
 void mostrarRonda(int ronda){
+        mostrarEspacioPDados();
         cout << "       *******************"<< endl;
         cout << "       ** Ronda Nro : " << ronda + 1 << " **" <<endl;
         cout << "       *******************" << "\n\n";
 
 }
 
+void mostrarEspacioPDados(){
+        cout << endl;
+        cout << endl;
+        cout << endl;
+        cout << endl;
+        cout << endl;
+        cout << endl;
+        cout << endl;
+        cout << endl;
+        cout << endl;
+        cout << endl;
+        cout << endl;
+        cout << endl;
+        cout << endl;
+        cout << endl;
+        }
 void mostrarTituloDadosQSuman(){
     cout << endl;
     cout << "==================================="<< endl;
@@ -277,5 +296,4 @@ void titilar(string mensaje, int posicionC, int posicionF){
 	}
 }
 
-   }
 
