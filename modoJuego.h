@@ -7,4 +7,5 @@
 #include "carteles.h"
 
 
-void modoDosJugadores(std::string& jugador1, std::string& jugador2) ;
+void modoDosJugadores() ;
+void modoUnJugador();

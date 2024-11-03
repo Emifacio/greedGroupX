@@ -60,11 +60,9 @@ void mostrarTituloDadosBloqueadores(){
                     }
 
 void mostrarRonda(int ronda){
-        mostrarEspacioPDados();
         cout << "       *******************"<< endl;
         cout << "       ** Ronda Nro : " << ronda + 1 << " **" <<endl;
         cout << "       *******************" << "\n\n";
-
 }
 
 void mostrarEspacioPDados(){

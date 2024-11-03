@@ -8,8 +8,10 @@ using namespace std;
 
 
 
-void modoDosJugadores(string& jugador1, string& jugador2) {
+void modoDosJugadores() {
+    string jugador1, jugador2;
 
+    pedirNombre(jugador1, jugador2);
     srand(time(0));
 
 
@@ -17,7 +19,7 @@ void modoDosJugadores(string& jugador1, string& jugador2) {
 
     mostrarPrimerTurno(jugador1);
 
-  //TODO agregar 1 segundo de espera;
+    rlutil::msleep(1000);
 
     for (ronda = 0; ronda < 3; ronda++) {
 
@@ -90,7 +92,7 @@ void modoDosJugadores(string& jugador1, string& jugador2) {
                 }
 /// Primera pantalla hasta aqui------------------------------------------------------------------------------------------
             //limpiar la pantalla
-            system("cls");
+            rlutil::cls();
 
             mostrarTituloDadosBloqueadores();
             mostrarDados(vB, tam);
@@ -133,12 +135,14 @@ void modoDosJugadores(string& jugador1, string& jugador2) {
                 } else {
                     cout << jugador1 << " consiguio en la ronda " << ronda+1 << " : "<< aP[ronda] <<"pts!" <<endl;
                     ///mostrarMensajeSegunPuntaje(ap[ronda]);
+                    rlutil::msleep(1000);
                     }
 
                 mostrarBarraDivisora();
 
                 } while(pregunta != 'N');
                 mostrarMsjCambioJugador(jugador2);
+                rlutil::msleep(1000);
 
         t = 5;
         cD = 0;
@@ -178,7 +182,7 @@ void modoDosJugadores(string& jugador1, string& jugador2) {
                 pregunta = preguntaContinuarTirando(pregunta);
                    }
             // Limpiar la pantalla
-            system("cls");
+            rlutil::cls();
 
             if( pregunta == 'S') {
                     mostrarTituloDadosBloqueadores();
@@ -222,7 +226,7 @@ void modoDosJugadores(string& jugador1, string& jugador2) {
                             mostrarMsjCambioJugador(jugador1);
                         }
             }
-
+    rlutil::msleep(2000);
 
     //Recuento de puntos acumulados
     for(x = 0; x < 3; x++)
@@ -242,178 +246,162 @@ void modoDosJugadores(string& jugador1, string& jugador2) {
         mostrarGanador(jugador2);
     }
     mostrarTotalPtsAmbosJugadores(jugador1, jugador2, aPt, aPt2);
+    // TODO mostrarMsjRecordAlcanzado(); --> mostrar mensaje si alcanza un nuevo record
+    // Ranking() --> Menu para anotar record
+
     mostrarMsjFinalJuego();
 
     //TODO ofrecer jugar una nueva partida.
 }
+////////////////////////////////////////////////////////////////////1//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+/////////////////////////////////////////////////////////////////1//1///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+////////////////////////////////////////////////////////////////////1///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+////////////////////////////////////////////////////////////////////1///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 /// Funcionalidad 1 Jugador
 
+void modoUnJugador(){
 
-/*void modoUnJugador(string jugador1) {
-
-    srand(time(0));
-
-
-    // Variables para los tamaños de los dados y arrays.
-    int x, tam = 2, t = 5, vB[2] = {}, vD[t] = {}, nT = 0, vDn[t] = {}, cD = 0, puntaje = 0;
-    char pregunta = 'S'; // Variable para la decisión del usuario de continuar o no
-    bool duplicar;///Variable para saber si hay que duplicar el puntaje
+ srand(time(0));
 
     int x, ronda, aPt, aP[3]= {};
-
-
-
-
-    // Llama a la función para generar los dados del jugador
-    tiradaDeDados(vD, t);
-    cout << "===================================" << endl;
-
-    duplicar=dadosIguales(vD,t);
-    cout<<"son iguales o no "<<duplicar<<endl;///Es para verificar despues se elimina!
-
-    // Llama a la función para filtrar los dados bloqueados y devuelve cuántos quedan
-    cD = dadosNuevos(vD, vB);
-
-    // Muestra los dados disponibles después de filtrar los bloqueados
-    mostrarDados(vD, cD);
+    //TODO mostrarMjeBienvenidaUnJugador();
+    //mostrarMjeBienvenidaUnJugador();
     cout << endl;
+    cout << endl;
+    cout << "Bienvenido  al modo 1 Jugador." << endl;
+    cout << endl;
+    cout << endl;
+    rlutil::msleep(1000);
 
-    // Suma los puntos de los dados disponibles
-    puntaje = sumarDados(vD, cD);
-    cout << "puntaje " << puntaje << endl;
-///Condicion para duplicar el puntaje
-    if(duplicar==true)
-        {
-            puntaje=puntaje*2;
-        }
-        cout<<"puntaje "<<puntaje<<endl;
+    for (ronda = 0; ronda < 3; ronda++) {
 
-    // Bucle para permitir al usuario decidir si continuar o no con la tirada de dados
-    do
+            int x, tam = 2, t = 5, vB[2] = {}, vD[t] = {}, cD = 0, puntaje = 0, cDtiradas = 1;
+            char pregunta = 'S'; // Variable para la decisión del usuario de continuar o no
+            bool duplicar;///Variable para saber si hay que duplicar el puntaje
 
-    for(ronda=0; ronda<3; ronda++)
+            mostrarRonda(ronda);
+            tiradaBloqueadores(vB, tam);
+            mostrarDados(vB, tam);
 
-    {
-        int x,tam=2,t=5,vB[2]= {},vD[t]= {},cD=0,puntaje=0,cDtiradas=1;
-        bool duplicar;
-        char pregunta='S';
+            mostrarBarraDivisora();
 
-        cout<<"==================================="<<endl;
-        cout<<"Numero de ronda : "<<ronda+1<<endl;
-        cout<<"==================================="<<endl;
-        tiradaBloqueadores(vB,tam);
+            // Llama a la función para generar los dados del jugador
+            tiradaDeDados(vD,t);
+			mostrarNroTirada(cDtiradas);
 
-        mostrarDados(vB,tam);
-        cout<<endl;
-        cout<<"==================================="<<endl;
+			mostrarDados(vD, t);
+            // Llama a la función para filtrar los dados bloqueados y devuelve cuántos quedan
+            cD = dadosNuevos(vD,t,vB);
+            t = cD;
+            // Muestra los dados disponibles después de filtrar los bloqueados
+            mostrarTituloDadosQSuman();
+            mostrarDados(vD, cD);
 
-        tiradaDeDados(vD,t);
+            duplicar=dadosIguales(vD,t);
 
-        cout<<"Numero de tirada : "<<cDtiradas<<endl;
+            // Suma los puntos de los dados disponibles
+            puntaje = sumarDados(vD, cD);
 
-        mostrarDados(vD,t);
-        cout<<endl;
-        duplicar=dadosIguales(vD,t);
-        cout<<"son iguales o no "<<duplicar<<endl;
-        cout<<"==================================="<<endl;
-        cD=dadosNuevos(vD,t,vB);
-        ///actualizacion tama├▒o de dados
-        t=cD;
+            if (puntaje != 0){
+                    mostrarDuplicaONo(duplicar);
+                                    }
 
-        mostrarDados(vD,t);
-        cout<<endl;
-        puntaje=sumarDados(vD,t);
-        if(duplicar==true)
-        {
-            puntaje=puntaje*2;
-        }
-        cout<<"puntaje "<<puntaje<<endl;
-        aP[ronda]+=puntaje;
-        cout<<"Puntaje total ronda "<<aP[ronda]<<endl;
-///pregunta continuacion de tirada
-        do
-        {
-            if(duplicar!=true)
-            {
-                cout<<"Desea continuar tirando (S para seguir o N para sumar los puntos acumulados):"<<endl;
-                cin>>pregunta;
-            }
-            else
-            {
-                pregunta='S';
-            }
-            cout<<endl;
-            if(pregunta=='S')
-            {
+            if(duplicar==true) {
+                puntaje=puntaje*2;
+                                        }
+            aP[ronda] += puntaje;
 
-                tiradaDeDados(vD,t);
-                cDtiradas++;
-                cout<<"Numero de tirada : "<<cDtiradas<<endl;
-                cout<<endl;
-                mostrarDados(vD,t);
-                cout<<endl;
-                duplicar=dadosIguales(vD,t);
-                cout<<"son iguales o no "<<duplicar<<endl;
-                cout<<"==================================="<<endl;
-                cD=dadosNuevos(vD,t,vB);
-                ///cout<<" cD "<<cD;
-                cout<<endl;
-                t=cD;
+            mostrarResumenPuntaje(puntaje, ronda, aP);
 
-                mostrarDados(vD,t);
-                cout<<endl;
+            // Bucle para permitir al usuario decidir si continuar o no con la tirada de dados
+            do {
+                if(duplicar == true){
+                    pregunta = 'S';
+                        } else {
+                            pregunta = preguntaContinuarTirando(pregunta);
+                                  }
 
-                puntaje=sumarDados(vD,t);
-                if(duplicar==true)
-                {
-                    puntaje=puntaje*2;
-                }
+                            rlutil::cls();
 
-                cout<<"puntaje "<<puntaje<<endl;
-                if(puntaje!=0)
-                {
-                    aP[ronda]+=puntaje;
-                    cout<<"Puntaje total ronda "<<aP[ronda]<<endl;
-                }
-                else
-                {
-                    aP[ronda]=0;
-                    cout<<"Puntaje en cero, te quedaste sin dados!! "<<aP[ronda]<<endl;
-                    pregunta='N';
+                            mostrarTituloDadosBloqueadores();
+                            mostrarDados(vB, tam);
+
+                            mostrarBarraDivisora();
 
 
+                          if(pregunta == 'S') {
 
-                }
+                            tiradaDeDados(vD,t);
+                            cDtiradas++;
+                            mostrarNroTirada(cDtiradas);
+                            mostrarDados(vD,t);
 
-            }
-            else
-            {
-                cout<<"Pasamos a la siguiente ronda !"<<endl;
+                            cD=dadosNuevos(vD,t,vB);
+                            t=cD;
 
+                            mostrarTituloDadosQSuman();
+                            mostrarDados(vD,t);
 
+                            duplicar=dadosIguales(vD,t);
+                            puntaje=sumarDados(vD,t);
 
-                cout<<"esto dejo Puntaje total ronda "<<aP[ronda]<<endl;
-            }
+                            if(puntaje != 0){
+                                mostrarDuplicaONo(duplicar);
+                            }
 
+                            if(duplicar==true) {
+                                puntaje=puntaje*2;
+                                                    }
 
+                                mostrarPuntajeTirada(puntaje);
 
-        }
-        while(pregunta!='N');
-        cout<<"Pasamos a la ronda "<<ronda+2<<endl;
+                           if(puntaje != 0) {
+                                aP[ronda] += puntaje;
+                                mostrarPuntajeRonda(ronda, aP);
+                                } else {
+                                aP[ronda] = 0;
+                                mostrarMsjSumaCero();
+                                pregunta = 'N';
+                                }
+                                } else {
+                                cout <<"Jugador1 consiguio en la ronda " << ronda+1 << " : "<< aP[ronda] <<"pts!" <<endl;
+                                ///mostrarMensajeSegunPuntaje(ap[ronda]);
+                                }
 
-    }
+								cout << "Pasamos a la siguiente ronda" << endl;
+
+								cout << endl;
+                                cout << endl;
+
+								mostrarPuntajeRonda(ronda, aP);
+
+								mostrarBarraDivisora();
+
+                                }while(pregunta != 'N');
+								mostrarRonda(ronda);
+                            }
+
     for(x=0; x<3; x++)
     {
         aPt+=aP[x];
     }
 
+    // TODO mostrar mensaje de felicitaciones si alcanza un nuevo record
+    // mostrarRanking() --> Menu para anotar record
+    cout << "Felicitaciones!!! Tu puntaje total para las 3 rondas  fue de : " << aPt << "!!!" << endl;
+	cout << endl;
+    cout << endl;
+	cout << endl;
 
-    cout<<"Puntaje total de las 3 rondas : "<<aPt<<endl;
-    return 0;
-}
+	rlutil::msleep(5000);
+
+    //TODO ofrecer jugar una nueva partida.
+
+
 }
 
-*/
 
