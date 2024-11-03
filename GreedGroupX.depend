@@ -1,11 +1,11 @@
 # depslib dependency file v1.0
-1730196479 source:c:\users\emili\documents\programación i\ejercicios\trabajosenclase\greedgroupx\greedgroupx\main.cpp
+1730643761 source:c:\users\emili\documents\programación i\ejercicios\trabajosenclase\greedgroupx\greedgroupx\main.cpp
 	<iostream>
 	<ctime>
 	"funciones.h"
 	"rlutil.h"
 	"carteles.h"
-	<ctime>
+	"modoJuego.h"
 
 1730124838 c:\users\emili\documents\programación i\ejercicios\trabajosenclase\greedgroupx\greedgroupx\funciones.h
 
@@ -15,21 +15,23 @@
 	<string>
 	"funciones.h"
 
-1730196525 source:c:\users\emili\documents\programación i\ejercicios\trabajosenclase\greedgroupx\greedgroupx\carteles.cpp
+1730637559 source:c:\users\emili\documents\programación i\ejercicios\trabajosenclase\greedgroupx\greedgroupx\carteles.cpp
 	<iostream>
 	<string>
 	"funciones.h"
 	"ranking.h"
 	"rlutil.h"
 	"carteles.h"
+	"modoJuego.h"
 
 1729821297 c:\users\emili\documents\programación i\ejercicios\trabajosenclase\greedgroupx\greedgroupx\ranking.h
 
-1730149597 c:\users\emili\documents\programación i\ejercicios\trabajosenclase\greedgroupx\greedgroupx\carteles.h
+1730560494 c:\users\emili\documents\programación i\ejercicios\trabajosenclase\greedgroupx\greedgroupx\carteles.h
 	<iostream>
 	<ctime>
 	"funciones.h"
 	"rlutil.h"
+	"modoJuego.h"
 	"carteles.h"
 
 1729821267 source:c:\users\emili\documents\programación i\ejercicios\trabajosenclase\greedgroupx\greedgroupx\ranking.cpp
@@ -63,4 +65,18 @@
 	<sys/ioctl.h>
 	<sys/types.h>
 	<sys/time.h>
+
+1730643742 c:\users\emili\documents\programación i\ejercicios\trabajosenclase\greedgroupx\greedgroupx\modojuego.h
+	<iostream>
+	<ctime>
+	"funciones.h"
+	"rlutil.h"
+	"carteles.h"
+
+1730643844 source:c:\users\emili\documents\programación i\ejercicios\trabajosenclase\greedgroupx\greedgroupx\modojuego.cpp
+	<iostream>
+	<ctime>
+	"funciones.h"
+	"rlutil.h"
+	"carteles.h"
 

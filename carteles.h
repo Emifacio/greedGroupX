@@ -3,6 +3,7 @@
 #include<ctime>
 #include "funciones.h"
 #include "rlutil.h"
+#include "modoJuego.h"
 //#include "ranking.h"
 #include "carteles.h"
 
@@ -11,9 +12,8 @@
 mostrar durante el programa.*/
 
 void mostrarmostrarGreed() ;
-void pedirNombre(std::string &jugador1, std::string &jugador2);
-int mostrarMenu();
-void procesarSeleccion(int selection);
+void pedirNombre(std::string& jugador1, std::string& jugador2);
+ int mostrarMenu();
 
 void mostrarPrimerTurno(std::string jugador1);
 
