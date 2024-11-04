@@ -8,29 +8,12 @@ using namespace std;
 
 
 
-void modoDosJugadores() {
-    string jugador1, jugador2;
+    //variables dadosGraficos();
+  //  int vFila[6]{rand()%6+1,rand()%6+1,rand()%6+1,rand()%6+1,rand()%6+1,rand()%6+1};
+  //  bool seleccionados[6]{};
 
-    pedirNombre(jugador1, jugador2);
-    srand(time(0));
-
-
-    int x, ronda, aPt = 0, aP[3] = {}, aPt2 = 0, aP2[3] = {};
-
-    mostrarPrimerTurno(jugador1);
-
-    rlutil::msleep(1000);
-
-    for (ronda = 0; ronda < 3; ronda++) {
-
-        int x, tam = 2, t = 5, vB[2] = {}, vD[t] = {}, cD = 0, puntaje = 0, cDtiradas = 1;
-
-    ///probar dados dibujados
-    int vFila[6]{rand()%6+1,rand()%6+1,rand()%6+1,rand()%6+1,rand()%6+1,rand()%6+1};
-    bool seleccionados[6]{};
-    bool duplicar;
-    char pregunta = 'S';
-
+//dadosGraficos();
+/*
     rlutil::hidecursor();  // Oculta el cursor
     rlutil::saveDefaultColor();
 
@@ -49,79 +32,222 @@ void modoDosJugadores() {
       vD[columna]=tirarDadoRlutil((columna+1)*10,vFila[columna]);
     }
     ///---------------------------
+*/
+
+
+int primeraRonda(string jugador){
+
+    srand(time(0));
+
+
+    int x, ronda, aPt = 0, aP[3] = {}, aPt2 = 0, aP2[3] = {};
+
+    mostrarPrimerTurno(jugador);
+
+
+
+    for (ronda = 0; ronda < 3; ronda++) {
+
+        int tam = 2, t = 5, vB[2] = {}, vD[t] = {}, cD = 0, puntaje = 0, cDtiradas = 1;
+        //variables dadosGraficos();
+        bool duplicar;
+        char pregunta = 'S';
+        //dadosGraficos();
 
         mostrarRonda(ronda);
-        tiradaBloqueadores(vB, tam);
-        mostrarDados(vB, tam);
-
-        mostrarBarraDivisora();
-
-        //tiradaDeDados(vD, t);
         mostrarNroTirada(cDtiradas);
-        mostrarDados(vD, t);
-
+        mostrarTituloDadosBloqueadores();
+        tiradaBloqueadores(vB, tam);
+        mostrarDados(vB,tam);
+        mostrarTituloTiradaDados();
+        tiradaDeDados(vD,t);
+        mostrarDados(vD,t);
         cD = dadosNuevos(vD, t, vB);
         ///actualizacion tamanio de dados
         t = cD;
-
+        duplicar = dadosIguales(vD, t);
         mostrarTituloDadosQSuman();
         mostrarDados(vD, t);
 
-        duplicar = dadosIguales(vD, t);
-
         puntaje = sumarDados(vD, t);
 
-        if(puntaje !=0){
-         mostrarDuplicaONo(duplicar);
-         }
+        mostrarDuplicaONo(duplicar);
 
         if(duplicar == true){
             puntaje = puntaje*2;
         }
+
         aP[ronda] += puntaje;
 
         mostrarResumenPuntaje(puntaje, ronda, aP);
 
-        //Pregunta si desea continuar tirando
+        ///Pregunta si desea continuar tirando
+
         do
         {
-            if(duplicar == true){
-                pregunta = 'S';
+            if(duplicar != true){
+               pregunta = preguntaContinuarTirando(pregunta);
                 } else {
-                pregunta = preguntaContinuarTirando(pregunta);
+                pregunta = 'S';
                 }
-/// Primera pantalla hasta aqui------------------------------------------------------------------------------------------
-            //limpiar la pantalla
-            rlutil::cls();
 
+
+            mostrarBarraDivisora();
+            mostrarBarraDivisora();
+            mostrarBarraDivisora();
+            mostrarBarraDivisora();
+/// Primera pantalla hasta aqui------------------------------------------------------------------------------------------
+
+            mostrarRonda(ronda);
+            mostrarNroTiradasMasUno(cDtiradas);
             mostrarTituloDadosBloqueadores();
             mostrarDados(vB, tam);
 
-            mostrarBarraDivisora();
-
             if( pregunta == 'S') {
+
+            mostrarTituloTiradaDados();
             tiradaDeDados(vD, t);
             cDtiradas++;
-            mostrarNroTirada(cDtiradas);
             mostrarDados(vD, t);
 
+            duplicar = dadosIguales(vD, t);
             cD = dadosNuevos(vD, t, vB);
             t = cD;
+            mostrarDuplicaONo(duplicar);
 
             mostrarTituloDadosQSuman();
             mostrarDados(vD, t);
 
-            duplicar = dadosIguales(vD, t);
             puntaje = sumarDados(vD, t);
-
-            if(puntaje != 0){
-            mostrarDuplicaONo(duplicar);
-            }
 
             if(duplicar == true) {
                     puntaje = puntaje*2;
             }
+            mostrarPuntajeTirada(puntaje);
 
+            if(puntaje != 0) {
+            aP[ronda] += puntaje;
+            mostrarPuntajeRonda(ronda, aP);
+                } else {
+                aP[ronda] = 0;
+                mostrarMsjSumaCero();
+                pregunta = 'N';
+                }
+                } else {
+                    cout << jugador << " consiguio en la ronda " << ronda+1 << " : "<< aP[ronda] <<"pts!" <<endl;
+                    //mostrarMensajeSegunPuntaje(ap[ronda]);
+                    }
+                mostrarBarraDivisora();
+                } while(pregunta != 'N');
+
+                return aP[ronda];
+                }
+
+
+void modoDosJugadores() {
+
+    string jugador1, jugador2;
+
+    pedirNombre(jugador1, jugador2);
+
+    mostrarBarraDivisora();
+
+   cout << "                Cargando datos para tu partida..." << endl;
+   mostrarBarraDivisora();
+    //rlutil::msleep(3000);
+    //rlutil::cls();
+
+
+    srand(time(0));
+
+
+    int x, ronda, aPt = 0, aP[3] = {}, aPt2 = 0, aP2[3] = {};
+
+    mostrarPrimerTurno(jugador1);
+
+
+
+    for (ronda = 0; ronda < 3; ronda++) {
+
+      /*  aPt = primeraRonda(jugador1, ronda, aPt, aP);
+        mostrarMsjCambioJugador(jugador2);
+        aPt2 = primeraRonda(jugador2,ronda, aPt2, aP2)
+   */
+        int tam = 2, t = 5, vB[2] = {}, vD[t] = {}, cD = 0, puntaje = 0, cDtiradas = 1;
+        //variables dadosGraficos();
+        bool duplicar;
+        char pregunta = 'S';
+        //dadosGraficos();
+
+        mostrarRonda(ronda);
+        mostrarNroTirada(cDtiradas);
+        mostrarTituloDadosBloqueadores();
+        tiradaBloqueadores(vB, tam);
+        mostrarDados(vB,tam);
+        mostrarTituloTiradaDados();
+        tiradaDeDados(vD,t);
+        mostrarDados(vD,t);
+        cD = dadosNuevos(vD, t, vB);
+        ///actualizacion tamanio de dados
+        t = cD;
+        duplicar = dadosIguales(vD, t);
+        mostrarTituloDadosQSuman();
+        mostrarDados(vD, t);
+
+        puntaje = sumarDados(vD, t);
+
+        mostrarDuplicaONo(duplicar);
+
+        if(duplicar == true){
+            puntaje = puntaje*2;
+        }
+
+        aP[ronda] += puntaje;
+
+        mostrarResumenPuntaje(puntaje, ronda, aP);
+
+        ///Pregunta si desea continuar tirando
+
+        do
+        {
+            if(duplicar != true){
+               pregunta = preguntaContinuarTirando(pregunta);
+                } else {
+                pregunta = 'S';
+                }
+
+
+            mostrarBarraDivisora();
+            mostrarBarraDivisora();
+            mostrarBarraDivisora();
+            mostrarBarraDivisora();
+/// Primera pantalla hasta aqui------------------------------------------------------------------------------------------
+
+            mostrarRonda(ronda);
+            mostrarNroTiradasMasUno(cDtiradas);
+            mostrarTituloDadosBloqueadores();
+            mostrarDados(vB, tam);
+
+            if( pregunta == 'S') {
+
+            mostrarTituloTiradaDados();
+            tiradaDeDados(vD, t);
+            cDtiradas++;
+            mostrarDados(vD, t);
+
+            duplicar = dadosIguales(vD, t);
+            cD = dadosNuevos(vD, t, vB);
+            t = cD;
+            mostrarDuplicaONo(duplicar);
+
+            mostrarTituloDadosQSuman();
+            mostrarDados(vD, t);
+
+            puntaje = sumarDados(vD, t);
+
+            if(duplicar == true) {
+                    puntaje = puntaje*2;
+            }
             mostrarPuntajeTirada(puntaje);
 
             if(puntaje != 0) {
@@ -134,15 +260,18 @@ void modoDosJugadores() {
                 }
                 } else {
                     cout << jugador1 << " consiguio en la ronda " << ronda+1 << " : "<< aP[ronda] <<"pts!" <<endl;
-                    ///mostrarMensajeSegunPuntaje(ap[ronda]);
-                    rlutil::msleep(1000);
+                    //mostrarMensajeSegunPuntaje(ap[ronda]);
                     }
-
                 mostrarBarraDivisora();
-
                 } while(pregunta != 'N');
+
+                   cout << "Cambio el turno." << jugador2 << " presiona una tecla si estas listo!" << endl;
+                   rlutil::anykey();
+                   rlutil::cls();
+
+
                 mostrarMsjCambioJugador(jugador2);
-                rlutil::msleep(1000);
+
 
         t = 5;
         cD = 0;
@@ -226,7 +355,9 @@ void modoDosJugadores() {
                             mostrarMsjCambioJugador(jugador1);
                         }
             }
-    rlutil::msleep(2000);
+    cout << "Presione cualquier tecla para continuar ... " << endl;
+    rlutil::anykey();
+    rlutil::cls();
 
     //Recuento de puntos acumulados
     for(x = 0; x < 3; x++)
@@ -250,9 +381,17 @@ void modoDosJugadores() {
     // Ranking() --> Menu para anotar record
 
     mostrarMsjFinalJuego();
+    cout << "Presione cualquier tecla para continuar ... " << endl;
+    rlutil::anykey();
+    rlutil::cls();
+    mostrarBarraDivisora();
+    int selection = mostrarMenu();
+    procesarSelection(selection);
 
-    //TODO ofrecer jugar una nueva partida.
-}
+ }
+
+
+
 ////////////////////////////////////////////////////////////////////1//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 /////////////////////////////////////////////////////////////////1//1///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -261,7 +400,12 @@ void modoDosJugadores() {
 
 ////////////////////////////////////////////////////////////////////1///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+
+
+
 /// Funcionalidad 1 Jugador
+
+
 
 void modoUnJugador(){
 
@@ -403,5 +547,4 @@ void modoUnJugador(){
 
 
 }
-
 

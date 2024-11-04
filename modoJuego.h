@@ -9,3 +9,4 @@
 
 void modoDosJugadores() ;
 void modoUnJugador();
+int primeraRonda(string& jugador);
