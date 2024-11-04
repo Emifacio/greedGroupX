@@ -35,9 +35,7 @@ void tiradaDeDados(int vD[], int tam){
     cout << "===================================" << endl;
     for (x = 0; x < tam; x++) // Itera cinco veces para generar cinco dados
     {
-
-
-        vD[x] = (rand() % 6 + 1); // Genera un n�mero aleatorio entre 1 y 6 para cada dado
+        vD[x] = tirarDado(); // Genera un n�mero aleatorio entre 1 y 6 para cada dado
         cout << "Dado " << x + 1 << " = " << vD[x] << endl; // Muestra el valor de cada dado
     }
 }
@@ -107,7 +105,7 @@ int sumarDados(int vD[], int t){
 }
 
 ///tiradaDeDadosDibujo
-void dibujarDado(int numero, int columna, int fila)
+/*void dibujarDado(int numero, int columna, int fila)
 {
     dibujarCuadrado(columna,fila);
     dibujarPuntos(numero,columna,fila);
@@ -229,7 +227,7 @@ dibujarDado(dado,columna,fila);
 return dado;
 }
 
-
+*/
 
 
 

@@ -44,13 +44,61 @@ cin >> jugador2;
         return selection;
         }
 
+int procesarSelection(int selection){
+ switch (selection) {
+        case 1:
+            cout << "Has seleccionado la opcion 1 (Modo un jugador)" << endl;
+            cout << endl;
+            cout << "==================================="<< endl;
+            cout << endl;
+            modoUnJugador();
+            break;
+        case 2:
+            cout << "Has seleccionado la opcion 2 (Modo dos jugadores)" << endl;
+            cout << endl;
+            cout << "==================================="<< endl;
+            cout << endl;
+            modoDosJugadores();
+            break;
+        case 3:
+            cout << "Has seleccionado la opcion 3 (Estadísticas)" << endl;
+            //Estadísticas: Deberá mostrar, si existe, el nombre
+            // y el puntaje del jugador que haya obtenido el puntaje más alto.
+            //Tener en cuenta que al cerrar la aplicación el puntaje se restablecerá.
+            cout << endl;
+            cout << "==================================="<< endl;
+            cout << endl;
+                   //mostrarRanking();
+            break;
+        case 4:
+            cout << "Has seleccionado la opcion 4 (Créditos)" << endl;
+            ///Créditos: Deberá mostrar el nombre del equipo (inventar uno)
+            //junto con sus respectivos legajos, apellidos y nombres.
+            cout << endl;
+            cout << "==================================="<< endl;
+            cout << endl;
+            // mostrarCreditos();
+            break;
+        case 5:
+            cout << "Gracias por jugar GreedX, espero verte pronto nuevamente!" << endl;
+            break;
+        default:
+            cout << "Opcion no valida" << endl;
+            break;
+
+}
+}
+
 void mostrarPrimerTurno(string jugador1){
     cout << endl;
     cout << "    Es el Turno de " << jugador1 <<"." <<endl;
     cout << endl;
     cout << "           A JUGAR!!"<< endl;
     cout << endl;
-    cout << "==================================="<< "\n\n";
+    cout << "==================================="<< endl;
+    rlutil::msleep(3000);
+    rlutil::cls();
+
 }
 
 void mostrarTituloDadosBloqueadores(){
@@ -60,9 +108,11 @@ void mostrarTituloDadosBloqueadores(){
                     }
 
 void mostrarRonda(int ronda){
+        cout << endl;
         cout << "       *******************"<< endl;
         cout << "       ** Ronda Nro : " << ronda + 1 << " **" <<endl;
-        cout << "       *******************" << "\n\n";
+        cout << "       *******************" << endl;
+        cout << endl;
 }
 
 void mostrarEspacioPDados(){
@@ -121,7 +171,11 @@ char preguntaContinuarTirando(char pregunta){
     }
 
 void mostrarNroTirada(int cDtiradas) {
-    cout << "Tirada Nro : " << cDtiradas << "\n\n";
+        cout << endl;
+        cout << "       **********************"<< endl;
+        cout << "       ** Tirada Nro : " <<  cDtiradas << " **" <<endl;
+        cout << "       **********************" << endl;
+        cout << endl;
 }
 
 void mostrarPuntajeTirada(int puntaje){
@@ -151,7 +205,13 @@ void mostrarMsjCambioJugador(string jugador){
                 }
 
 void mostrarMsjSumaCero(){
+                    cout << endl;
+                    cout << "|:(||:(||:(||:(||:(||:(||:(||:(||:(||:(||:(||:(||:(||:(||:(||:(||:(|" << endl;
                     cout << "Todos tus dados fueron bloqueados!! Sumas : 0pts." << endl;
+                    cout << "|:(||:(||:(||:(||:(||:(||:(||:(||:(||:(||:(||:(||:(||:(||:(||:(||:(|" << endl;
+                    cout << endl;
+                    rlutil::msleep(3000);
+                    rlutil::cls();
                 }
 
 void mostrarMsjFinRondas(string jugador, int ronda, int aP[]){
@@ -189,7 +249,9 @@ void mostrarGanador(string jugador){
         cout << endl;
         cout << "EL JUGADOR QUE CONSIGUIO EL MEJOR PUNTAJE FUE : ..." << endl;
         cout << endl;
+        rlutil::msleep(3000);
         imprimirPatronAlternado(26);
+        rlutil::msleep(3000);
         cout << endl;
         cout << endl;
         cout << "               ** " <<  jugador << "!!! **" << endl;

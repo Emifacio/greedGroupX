@@ -13,7 +13,8 @@ mostrar durante el programa.*/
 
 void mostrarmostrarGreed() ;
 void pedirNombre(std::string& jugador1, std::string& jugador2);
- int mostrarMenu();
+int mostrarMenu();
+int procesarSelection(int selection);
 
 void mostrarPrimerTurno(std::string jugador1);
 

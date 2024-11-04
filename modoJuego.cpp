@@ -12,6 +12,12 @@ void modoDosJugadores() {
     string jugador1, jugador2;
 
     pedirNombre(jugador1, jugador2);
+    mostrarBarraDivisora();
+   cout << "                Cargando datos para tu partida..." << endl;
+    mostrarBarraDivisora();
+    rlutil::msleep(4000);
+    rlutil::cls();
+
     srand(time(0));
 
 
@@ -19,18 +25,18 @@ void modoDosJugadores() {
 
     mostrarPrimerTurno(jugador1);
 
-    rlutil::msleep(1000);
+
 
     for (ronda = 0; ronda < 3; ronda++) {
 
-        int x, tam = 2, t = 5, vB[2] = {}, vD[t] = {}, cD = 0, puntaje = 0, cDtiradas = 1;
+        int tam = 2, t = 5, vB[2] = {}, vD[t] = {}, cD = 0, puntaje = 0, cDtiradas = 1;
 
     ///probar dados dibujados
-    int vFila[6]{rand()%6+1,rand()%6+1,rand()%6+1,rand()%6+1,rand()%6+1,rand()%6+1};
-    bool seleccionados[6]{};
+  //  int vFila[6]{rand()%6+1,rand()%6+1,rand()%6+1,rand()%6+1,rand()%6+1,rand()%6+1};
+  //  bool seleccionados[6]{};
     bool duplicar;
     char pregunta = 'S';
-
+/*
     rlutil::hidecursor();  // Oculta el cursor
     rlutil::saveDefaultColor();
 
@@ -49,16 +55,15 @@ void modoDosJugadores() {
       vD[columna]=tirarDadoRlutil((columna+1)*10,vFila[columna]);
     }
     ///---------------------------
-
+*/
         mostrarRonda(ronda);
         tiradaBloqueadores(vB, tam);
-        mostrarDados(vB, tam);
 
         mostrarBarraDivisora();
 
-        //tiradaDeDados(vD, t);
+
         mostrarNroTirada(cDtiradas);
-        mostrarDados(vD, t);
+        tiradaDeDados(vB, tam);
 
         cD = dadosNuevos(vD, t, vB);
         ///actualizacion tamanio de dados
@@ -226,7 +231,9 @@ void modoDosJugadores() {
                             mostrarMsjCambioJugador(jugador1);
                         }
             }
-    rlutil::msleep(2000);
+    cout << "Presione cualquier tecla para continuar ... " << endl;
+    rlutil::anykey();
+    rlutil::cls();
 
     //Recuento de puntos acumulados
     for(x = 0; x < 3; x++)
@@ -250,9 +257,14 @@ void modoDosJugadores() {
     // Ranking() --> Menu para anotar record
 
     mostrarMsjFinalJuego();
+    cout << "Presione cualquier tecla para continuar ... " << endl;
+    rlutil::anykey();
+    rlutil::cls();
+    mostrarBarraDivisora();
+    int selection = mostrarMenu();
+    procesarSelection(selection);
 
-    //TODO ofrecer jugar una nueva partida.
-}
+ }
 ////////////////////////////////////////////////////////////////////1//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 /////////////////////////////////////////////////////////////////1//1///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

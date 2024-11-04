@@ -10,10 +10,11 @@ void mostrarDados(int vD[], int tam);
 int sumarDados(int vD[], int t);
 
 ///funciones del dibujo del dado
+/*
 void dibujarCuadrado(int columna, int fila);
 void dibujarDado(int numero, int columna, int fila);
 void dibujarSombra( int columna, int fila);
 void dibujarPuntos(int numero, int columna, int fila);
 int tirarDadoRlutil(int columna, int fila);
-
+*/
 
