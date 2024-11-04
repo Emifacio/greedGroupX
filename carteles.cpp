@@ -91,14 +91,19 @@ int procesarSelection(int selection){
 
 void mostrarPrimerTurno(string jugador1){
     cout << endl;
+    cout << "==================================="<< endl;
+    cout << endl;
     cout << "    Es el Turno de " << jugador1 <<"." <<endl;
     cout << endl;
     cout << "           A JUGAR!!"<< endl;
     cout << endl;
     cout << "==================================="<< endl;
-    rlutil::msleep(3000);
+    cout << endl;
+    cout << endl;
+    cout << endl;
+    cout << "           Presiona una tecla para comenzar..." << endl;
+    rlutil::anykey();
     rlutil::cls();
-
 }
 
 void mostrarTituloDadosBloqueadores(){
@@ -110,9 +115,27 @@ void mostrarTituloDadosBloqueadores(){
 void mostrarRonda(int ronda){
         cout << endl;
         cout << "       *******************"<< endl;
-        cout << "       ** Ronda Nro : " << ronda + 1 << " **" <<endl;
-        cout << "       *******************" << endl;
+        cout << "       ** Ronda Nro : " << ronda + 1 << "  **" <<endl;
+}
+
+void mostrarNroTirada(int cDtiradas) {
+        cout <<"       **                **" << endl;
+        cout << "       ** Tirada Nro : " <<  cDtiradas << " **" <<endl;
+        cout << "       ********************" << endl;
         cout << endl;
+}
+
+void mostrarNroTiradasMasUno(int cDtiradas){
+        cout <<"       **                **" << endl;
+        cout << "       ** Tirada Nro : " <<  cDtiradas+1 << " **" <<endl;
+        cout << "       ********************" << endl;
+        cout << endl;
+}
+
+void mostrarTituloTiradaDados(){
+  cout << "===================================" << endl;
+    cout << "Tirada de Dados " << endl;
+    cout << "===================================" << endl;
 }
 
 void mostrarEspacioPDados(){
@@ -152,13 +175,12 @@ void mostrarDuplicaONo(bool duplicar){
          }
 
 void mostrarResumenPuntaje(int puntaje, int ronda, int aP[]) {
-    cout << "   **************************" << endl;
+    cout << "   ****************************" << endl;
     cout << "   ** Puntos Tirada : " << puntaje << " pts **" << endl;
-    cout << "   **************************" << endl;
-    cout << endl;
-    cout << "   **************************" << endl;
+    cout << "   **                        **" << endl;
+    cout << "   **                        **" << endl;
     cout << "   **  Puntos Ronda : " << aP[ronda] << " pts **" << endl;
-    cout << "   **************************" << endl;
+    cout << "   ****************************" << endl;
     cout << endl;
 }
 
@@ -170,25 +192,19 @@ char preguntaContinuarTirando(char pregunta){
     return pregunta;
     }
 
-void mostrarNroTirada(int cDtiradas) {
-        cout << endl;
-        cout << "       **********************"<< endl;
-        cout << "       ** Tirada Nro : " <<  cDtiradas << " **" <<endl;
-        cout << "       **********************" << endl;
-        cout << endl;
-}
+
 
 void mostrarPuntajeTirada(int puntaje){
-    cout << " ****************************" << endl;
-    cout << "** Puntos Tirada : " << puntaje << " pts **" << endl;
-    cout << " ****************************" << endl;
-    cout << endl;
+    cout << " **************************" << endl;
+    cout << " ** Puntos Tirada : " << puntaje << " pts **" << endl;
+    cout << " **                       **" << endl;
+
 }
 
 void mostrarPuntajeRonda(int ronda, int aP[]){
-    cout << " *****************************" << endl;
-    cout << "**  Puntos Ronda : " << aP[ronda] << " pts **" << endl;
-    cout << " *****************************" << endl;
+    cout << " **                       **" << endl;
+    cout << " **  Puntos Ronda : " << aP[ronda] << " pts**" << endl;
+    cout << " ***************************" << endl;
     cout << endl;
     }
 
@@ -210,8 +226,7 @@ void mostrarMsjSumaCero(){
                     cout << "Todos tus dados fueron bloqueados!! Sumas : 0pts." << endl;
                     cout << "|:(||:(||:(||:(||:(||:(||:(||:(||:(||:(||:(||:(||:(||:(||:(||:(||:(|" << endl;
                     cout << endl;
-                    rlutil::msleep(3000);
-                    rlutil::cls();
+
                 }
 
 void mostrarMsjFinRondas(string jugador, int ronda, int aP[]){
@@ -285,26 +300,6 @@ void mostrarBarraDivisora(){
     cout << "==================================="<< endl;
 
     cout << endl;
-}
-
-void titilar(string mensaje, int posicionC, int posicionF){
-	for(int x=0; x<20; x++)
-	{
-		if(x%2==0)
-		{
-			rlutil::setColor(rlutil::LIGHTGREEN);
-			rlutil::setBackgroundColor(rlutil::RED);
-		}
-		else
-		{
-			rlutil::setColor(rlutil::RED);
-			rlutil::setBackgroundColor(rlutil::LIGHTGREEN);
-		}
-		rlutil::locate(posicionC,posicionF);
-
-		cout << mensaje << endl;
-		rlutil::msleep(100);
-	}
 }
 
 

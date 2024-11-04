@@ -746,3 +746,11 @@ struct CursorHider {
 
 } // namespace rlutil
 #endif
+
+
+void dibujarDado(int numero, int columna, int fila);
+void dibujarPuntos(int numero, int columna, int fila);
+void dibujarSombra( int columna, int fila);
+void dibujarCuadrado(int columna, int fila);
+int tirarDadoGrafico(int columna, int fila);
+void titilar(std::string mensaje, int posicionC, int posicionF);

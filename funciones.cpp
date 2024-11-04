@@ -12,13 +12,10 @@ using namespace std;
 void tiradaBloqueadores(int v[], int t){
     t=2;
     int x, dado;
-    cout << "==================================="<<endl;
-    cout << "Dados bloqueadores " << endl;
-    cout << "==================================="<<endl;
-    for(x=0; x<2; x++){
+      for(x=0; x<2; x++){
         dado = tirarDado(); // Genera un n�mero aleatorio entre 1 y 6
         v[x] = dado; // Guarda el dado generado en el vector `v`
-        cout << "Dado " << x + 1 << " = " << v[x] << endl; // Muestra el valor de cada dado bloqueador
+        //cout << "Dado " << x + 1 << " = " << v[x] << endl; // Muestra el valor de cada dado bloqueador
         }
     }
 
@@ -31,12 +28,10 @@ int tirarDado(){
 void tiradaDeDados(int vD[], int tam){
     tam = 5; // Define que el jugador lanza 5 dados
     int x;
-    cout << "Tirada de Dados " << endl;
-    cout << "===================================" << endl;
     for (x = 0; x < tam; x++) // Itera cinco veces para generar cinco dados
     {
         vD[x] = tirarDado(); // Genera un n�mero aleatorio entre 1 y 6 para cada dado
-        cout << "Dado " << x + 1 << " = " << vD[x] << endl; // Muestra el valor de cada dado
+    //    cout << "Dado " << x + 1 << " = " << vD[x] << endl; // Muestra el valor de cada dado
     }
 }
 
@@ -90,7 +85,7 @@ void mostrarDados(int vD[], int tam){
     // Muestra los dados disponibles despu�s de filtrar los bloqueados
     for(x = 0; x<tam; x++){
 
-        cout << "Dado : " << vD[x] << endl;
+        cout << "Dado = " << vD[x] << endl;
     }
 }
 
@@ -103,136 +98,3 @@ int sumarDados(int vD[], int t){
     }
     return aP; // Devuelve la suma total de los puntos
 }
-
-///tiradaDeDadosDibujo
-/*void dibujarDado(int numero, int columna, int fila)
-{
-    dibujarCuadrado(columna,fila);
-    dibujarPuntos(numero,columna,fila);
-    dibujarSombra(columna,fila);
-}
-
-
-void dibujarPuntos(int numero, int columna, int fila){
-    rlutil::setColor(rlutil::BLACK);
-    rlutil::setBackgroundColor(rlutil::WHITE);
-    switch(numero)
-    {
-    case 1:
-        rlutil::locate(columna+3,fila+1);
-        cout<< (char) 254;
-        break;
-    case 2:
-        rlutil::locate(columna+1,fila);
-        cout<< (char) 220;
-        rlutil::locate(columna+5,fila+2);
-        cout<< (char) 223;
-        break;
-    case 3:
-        rlutil::locate(columna+3,fila+1);
-        cout<< (char) 254;
-        rlutil::locate(columna+1,fila);
-        cout<< (char) 220;
-        rlutil::locate(columna+5,fila+2);
-        cout<< (char) 223;
-        break;
-    case 4:
-        rlutil::locate(columna+1,fila);
-        cout<< (char) 220;
-        rlutil::locate(columna+5,fila);
-        cout<< (char) 220;
-        rlutil::locate(columna+1,fila+2);
-        cout<< (char) 223;
-        rlutil::locate(columna+5,fila+2);
-        cout<< (char) 223;
-        break;
-    case 5:
-        rlutil::locate(columna+3,fila+1);
-        cout<< (char) 254;
-        rlutil::locate(columna+1,fila);
-        cout<< (char) 220;
-        rlutil::locate(columna+5,fila);
-        cout<< (char) 220;
-        rlutil::locate(columna+1,fila+2);
-        cout<< (char) 223;
-        rlutil::locate(columna+5,fila+2);
-        cout<< (char) 223;
-        break;
-    case 6:
-        rlutil::locate(columna+1,fila);
-        cout<< (char) 220;
-        rlutil::locate(columna+3,fila);
-        cout<< (char) 220;
-        rlutil::locate(columna+5,fila);
-        cout<< (char) 220;
-        rlutil::locate(columna+1,fila+2);
-        cout<< (char) 223;
-        rlutil::locate(columna+3,fila+2);
-        cout<< (char) 223;
-        rlutil::locate(columna+5,fila+2);
-        cout<< (char) 223;
-        break;
-
-    }
-
-}
-
-void dibujarSombra( int columna, int fila){
-///sombras
-    rlutil::setColor(rlutil::GREY);
-    rlutil::setBackgroundColor(rlutil::BLACK);
-
-    for(int y=fila; y<=fila+2; y++)
-    {
-        rlutil::locate(columna+7,y);
-        if(y==fila)
-        {
-            cout<< (char) 220;
-        }
-        else
-        {
-            cout<< (char) 219;
-        }
-
-    }
-    for(int x=columna+1; x<=columna+7; x++)
-    {
-        rlutil::locate(x,fila+3);
-        cout<< (char) 223;
-    }
-}
-
-
-void dibujarCuadrado(int columna, int fila){
-    rlutil::setColor(rlutil::WHITE);
-    for(int x=columna; x<=columna+6; x++)
-    {
-        for(int y=fila; y<=fila+2; y++)
-        {
-            rlutil::locate(x,y);
-            cout<< (char) 219;
-        }
-    }
-}
-int tirarDadoRlutil(int columna, int fila){
-int dado=tirarDado();
-
-for(int x=0;x<20;x++){
-    dibujarDado(rand()%6+1,columna,fila);
-    rlutil::msleep(10);
-}
-dibujarDado(dado,columna,fila);
-
-
-return dado;
-}
-
-*/
-
-
-
-
-
-
-
-

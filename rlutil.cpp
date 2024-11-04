@@ -117,7 +117,7 @@ void dibujarCuadrado(int columna, int fila)
 }
 
 
-int tirarDado(int columna, int fila){
+int tirarDadoGrafico(int columna, int fila){
 int dado=rand()%6+1;
 
 for(int x=0;x<20;x++){
@@ -129,5 +129,27 @@ dibujarDado(dado,columna,fila);
 
 return dado;
 }
+
+
+void titilar(string mensaje, int posicionC, int posicionF){
+	for(int x=0; x<20; x++)
+	{
+		if(x%2==0)
+		{
+			rlutil::setColor(rlutil::LIGHTGREEN);
+			rlutil::setBackgroundColor(rlutil::RED);
+		}
+		else
+		{
+			rlutil::setColor(rlutil::RED);
+			rlutil::setBackgroundColor(rlutil::LIGHTGREEN);
+		}
+		rlutil::locate(posicionC,posicionF);
+
+		cout << mensaje << endl;
+		rlutil::msleep(100);
+	}
+}
+
 */
 
