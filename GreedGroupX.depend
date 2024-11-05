@@ -7,15 +7,15 @@
 	"carteles.h"
 	"modoJuego.h"
 
-1730735972 c:\users\emili\documents\programación i\ejercicios\trabajosenclase\greedgroupx\greedgroupx\funciones.h
+1730751425 c:\users\emili\documents\programación i\ejercicios\trabajosenclase\greedgroupx\greedgroupx\funciones.h
 
-1730750412 source:c:\users\emili\documents\programación i\ejercicios\trabajosenclase\greedgroupx\greedgroupx\funciones.cpp
+1730751425 source:c:\users\emili\documents\programación i\ejercicios\trabajosenclase\greedgroupx\greedgroupx\funciones.cpp
 	<iostream>
 	"rlutil.h"
 	<string>
 	"funciones.h"
 
-1730744171 source:c:\users\emili\documents\programación i\ejercicios\trabajosenclase\greedgroupx\greedgroupx\carteles.cpp
+1730766367 source:c:\users\emili\documents\programación i\ejercicios\trabajosenclase\greedgroupx\greedgroupx\carteles.cpp
 	<iostream>
 	<string>
 	"funciones.h"
@@ -26,7 +26,7 @@
 
 1729821297 c:\users\emili\documents\programación i\ejercicios\trabajosenclase\greedgroupx\greedgroupx\ranking.h
 
-1730750412 c:\users\emili\documents\programación i\ejercicios\trabajosenclase\greedgroupx\greedgroupx\carteles.h
+1730765772 c:\users\emili\documents\programación i\ejercicios\trabajosenclase\greedgroupx\greedgroupx\carteles.h
 	<iostream>
 	<ctime>
 	"funciones.h"
@@ -50,9 +50,9 @@
 1730053542 source:c:\users\raul\desktop\utn\2 cuatrimestre\programacion\greed\greedgroupx\ranking.cpp
 	<ctime>
 
-1730123068 source:c:\users\emili\documents\programación i\ejercicios\trabajosenclase\greedgroupx\greedgroupx\rlutil.cpp
+1730751426 source:c:\users\emili\documents\programación i\ejercicios\trabajosenclase\greedgroupx\greedgroupx\rlutil.cpp
 
-1730120117 c:\users\emili\documents\programación i\ejercicios\trabajosenclase\greedgroupx\greedgroupx\rlutil.h
+1730751426 c:\users\emili\documents\programación i\ejercicios\trabajosenclase\greedgroupx\greedgroupx\rlutil.h
 	<iostream>
 	<string>
 	<cstdio>
@@ -66,7 +66,7 @@
 	<sys/types.h>
 	<sys/time.h>
 
-1730643742 c:\users\emili\documents\programación i\ejercicios\trabajosenclase\greedgroupx\greedgroupx\modojuego.h
+1730765701 c:\users\emili\documents\programación i\ejercicios\trabajosenclase\greedgroupx\greedgroupx\modojuego.h
 	<iostream>
 	<ctime>
 	"funciones.h"
