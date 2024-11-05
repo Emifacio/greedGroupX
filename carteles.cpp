@@ -44,7 +44,7 @@ cin >> jugador2;
         return selection;
         }
 
-int procesarSelection(int selection){
+void procesarSelection(int selection){
  switch (selection) {
         case 1:
             cout << "Has seleccionado la opcion 1 (Modo un jugador)" << endl;
@@ -114,7 +114,7 @@ void mostrarTituloDadosBloqueadores(){
 
 void mostrarRonda(int ronda){
         cout << endl;
-        cout << "       *******************"<< endl;
+        cout << "       ********************"<< endl;
         cout << "       ** Ronda Nro : " << ronda + 1 << "  **" <<endl;
 }
 
@@ -154,6 +154,7 @@ void mostrarEspacioPDados(){
         cout << endl;
         cout << endl;
         }
+
 void mostrarTituloDadosQSuman(){
     cout << endl;
     cout << "==================================="<< endl;
@@ -209,6 +210,10 @@ void mostrarPuntajeRonda(int ronda, int aP[]){
     }
 
 void mostrarMsjCambioJugador(string jugador){
+
+                cout << "Cambio el turno...  " << jugador << " presiona una tecla si estas listo!!!" << endl;
+                rlutil::anykey();
+                rlutil::cls();
                 cout << endl;
                 cout << "           *   *   *                   "<<endl;
                 cout << endl;
@@ -222,9 +227,11 @@ void mostrarMsjCambioJugador(string jugador){
 
 void mostrarMsjSumaCero(){
                     cout << endl;
+                    cout << endl;
                     cout << "|:(||:(||:(||:(||:(||:(||:(||:(||:(||:(||:(||:(||:(||:(||:(||:(||:(|" << endl;
                     cout << "Todos tus dados fueron bloqueados!! Sumas : 0pts." << endl;
                     cout << "|:(||:(||:(||:(||:(||:(||:(||:(||:(||:(||:(||:(||:(||:(||:(||:(||:(|" << endl;
+                    cout << endl;
                     cout << endl;
 
                 }

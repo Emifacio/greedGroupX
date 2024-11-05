@@ -34,25 +34,16 @@ using namespace std;
     ///---------------------------
 */
 
-
-int primeraRonda(string jugador){
+void codigoRonda(string jugador, int& ronda, int aPt, int aP[]){
 
     srand(time(0));
 
 
-    int x, ronda, aPt = 0, aP[3] = {}, aPt2 = 0, aP2[3] = {};
-
-    mostrarPrimerTurno(jugador);
-
-
-
-    for (ronda = 0; ronda < 3; ronda++) {
 
         int tam = 2, t = 5, vB[2] = {}, vD[t] = {}, cD = 0, puntaje = 0, cDtiradas = 1;
-        //variables dadosGraficos();
         bool duplicar;
         char pregunta = 'S';
-        //dadosGraficos();
+
 
         mostrarRonda(ronda);
         mostrarNroTirada(cDtiradas);
@@ -93,8 +84,7 @@ int primeraRonda(string jugador){
 
 
             mostrarBarraDivisora();
-            mostrarBarraDivisora();
-            mostrarBarraDivisora();
+            mostrarmostrarGreed();
             mostrarBarraDivisora();
 /// Primera pantalla hasta aqui------------------------------------------------------------------------------------------
 
@@ -118,16 +108,17 @@ int primeraRonda(string jugador){
             mostrarTituloDadosQSuman();
             mostrarDados(vD, t);
 
+            mostrarBarraDivisora();
+
             puntaje = sumarDados(vD, t);
 
             if(duplicar == true) {
                     puntaje = puntaje*2;
             }
-            mostrarPuntajeTirada(puntaje);
 
             if(puntaje != 0) {
             aP[ronda] += puntaje;
-            mostrarPuntajeRonda(ronda, aP);
+            mostrarResumenPuntaje(puntaje, ronda, aP);
                 } else {
                 aP[ronda] = 0;
                 mostrarMsjSumaCero();
@@ -140,8 +131,7 @@ int primeraRonda(string jugador){
                 mostrarBarraDivisora();
                 } while(pregunta != 'N');
 
-                return aP[ronda];
-                }
+            }
 
 
 void modoDosJugadores() {
@@ -154,9 +144,8 @@ void modoDosJugadores() {
 
    cout << "                Cargando datos para tu partida..." << endl;
    mostrarBarraDivisora();
-    //rlutil::msleep(3000);
-    //rlutil::cls();
-
+    rlutil::msleep(3000);
+    rlutil::cls();
 
     srand(time(0));
 
@@ -165,14 +154,61 @@ void modoDosJugadores() {
 
     mostrarPrimerTurno(jugador1);
 
+        ///Ronda1
+        ronda = 0;
+        codigoRonda(jugador1, ronda, aPt, aP);
+        mostrarMsjCambioJugador(jugador2);
+        codigoRonda(jugador2, ronda, aPt2, aP2);
+        mostrarMsjCambioJugador(jugador1);
+
+           ///Ronda2
+        ronda = 1;
+        codigoRonda(jugador1, ronda, aPt, aP);
+        mostrarMsjCambioJugador(jugador2);
+        codigoRonda(jugador2, ronda, aPt2, aP2);
+        mostrarMsjCambioJugador(jugador1);
+
+           ///Ronda3
+        ronda = 2;
+        codigoRonda(jugador1, ronda, aPt, aP);
+        mostrarMsjCambioJugador(jugador2);
+        codigoRonda(jugador2, ronda, aPt2, aP2);
 
 
+
+    cout << "Presione cualquier tecla para continuar ... " << endl;
+    rlutil::anykey();
+
+    for(x = 0; x < 3; x++) {
+        aPt += aP[x];
+        }
+        for( x = 0; x < 3; x++) {
+            aPt2 += aP2[x];
+        }
+
+        if(aPt > aPt2) {
+            mostrarGanador(jugador1);
+        } else {
+            mostrarGanador(jugador2);
+            }
+    mostrarTotalPtsAmbosJugadores(jugador1, jugador2, aPt, aPt2);
+    // TODO mostrarMsjRecordAlcanzado(); --> mostrar mensaje si alcanza un nuevo record
+    // Ranking() --> Menu para anotar record
+
+    mostrarMsjFinalJuego();
+    cout << "Presione cualquier tecla para continuar ... " << endl;
+    rlutil::anykey();
+    mostrarBarraDivisora();
+    int selection = mostrarMenu();
+    procesarSelection(selection);
+
+ }
+
+
+/*
     for (ronda = 0; ronda < 3; ronda++) {
 
-      /*  aPt = primeraRonda(jugador1, ronda, aPt, aP);
-        mostrarMsjCambioJugador(jugador2);
-        aPt2 = primeraRonda(jugador2,ronda, aPt2, aP2)
-   */
+
         int tam = 2, t = 5, vB[2] = {}, vD[t] = {}, cD = 0, puntaje = 0, cDtiradas = 1;
         //variables dadosGraficos();
         bool duplicar;
@@ -265,12 +301,7 @@ void modoDosJugadores() {
                 mostrarBarraDivisora();
                 } while(pregunta != 'N');
 
-                   cout << "Cambio el turno." << jugador2 << " presiona una tecla si estas listo!" << endl;
-                   rlutil::anykey();
-                   rlutil::cls();
-
-
-                mostrarMsjCambioJugador(jugador2);
+              mostrarMsjCambioJugador(jugador2);
 
 
         t = 5;
@@ -351,6 +382,8 @@ void modoDosJugadores() {
                         }
                         }
                         while(pregunta != 'N');
+
+
                         if(ronda != 2){
                             mostrarMsjCambioJugador(jugador1);
                         }
@@ -389,7 +422,7 @@ void modoDosJugadores() {
     procesarSelection(selection);
 
  }
-
+*/
 
 
 ////////////////////////////////////////////////////////////////////1//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
