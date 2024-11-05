@@ -2,7 +2,7 @@
 
 
 void tiradaBloqueadores(int v[], int t);
-int tirarDado();
+int tirarDadito();
 void tiradaDeDados(int vD[], int tam);
 bool dadosIguales(int vD[], int t);
 int dadosNuevos(int vD[],int t,int vB[2]);
