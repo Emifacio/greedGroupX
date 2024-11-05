@@ -46,5 +46,6 @@ void mostrarGanador(std::string jugador);
 void mostrarMsjFinalJuego();
 
 void mostrarBarraDivisora();
+void mostrarBarraDivisoraLarga();
 ///probar
 

@@ -107,7 +107,7 @@ void mostrarPrimerTurno(string jugador1){
 }
 
 void mostrarTituloDadosBloqueadores(){
-                    cout << "==================================="<<endl;
+                    cout << endl;
                     cout << "Dados bloqueadores:" << endl;
                     cout << "==================================="<<endl;
                     }
@@ -133,10 +133,14 @@ void mostrarNroTiradasMasUno(int cDtiradas){
 }
 
 void mostrarTituloTiradaDados(){
-  cout << "===================================" << endl;
+
+    cout << endl;
+    cout << "===================================" << endl;
     cout << "Tirada de Dados " << endl;
     cout << "===================================" << endl;
+
 }
+
 
 void mostrarEspacioPDados(){
         cout << endl;
@@ -168,6 +172,8 @@ void mostrarDuplicaONo(bool duplicar){
         cout << endl;
         cout << "*Duplica puntos: Los dados son iguales." << endl;
         cout << "**Siguiente tirada automatica." << endl;
+        cout << "Presione una tecla para continuar." << endl;
+        rlutil::anykey();
             }else{
                 cout << endl;
                 cout << "*No duplica: Uno o mas dados distintos." << endl;
@@ -186,7 +192,7 @@ void mostrarResumenPuntaje(int puntaje, int ronda, int aP[]) {
 }
 
 char preguntaContinuarTirando(char pregunta){
-    cout << "Desea continuar tirando (S para seguir o N para sumar los puntos acumulados): " << endl;
+    cout << " ¿Deseas continuar tirando (S/N)?" << endl;
     cin >> pregunta;
     cout << endl;
 
@@ -223,6 +229,8 @@ void mostrarMsjCambioJugador(string jugador){
                 cout << "           BUENA SUERTE!"<< endl;
                 cout << "   -----------------------------" << endl;
                 cout << endl;
+                rlutil::msleep(1750);
+                rlutil::cls();
                 }
 
 void mostrarMsjSumaCero(){
@@ -246,6 +254,8 @@ void mostrarMsjFinRondas(string jugador, int ronda, int aP[]){
 
 void mostrarTotalPtsAmbosJugadores(string jugador1, string jugador2,int acumuladoPuntajeTotalJugador1,int acumuladoPuntajeTotalJugador2){
     cout << endl;
+    cout << "               === Resultados Finales ===" << endl;
+    cout << "               ***********************" << endl;
     cout << endl;
     cout << "       Puntaje total de " << jugador1 << " : " << acumuladoPuntajeTotalJugador1 << "pts" << endl;
     cout << endl;
@@ -305,6 +315,13 @@ void mostrarMsjFinalJuego(){
 void mostrarBarraDivisora(){
     cout << endl;
     cout << "==================================="<< endl;
+
+    cout << endl;
+}
+
+void mostrarBarraDivisoraLarga(){
+    cout << endl;
+    cout << "======================================================================"<< endl;
 
     cout << endl;
 }

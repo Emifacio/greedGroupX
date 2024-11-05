@@ -34,6 +34,8 @@
 		</Compiler>
 		<Unit filename="carteles.cpp" />
 		<Unit filename="carteles.h" />
+		<Unit filename="dados.cpp" />
+		<Unit filename="dados.h" />
 		<Unit filename="funciones.cpp" />
 		<Unit filename="funciones.h" />
 		<Unit filename="main.cpp" />

@@ -4,13 +4,17 @@
 #include <string>
 #include "funciones.h"
 //#include "ranking.h"
+#include "dados.h"
 using namespace std;
 
 
+/*
 
 // Esta funci�n genera los "dados bloqueadores" que son 2 dados aleatorios.
 void tiradaBloqueadores(int v[], int t){
+
     t=2;
+
     int x, dado;
       for(x=0; x<2; x++){
         dado = tirarDado(); // Genera un n�mero aleatorio entre 1 y 6
@@ -18,23 +22,79 @@ void tiradaBloqueadores(int v[], int t){
         //cout << "Dado " << x + 1 << " = " << v[x] << endl; // Muestra el valor de cada dado bloqueador
         }
     }
+*/
 
-int tirarDado(){
-    return rand() % 6 + 1;
+    ///funcion tirada bloqueadores
+void tiradaBloqueadores(int v[], int t)
+{
+
+    int x,c=0,columna=70,fila=11;
+    for(x=0; x<t; x++)
+    {
+        v[x] = tirarDadito();// Guarda el dado generado en el vector v
+        //cout << "Dado " << x + 1 << " = " << v[x] << endl; // Muestra el valor de cada dado bloqueador
+    }
+    for(x=0; x<t; x++)
+    {
+        dibujarBloqueadores(v);
+        columna+=10;
+        if(x%2==0)
+        {
+            fila++;
+        }
+        else
+        {
+            fila--;
+        }
+    }
+    rlutil::msleep(1000);
+
 }
 
 
+int tirarDadito(){
+    return rand() % 6 + 1;
+}
+
+void tiradaDeDados(int vD[], int tam)
+{
+
+    int x,c=0,columna=60,fila=20;
+
+    for (x = 0; x < tam; x++) // Itera cinco veces para generar cinco dados
+    {
+        vD[x] = (rand() % 6 + 1); // Genera un n�mero aleatorio entre 1 y 6 para cada dado
+        /// cout << "Dado " << x + 1 << " = " << vD[x] << endl; // Muestra el valor de cada dado
+    }
+    for(x=0; x<tam; x++)
+    {
+
+        dibujarDado(vD[c++],columna,fila);
+        columna+=10;
+        if(x%2==0)
+        {
+            fila++;
+        }
+        else
+        {
+            fila--;
+        }
+    }
+    rlutil::msleep(1000);
+}
+
+/*
 // Esta funci�n genera los 5 dados que va a tirar el jugador.
 void tiradaDeDados(int vD[], int tam){
     tam = 5; // Define que el jugador lanza 5 dados
     int x;
     for (x = 0; x < tam; x++) // Itera cinco veces para generar cinco dados
     {
-        vD[x] = tirarDado(); // Genera un n�mero aleatorio entre 1 y 6 para cada dado
-    //    cout << "Dado " << x + 1 << " = " << vD[x] << endl; // Muestra el valor de cada dado
+        vD[x] = tirarDadito(); // Genera un n�mero aleatorio entre 1 y 6 para cada dado
+    //cout << "Dado " << x + 1 << " = " << vD[x] << endl; // Muestra el valor de cada dado
     }
 }
-
+*/
 
 
 bool dadosIguales(int vD[], int t){
@@ -87,6 +147,7 @@ void mostrarDados(int vD[], int tam){
 
         cout << "Dado = " << vD[x] << endl;
     }
+
 }
 
 int sumarDados(int vD[], int t){
