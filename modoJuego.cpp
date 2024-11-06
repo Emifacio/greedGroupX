@@ -79,7 +79,7 @@ void modoUnJugador(){
  srand(time(0));
 
     string jugador;
-    int x, ronda, aPt, aP[3]= {};
+    int x, ronda, aPt=0, aP[3]= {};
 
     mostrarBarraDivisoraLarga();
     cout << "Bienvenido  al modo 1 Jugador." << endl;
@@ -197,6 +197,9 @@ void codigoRonda(string jugador, int& ronda, int aPt, int aP[]){
                 } else {
                     cout << jugador << " consiguio en la ronda " << ronda+1 << " : "<< aP[ronda] <<"pts!" <<endl;
                     //mostrarMensajeSegunPuntaje(ap[ronda]);
+                    rlutil::msleep(1000);
+                    rlutil::cls();
+
                     }
                 mostrarBarraDivisora();
                 } while(pregunta != 'N');
