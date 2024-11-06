@@ -10,41 +10,93 @@ using namespace std;
 //#include "ranking.h"
 
 
+void sonidoRonda(){
+                     Beep(1568, 100); Sleep(8);
+					 Beep(1175, 50); Sleep(4);
+					 Beep(1046, 50); Sleep(3);
+					 Beep(988, 60); Sleep(2);
+					 Beep(880, 150); Sleep(11);
+					 }
+
 void mostrarmostrarGreed() {
-    cout<< endl;
-    cout << "  GGGGG    RRRRR    EEEEE   EEEEE   DDDDD   \n";
-    cout << " G        R    R   E       E       D    D  \n";
-    cout << " G  GGG   RRRRR    EEEE    EEEE    D    D  \n";
-    cout << " G    G   R  R     E       E       D    D  \n";
-    cout << "  GGGGG   R   R    EEEEE   EEEEE   DDDDD   \n";
+int c = 15;
+int f = 12;
+    for(int x=0; x<2; x++)
+    {
+        if(x%2==0)
+        {
+            rlutil::setColor(rlutil::LIGHTGREEN);
+            rlutil::setBackgroundColor(rlutil::BLUE);
+        }
+        else
+        {
+            rlutil::setColor(rlutil::BLUE);
+            rlutil::setBackgroundColor(rlutil::LIGHTGREEN);
+        }
+
+        cout<< endl;
+        rlutil::locate(c,f);
+        cout << "  GGGGG    RRRRR    EEEEE   EEEEE   DDDDD  \n";
+        Beep(1568, 100); Sleep(8);
+        rlutil::locate(c,f+1);
+        cout << " G        R    R   E       E       D    D  \n";
+        Beep(1175, 50); Sleep(4);
+        rlutil::locate(c,f+2);
+        cout << " G  GGG   RRRRR    EEEE    EEEE    D    D  \n";
+        Beep(1046, 50); Sleep(3);
+        rlutil::locate(c,f+3);
+        cout << " G    G   R  R     E       E       D    D  \n";
+        Beep(988, 60); Sleep(2);
+        rlutil::locate(c,f+4);
+        cout << "  GGGGG   R   R    EEEEE   EEEEE   DDDDD   \n";
+        Beep(880, 150); Sleep(20);
+        cout << endl;
+        rlutil::msleep(37);
+        rlutil::setColor(rlutil::WHITE);
+        rlutil::setBackgroundColor(rlutil::BLACK);
+    }
 
 }
 
-
 void pedirNombre(string& jugador1, string& jugador2){
-cout   << "Ingresar nombre del jugador nro1 :  "<< endl;
+  rlutil::locate(20,10);
+cout   << " Ingresar nombre del jugador nro1 :  "<< endl;
+rlutil::locate(20,11);
 cin >> jugador1;
-cout   << "Ingresar nombre del jugador nro2 :  "<< endl;
+rlutil::locate(20,12);
+cout   << " Ingresar nombre del jugador nro2 :  "<< endl;
+rlutil::locate(20,13);
 cin >> jugador2;
 }
 
  int mostrarMenu(){
-    cout << "Bienvenido al menu principal" << endl;
+    cout << endl;
+    cout << endl;
+    cout << endl;
+    cout << endl;
+    cout << "   ****************************" << endl;
+    cout << "   **      Menu Principal    **" << endl;
+    cout << "   **                        **" << endl;
+    cout << "   **                        **" << endl;
+    cout << "   **       Bienvenido       **" << endl;
+    cout << "   ****************************" << endl;
     cout << endl;
     int selection = 0;
-        cout << " Por favor elija una de las siguientes opciones - \n";
-        cout << " 1. Modo un jugador.\n";
-        cout << " 2. Modo dos jugadores.\n";
-        cout << " 3. Estadisticas.\n";
-        cout << " 4. Creditos.\n";
-        cout << " 5. Salir  .\n";
+        cout << " Por favor elije una de las siguientes opciones : \n";
+        cout << "       1. Modo un jugador.\n";
+        cout << "       2. Modo dos jugadores.\n";
+        cout << "       3. Estadisticas.\n";
+        cout << "       4. Creditos.\n";
+        cout << "       5. Salir  .\n";
         cout << "\t";
         cin >> selection;
+        rlutil::hidecursor();
 
         return selection;
         }
 
 void procesarSelection(int selection){
+
  switch (selection) {
         case 1:
             cout << "Has seleccionado la opcion 1 (Modo un jugador)" << endl;
@@ -91,13 +143,13 @@ void procesarSelection(int selection){
 
 void mostrarPrimerTurno(string jugador1){
     cout << endl;
-    cout << "==================================="<< endl;
+    cout << "           ==================================="<< endl;
+    cout << "           ||                               ||"<< endl;
+    cout << "                  Es el Turno de " << jugador1 <<endl;
     cout << endl;
-    cout << "    Es el Turno de " << jugador1 <<"." <<endl;
-    cout << endl;
-    cout << "           A JUGAR!!"<< endl;
-    cout << endl;
-    cout << "==================================="<< endl;
+    cout << "           ||           A JUGAR!!           ||"<< endl;
+    cout << "           ||                               ||"<<endl;
+    cout << "           ==================================="<< endl;
     cout << endl;
     cout << endl;
     cout << endl;
@@ -236,6 +288,7 @@ void mostrarMsjCambioJugador(string jugador){
 void mostrarMsjSumaCero(){
                     cout << endl;
                     cout << endl;
+                     Beep(880, 150); Sleep(200);
                     cout << "|:(||:(||:(||:(||:(||:(||:(||:(||:(||:(||:(||:(||:(||:(||:(||:(||:(|" << endl;
                     cout << "Todos tus dados fueron bloqueados!! Sumas : 0pts." << endl;
                     cout << "|:(||:(||:(||:(||:(||:(||:(||:(||:(||:(||:(||:(||:(||:(||:(||:(||:(|" << endl;
@@ -254,8 +307,8 @@ void mostrarMsjFinRondas(string jugador, int ronda, int aP[]){
 
 void mostrarTotalPtsAmbosJugadores(string jugador1, string jugador2,int acumuladoPuntajeTotalJugador1,int acumuladoPuntajeTotalJugador2){
     cout << endl;
-    cout << "               === Resultados Finales ===" << endl;
-    cout << "               ***********************" << endl;
+    cout << "        === Resultados Finales ===" << endl;
+    cout << "            *******************" << endl;
     cout << endl;
     cout << "       Puntaje total de " << jugador1 << " : " << acumuladoPuntajeTotalJugador1 << "pts" << endl;
     cout << endl;

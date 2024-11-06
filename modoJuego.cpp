@@ -9,7 +9,7 @@ using namespace std;
 
 
 void modoDosJugadores() {
-
+    rlutil::cls();
     string jugador1, jugador2;
 
     pedirNombre(jugador1, jugador2);
@@ -18,7 +18,7 @@ void modoDosJugadores() {
     mostrarBarraDivisoraLarga();
    cout << "                Cargando datos para tu partida..." << endl;
    mostrarBarraDivisoraLarga();
-    rlutil::msleep(1750);
+    rlutil::msleep(1000);
     rlutil::cls();
     srand(time(0));
 
@@ -28,18 +28,23 @@ void modoDosJugadores() {
 
         ///Ronda1
         ronda = 0;
+        sonidoRonda();
         codigoRonda(jugador1, ronda, aPt, aP);
         mostrarMsjCambioJugador(jugador2);
         codigoRonda(jugador2, ronda, aPt2, aP2);
         mostrarMsjCambioJugador(jugador1);
         ///Ronda2
         ronda = 1;
+        sonidoRonda();
+        Beep(1568, 100); Sleep(8);
         codigoRonda(jugador1, ronda, aPt, aP);
         mostrarMsjCambioJugador(jugador2);
         codigoRonda(jugador2, ronda, aPt2, aP2);
         mostrarMsjCambioJugador(jugador1);
         ///Ronda3
         ronda = 2;
+        sonidoRonda();
+        Beep(1568, 100); Sleep(8);
         codigoRonda(jugador1, ronda, aPt, aP);
         mostrarMsjCambioJugador(jugador2);
         codigoRonda(jugador2, ronda, aPt2, aP2);
@@ -86,10 +91,13 @@ void modoUnJugador(){
      rlutil::cls();
 
         ronda = 0;
+        sonidoRonda();
         codigoRonda(jugador, ronda, aPt, aP);
          ronda = 1;
+         sonidoRonda();
         codigoRonda(jugador, ronda, aPt, aP);
          ronda = 2;
+         sonidoRonda();
         codigoRonda(jugador, ronda, aPt, aP);
         for(x = 0; x < 3; x++) {
         aPt += aP[x];
@@ -99,7 +107,7 @@ void modoUnJugador(){
     mostrarMsjFinalJuego();
     cout << "Presione cualquier tecla para continuar ... " << endl;
     rlutil::anykey();
-    mostrarBarraDivisora();
+    mostrarBarraDivisoraLarga();
     int selection = mostrarMenu();
     procesarSelection(selection);
 }
@@ -151,8 +159,7 @@ void codigoRonda(string jugador, int& ronda, int aPt, int aP[]){
                 }
             rlutil::cls();
             mostrarmostrarGreed();
-            mostrarBarraDivisora();
-/// Primera pantalla hasta aqui------------------------------------------------------------------------------------------
+            /// Primera pantalla hasta aqui------------------------------------------------------------------------------------------
             rlutil::msleep(1000);
             rlutil::cls();
             if( pregunta == 'S') {

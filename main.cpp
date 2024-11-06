@@ -14,10 +14,7 @@ int main(){
 
 
      mostrarmostrarGreed();
-     rlutil::setColor(rlutil::WHITE);
-     rlutil::setBackgroundColor(rlutil::BLACK);
-     mostrarBarraDivisora();
-     rlutil::msleep(1750);
+
      rlutil::cls();
 
     int selection = mostrarMenu();

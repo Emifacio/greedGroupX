@@ -46,6 +46,9 @@
 		<Unit filename="rlutil.cpp" />
 		<Unit filename="rlutil.h" />
 		<Extensions>
+			<code_completion>
+				<search_path add="C:\Users\emili\Documents\programación I\Ejercicios\trabajosEnClase\GreedGroupX\greedGroupX\" />
+			</code_completion>
 			<lib_finder disable_auto="1" />
 		</Extensions>
 	</Project>
