@@ -19,8 +19,8 @@ void sonidoRonda(){
 					 }
 
 void mostrarmostrarGreed() {
-int c = 15;
-int f = 12;
+int c = 80;
+int f = 20;
     for(int x=0; x<2; x++)
     {
         if(x%2==0)
