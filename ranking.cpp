@@ -1,67 +1,92 @@
-/*#include <iostream>
-using namespace std;
+#include<iostream>
 #include<ctime>
+#include "funciones.h"
+#include "rlutil.h"
+#include "ranking.h"
+#include "carteles.h"
+#include "modoJuego.h"
+#include "dados.h"
+#include <iomanip>
+
+using namespace std;
 
 ///Ranking
 
-int ranking [10] {};
- srand(time(0));
+void menuEstadisticas() {
+    int ranking[10] {};
+    int opcion;
+    srand(time(0));
+    cargarPuntosAutomaticos(ranking);
+    ordenar(ranking, 10);
+    bool rankear = true;
 
-do{
-    system("cls");
-    cout << "MENU PRINCIPAL" << endl;
-    cout << "1 - Cargar Puntos" << endl;
-    cout << "2 - Mostrar Ranking" << endl;
-    cout << "0 - Salir" << endl;
-    cin >> opcion;
+    while (rankear) {
+        cout << "MENU PRINCIPAL" << endl;
+        cout << "1 - Cargar Puntos" << endl;
+        cout << "2 - Mostrar Ranking" << endl;
+        cout << "0 - Volver al menu principal" << endl;
+        cin >> opcion;
+        rlutil::msleep(1000);
 
-    switch(opcion){
-        case 11:
-            cargarPuntosAutomaticos(ranking);
-            break;
-        case 1:
-            cargarPuntos(ranking);
-        case 2:
-
-
-
-
+        switch (opcion) {
+            case 1:
+                sonidoEleccion();
+                cargarPuntos(ranking);
+                break;
+            case 2:
+                sonidoEleccion();
+                mostrarRanking(ranking);
+                                break;
+            case 0:
+                sonidoEleccion();
+                rlutil::cls();
+                cout << "Volviendo al menu principal..." << endl;
+                mostrarBarraDivisoraLarga();
+                rlutil::msleep(1000);
+                rlutil::cls();
+                rankear = false;
+                break;
+                return;
+        }
     }
 }
 
-//Otra manera de cargar puntos
-void cargarPuntos(int ranking[]){
-        cout << "Ingrese un nuevo puntaje: ";
-        cin >> ranking[10];
-        ordenar(ranking);
-       }
+
 
 void cargarPuntos(int ranking[]) {
     int puntos;
     cout << "Ingrese un nuevo puntaje: ";
-
     cin >> puntos;
 
-    if(puntos > ranking[9]) {
-        ranking[9] = puntos;
-        ordenar(ranking, 10);
+    // busca en que índice insertar el nuevo puntaje
+    int index = 0;
+    while (index < 10 && puntos < ranking[index]) {
+        index++;
     }
+
+    // mueve el arreglo para hacer espacio para el nuevo valor
+    for (int i = 9; i > index; i--) {
+        ranking[i] = ranking[i-1];
+    }
+
+    // agrega el nuevo valor
+    ranking[index] = puntos;
 }
 
-
-void mostrarRanking(int rankingp[]) {
-    for(int i = 0; i < 10; i++) {
+void mostrarRanking(int ranking[]) {
+        for(int i = 0; i < 10; i++) {
         if(ranking[i] != 0){
-        cout << "#" << setfill('0') << setw(2) << i+1 <<setfil('.') setw(10) << ranking[i] << endl;
-        -
+
+    cout << "#" << std::setfill(' ') << std::setw(2) << i+1 << std::setw(10) << ranking[i] << endl;
     }
 }
+    system("pause");
 }
 
 void cargarPuntosAutomaticos(int ranking[]){
     for(int i=0; i <10; i++){
         ranking[i] = rand() % 100 + 1;
-    }
+        }
 }
 
 void ordenar(int vec[], int cant)
@@ -72,7 +97,7 @@ void ordenar(int vec[], int cant)
      {
          masGrande = actual;
 
-         for (j = actual 1; j < cant; j++)
+         for (j = actual ; j < cant; j++){
               if (vec[j] > vec[masGrande]){
                   masGrande = j;
                   }
@@ -85,6 +110,5 @@ void ordenar(int vec[], int cant)
      }
 }
 
-*/
 
 
