@@ -66,7 +66,7 @@ void modoDosJugadores() {
     mostrarMsjFinalJuego();
     cout << "Presione cualquier tecla para continuar ... " << endl;
     rlutil::anykey();
-    mostrarBarraDivisora();
+    rlutil::cls();
     int selection = mostrarMenu();
     procesarSelection(selection);
  }
@@ -107,7 +107,7 @@ void modoUnJugador(){
     mostrarMsjFinalJuego();
     cout << "Presione cualquier tecla para continuar ... " << endl;
     rlutil::anykey();
-    mostrarBarraDivisoraLarga();
+    rlutil::cls();
     int selection = mostrarMenu();
     procesarSelection(selection);
 }
@@ -135,8 +135,8 @@ void codigoRonda(string jugador, int& ronda, int aPt, int aP[]){
 
         cD = dadosNuevos(vD, t, vB);
         ///actualizacion tamanio de dados
-        t = cD;
         duplicar = dadosIguales(vD, t);
+        t = cD;
         mostrarTituloDadosQSuman();
         mostrarDados(vD, t);
 
@@ -201,6 +201,5 @@ void codigoRonda(string jugador, int& ronda, int aPt, int aP[]){
                     rlutil::cls();
 
                     }
-                mostrarBarraDivisora();
-                } while(pregunta != 'N');
+                  } while(pregunta != 'N');
             }

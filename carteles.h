@@ -10,7 +10,7 @@
 
 /**Etiquetas de funciones de mostrares para
 mostrar durante el programa.*/
-
+void sonidoEleccion();
 void sonidoRonda();
 void mostrarmostrarGreed() ;
 void pedirNombre(std::string& jugador1, std::string& jugador2);
