@@ -49,4 +49,14 @@ void mostrarMsjFinalJuego();
 void mostrarBarraDivisora();
 void mostrarBarraDivisoraLarga();
 ///probar
+void mostrarGanadorColor(std::string jugador);
+void mostrarMsjFinalJuegoColor();
+void imprimirPatronAlternadoColor(int posicionC,int posicionF);
+void mostrarMsjCambioJugadorColor(std::string jugador);
+void mostrarResumenPuntajeColor(int puntaje, int ronda, int aP[]);
+int mostrarMenuColor();
+void mostrarCreditos();
+void mostrarRondaColor(int ronda);
+void mostrarNroTiradaColor(int cDtiradas);
+void mostrarNroTiradasMasUnoColor(int cDtiradas);
 

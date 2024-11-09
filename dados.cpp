@@ -9,23 +9,64 @@ using namespace std;
 
 void dibujarDado(int numero, int columna, int fila)
 {
-    dibujarCuadrado(columna,fila);
-    dibujarPuntos(numero,columna,fila);
-    dibujarSombra(columna,fila);
+	rlutil::hidecursor();
+	for(int x=0; x<15; x++)
+	{
+		if(x%2==0)
+		{
+			dibujarCuadrado(columna,fila);
+			dibujarPuntos(numero,columna,fila);
+			dibujarSombra(columna,fila);
+		}
+		else
+		{
+			dibujarPuntos(numero,columna,fila);
+			dibujarSombra(columna,fila);
+			dibujarCuadrado(columna,fila);
 
+
+		}
+
+		rlutil::msleep(100);
+	}
 }
 ///dados color
 void dibujarDadoColor(int numero, int columna, int fila, int color, int colorPoint)
 {
-    rlutil::setColor(color);
-    dibujarCuadradoColor(columna,fila);
-    rlutil::setColor(colorPoint);
-    rlutil::setBackgroundColor(color);
-    dibujarPuntosColor(numero,columna,fila);
-    rlutil::setColor(rlutil::GREY);
-    rlutil::setBackgroundColor(rlutil::BLACK);
-    dibujarSombra(columna,fila);
+	for(int x=0; x<11; x++)
+	{
+		if(x%2==0)
+		{
+			rlutil::setColor(color);
+			dibujarCuadradoColor(columna,fila);
+			rlutil::setColor(colorPoint);
+			rlutil::setBackgroundColor(color);
+			dibujarPuntosColor(numero,columna,fila);
+			rlutil::setColor(rlutil::GREY);
+			rlutil::setBackgroundColor(rlutil::BLACK);
+			dibujarSombra(columna,fila);
+		}
+		else
+		{
+			dibujarPuntosColor(numero,columna,fila);
+			rlutil::setBackgroundColor(rlutil::BLACK);
+			dibujarSombra(columna,fila);
+			rlutil::setColor(color);
+			dibujarCuadradoColor(columna,fila);
+			rlutil::setColor(colorPoint);
+			rlutil::setBackgroundColor(color);
 
+			rlutil::setColor(rlutil::GREY);
+
+
+		}
+
+
+
+
+
+		rlutil::msleep(100);
+	}
 }
 
 void dibujarPuntos(int numero, int columna, int fila){

@@ -392,4 +392,383 @@ void mostrarBarraDivisoraLarga(){
     cout << endl;
 }
 
+///Creditos
+void mostrarCreditos()
+{
+	cout << "******************************************" << endl;
+	cout << "*                Creditos                *" << endl;
+	cout << "******************************************" << endl;
+	cout << "* Wolfman Entertainments                 *" << endl;
+	cout << "* Juego desarrollado por:                *" << endl;
+	cout << "* - Gabriel Emiliano Facio (Legajo: 32015)*" << endl;
+	cout << "* - Raul Oscar Luppini (Legajo: 30439)   *" << endl;
+	cout << "*                                        *" << endl;
+	cout << "* Inspiración:                           *" << endl;
+	cout << "* Basado en el juego 'Greed' y en juegos *" << endl;
+	cout << "* 'Push your luck' de Bob Lancaster, como*" << endl;
+	cout << "* el original 'Push Your Luck'.          *" << endl;
+	cout << "*                                        *" << endl;
+	cout << "******************************************" << endl;
+
+}
+
+///Funciones colores
+void mostrarGanadorColor(string jugador)
+{
+	int posicionC=80;
+	int posicionF=20;
+	for(int x=0; x<20; x++)
+	{
+		if(x%2==0)
+		{
+			rlutil::setColor(rlutil::LIGHTGREEN);
+			rlutil::setBackgroundColor(rlutil::RED);
+		}
+		else
+		{
+			rlutil::setColor(rlutil::RED);
+			rlutil::setBackgroundColor(rlutil::LIGHTGREEN);
+		}
+
+		cout << endl;
+		rlutil::locate(posicionC,posicionF);
+		cout << " EL JUGADOR QUE CONSIGUIO EL MEJOR PUNTAJE FUE : ... " << endl;
+		//cout << endl;
+
+		imprimirPatronAlternadoColor(1,1);
+		//cout << endl;
+		//cout << endl;
+		rlutil::locate(posicionC,21);
+		cout << "               ** " <<  jugador << "          !!! ** " << endl;
+		//cout << endl;
+		//cout << endl;
+		rlutil::locate(posicionC,22);
+		cout << " ********************************************        " << endl;
+		//cout << endl;
+		rlutil::locate(posicionC,23);
+		cout <<"    "<< jugador << " #GANASTE! #     FELICITACIONES!!!" << endl;
+		//cout << endl;
+		rlutil::locate(posicionC,24);
+		cout << " ********************************************        " << endl;
+		cout << endl;
+
+		imprimirPatronAlternadoColor(1,30);
+		rlutil::msleep(100);
+	}
+}
+
+void mostrarMsjFinalJuegoColor()
+{
+	int posicionC=80;
+	int posicionF=20;
+
+	for(int x=0; x<20; x++)
+	{
+		if(x%2==0)
+		{
+			rlutil::setColor(rlutil::LIGHTGREEN);
+			rlutil::setBackgroundColor(rlutil::RED);
+		}
+		else
+		{
+			rlutil::setColor(rlutil::RED);
+			rlutil::setBackgroundColor(rlutil::LIGHTGREEN);
+		}
+		rlutil::locate(posicionC,posicionF);
+
+		cout << endl;
+		rlutil::locate(posicionC,21);
+		cout << "                *    *    *                  " << endl;
+		cout << endl;
+		rlutil::locate(posicionC,22);
+		cout << "           EL JUEGO HA FINALIZADO            "<<endl;
+		cout << endl;
+		rlutil::locate(posicionC,23);
+		cout << "                *    *    *                  " << endl;
+		cout << endl;
+		rlutil::locate(posicionC,24);
+		cout << "            GRACIAS POR JUGAR!!!             " << endl;
+		cout << endl;
+		rlutil::locate(posicionC,25);
+		cout << "                *    *    *                  " << endl;
+		cout << endl;
+		rlutil::msleep(100);
+	}
+}
+void imprimirPatronAlternadoColor(int posicionC,int posicionF)
+{
+	int fila=10;
+	int columna=208;
+
+	for(int x=0; x<15; x++)
+	{
+		if(x%2==0)
+		{
+			rlutil::setColor(rlutil::LIGHTGREEN);
+			rlutil::setBackgroundColor(rlutil::RED);
+		}
+		else
+		{
+			rlutil::setColor(rlutil::RED);
+			rlutil::setBackgroundColor(rlutil::LIGHTGREEN);
+		}
+
+		rlutil::locate(posicionC,posicionF);
+		for (int i = 0; i < fila; i++)
+		{
+
+			for (int j = 0; j < columna; j++)
+			{
+				// Condición para alternar espacios y asteriscos
+				if ((i + j) % 2 == 0)
+				{
+
+					cout << "*";
+				}
+				else
+				{
+					cout << " ";
+				}
+			}
+			cout << endl;
+		}
+		rlutil::msleep(100);
+	}
+}
+
+void mostrarMsjCambioJugadorColor(string jugador)
+{
+	int posicionC=80;
+	int posicionF=20;
+	for(int x=0; x<20; x++)
+	{
+		if(x%2==0)
+		{
+			rlutil::setColor(rlutil::YELLOW);
+			rlutil::setBackgroundColor(rlutil::BLUE);
+		}
+		else
+		{
+			rlutil::setColor(rlutil::RED);
+			rlutil::setBackgroundColor(rlutil::LIGHTGREEN);
+		}
+
+		cout << endl;
+		rlutil::locate(posicionC,posicionF);
+		cout << "            *   *   *                   "<<endl;
+		cout << endl;
+		rlutil::locate(posicionC,21);
+		cout << "   -------------------------------------" << endl;
+		rlutil::locate(posicionC,22);
+		cout << "       ES EL TURNO DE " << jugador << "!               " << endl;
+		cout << endl;
+		rlutil::locate(posicionC,23);
+		cout << "           BUENA SUERTE!                "<< endl;
+		rlutil::locate(posicionC,24);
+		cout << "   -------------------------------------" << endl;
+		cout << endl;
+
+		rlutil::msleep(100);
+	}
+}
+
+void mostrarResumenPuntajeColor(int puntaje, int ronda, int aP[])
+{
+	for (int i = 0; i < 15; i++)
+	{
+
+		if (i % 2 == 0)
+		{
+			rlutil::setColor(rlutil::YELLOW);
+		}
+		else
+		{
+			rlutil::setColor(rlutil::LIGHTBLUE);
+		}
+
+		// Muestra el cuadro de puntaje
+		rlutil::locate(3,33);
+		cout << "   ****************************" << endl;
+		rlutil::locate(3,34);
+		cout << "   ** Puntos Tirada : " << puntaje << " pts **" << endl;
+		rlutil::locate(3,35);
+		cout << "   **                        **" << endl;
+		rlutil::locate(3,36);
+		cout << "   **                        **" << endl;
+		rlutil::locate(3,37);
+		cout << "   **  Puntos Ronda : " << aP[ronda] << " pts **" << endl;
+		rlutil::locate(3,38);
+		cout << "   ****************************" << endl;
+		cout << endl;
+
+
+		Sleep(300);
+	}
+
+
+	rlutil::resetColor();
+}
+
+void mostrarMsjSumaCeroColor()
+{
+	cout << endl;
+	cout << endl;
+	for (int i = 0; i < 15; i++)
+	{
+
+		if (i % 2 == 0)
+		{
+			rlutil::setColor(rlutil::YELLOW);
+		}
+		else
+		{
+			rlutil::setColor(rlutil::LIGHTBLUE);
+		}
+		Beep(880, 150);
+		Sleep(200);
+		cout << "|:(||:(||:(||:(||:(||:(||:(||:(||:(||:(||:(||:(||:(||:(||:(||:(||:(|" << endl;
+		cout << "Todos tus dados fueron bloqueados!! Sumas : 0pts." << endl;
+		cout << "|:(||:(||:(||:(||:(||:(||:(||:(||:(||:(||:(||:(||:(||:(||:(||:(||:(|" << endl;
+		cout << endl;
+		cout << endl;
+		Sleep(300);
+	}
+	rlutil::resetColor();
+
+}
+
+
+int mostrarMenuColor()
+{
+	cout << endl;
+	cout << endl;
+	cout << endl;
+	cout << endl;
+	for (int i = 0; i < 15; i++)
+	{
+
+		if (i % 2 == 0)
+		{
+			rlutil::setColor(rlutil::YELLOW);
+		}
+		else
+		{
+			rlutil::setColor(rlutil::LIGHTBLUE);
+		}
+		rlutil::locate(5,7);
+		cout << "   ****************************" << endl;
+		rlutil::locate(5,8);
+		cout << "   **      Menu Principal    **" << endl;
+		rlutil::locate(5,9);
+		cout << "   **                        **" << endl;
+		rlutil::locate(5,10);
+		cout << "   **                        **" << endl;
+		rlutil::locate(5,11);
+		cout << "   **       Bienvenido       **" << endl;
+		rlutil::locate(5,312);
+		cout << "   ****************************" << endl;
+		Sleep(300);
+
+	}
+
+
+	cout << endl;
+	rlutil::resetColor();
+	int selection = 0;
+	cout << " Por favor elije una de las siguientes opciones : \n";
+	cout << "       1. Modo un jugador.\n";
+	cout << "       2. Modo dos jugadores.\n";
+	cout << "       3. Estadisticas.\n";
+	cout << "       4. Creditos.\n";
+	cout << "       5. Salir  .\n";
+	cout << "\t";
+	cin >> selection;
+	rlutil::hidecursor();
+
+	return selection;
+}
+
+void mostrarRondaColor(int ronda)
+{
+	cout << endl;
+	for (int i = 0; i < 15; i++)
+	{
+
+		if (i % 2 == 0)
+		{
+			rlutil::setColor(rlutil::YELLOW);
+		}
+		else
+		{
+			rlutil::setColor(rlutil::LIGHTBLUE);
+		}
+		rlutil::locate(7,2);
+		cout << "       ********************"<< endl;
+		rlutil::locate(7,3);
+		cout << "       ** Ronda Nro : " << ronda + 1 << "  **" <<endl;
+		Sleep(100);
+	}
+}
+
+void mostrarNroTiradaColor(int cDtiradas)
+{
+	int ronda;
+	for (int i = 0; i < 15; i++)
+	{
+
+		if (i % 2 == 0)
+		{
+			rlutil::setColor(rlutil::YELLOW);
+		}
+		else
+		{
+			rlutil::setColor(rlutil::LIGHTBLUE);
+		}
+		rlutil::locate(7,2);
+		cout << "       ********************"<< endl;
+		rlutil::locate(7,3);
+		cout << "       ** Ronda Nro : " << ronda + 1 << "  **" <<endl;
+		rlutil::locate(7,4);
+		cout << "       **                **" << endl;
+		rlutil::locate(7,5);
+		cout << "       ** Tirada Nro : " <<  cDtiradas << " **" <<endl;
+		rlutil::locate(7,6);
+		cout << "       ********************" << endl;
+		cout << endl;
+		Sleep(100);
+	}
+}
+
+void mostrarNroTiradasMasUnoColor(int cDtiradas)
+{
+	int ronda;
+	for (int i = 0; i < 15; i++)
+	{
+
+		if (i % 2 == 0)
+		{
+			rlutil::setColor(rlutil::YELLOW);
+		}
+		else
+		{
+			rlutil::setColor(rlutil::LIGHTBLUE);
+		}
+		rlutil::locate(7,2);
+		cout << "       ********************"<< endl;
+		rlutil::locate(7,3);
+		cout << "       ** Ronda Nro : " << ronda + 1 << "  **" <<endl;
+		rlutil::locate(7,4);
+		cout << "       **                **" << endl;
+		rlutil::locate(7,5);
+		cout << "       ** Tirada Nro : " <<  cDtiradas+1 << " **" <<endl;
+		rlutil::locate(7,6);
+		cout << "       ********************" << endl;
+		cout << endl;
+		Sleep(300);
+	}
+}
+
+
+
+
 
