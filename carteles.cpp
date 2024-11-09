@@ -137,7 +137,7 @@ void procesarSelection(int selection){
             mostrarBarraDivisoraLarga();
             ///Créditos: Deberá mostrar el nombre del equipo (inventar uno)
             //junto con sus respectivos legajos, apellidos y nombres.
-            // mostrarCreditos();
+             mostrarCreditos();
             break;
         case 5:
             sonidoEleccion();

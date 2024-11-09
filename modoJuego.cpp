@@ -132,10 +132,11 @@ void codigoRonda(string jugador, int& ronda, int aPt, int aP[]){
         tiradaDeDados(vD,t);
         rlutil::locate(1,17);
         mostrarDados(vD, t);
+        duplicar = dadosIguales(vD, t);
 
         cD = dadosNuevos(vD, t, vB);
         ///actualizacion tamanio de dados
-        duplicar = dadosIguales(vD, t);
+
         t = cD;
         mostrarTituloDadosQSuman();
         mostrarDados(vD, t);

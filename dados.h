@@ -9,3 +9,4 @@ void dibujarSombra( int columna, int fila);
 void dibujarPuntos(int numero, int columna, int fila);
 int tirarDado(int columna, int fila);
 void dibujarBloqueadores(int vD[]);
+

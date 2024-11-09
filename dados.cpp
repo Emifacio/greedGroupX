@@ -55,19 +55,16 @@ void dibujarDadoColor(int numero, int columna, int fila, int color, int colorPoi
 			dibujarCuadradoColor(columna,fila);
 			rlutil::setColor(colorPoint);
 			rlutil::setBackgroundColor(color);
-
 			rlutil::setColor(rlutil::GREY);
 
-
 		}
-
-
-
-
 
 		rlutil::msleep(100);
 	}
 }
+
+
+
 
 void dibujarPuntos(int numero, int columna, int fila){
     rlutil::setColor(rlutil::BLACK);
