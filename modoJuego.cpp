@@ -87,7 +87,7 @@ void modoUnJugador(){
      cout << "Ingresa tu nombre" << endl;
      cin >> jugador;
      cout << "Estas listo para tirar los dados de la suerte ?" << endl;
-     rlutil::msleep(1000);
+     rlutil::msleep(2000);
      rlutil::cls();
 
         ronda = 0;
@@ -103,8 +103,9 @@ void modoUnJugador(){
         aPt += aP[x];
             }
 
-    cout << "Felicitaciones!!! Tu puntaje total para las 3 rondas  fue de : " << aPt << "!!!" << endl;
-    mostrarMsjFinalJuego();
+    ///cout << "Felicitaciones!!! Tu puntaje total para las 3 rondas  fue de : " << aPt << "!!!" << endl;
+    FelitacionesColor(aPt);
+    mostrarMsjFinalJuegoColor();
     cout << "Presione cualquier tecla para continuar ... " << endl;
     rlutil::anykey();
     rlutil::cls();
@@ -158,10 +159,11 @@ void codigoRonda(string jugador, int& ronda, int aPt, int aP[]){
                 } else {
                 pregunta = 'S';
                 }
+            rlutil::msleep(2000);
             rlutil::cls();
             mostrarmostrarGreed();
             /// Primera pantalla hasta aqui------------------------------------------------------------------------------------------
-            rlutil::msleep(1000);
+            rlutil::msleep(2000);
             rlutil::cls();
             if( pregunta == 'S') {
             mostrarRonda(ronda);
@@ -170,7 +172,7 @@ void codigoRonda(string jugador, int& ronda, int aPt, int aP[]){
             rlutil::locate(1,11);
             mostrarDados(vB, tam);
             rlutil::locate(1,13);
-            dibujarBloqueadores(vB);
+            dibujarBloqueadoresQuieto(vB);
             mostrarTituloTiradaDados();
             tiradaDeDados(vD, t);
             rlutil::locate(1,17);
@@ -198,9 +200,10 @@ void codigoRonda(string jugador, int& ronda, int aPt, int aP[]){
                 } else {
                     cout << jugador << " consiguio en la ronda " << ronda+1 << " : "<< aP[ronda] <<"pts!" <<endl;
                     //mostrarMensajeSegunPuntaje(ap[ronda]);
-                    rlutil::msleep(1000);
-                    rlutil::cls();
+
 
                     }
                   } while(pregunta != 'N');
+                  rlutil::msleep(2000);
+                system("cls");
             }
