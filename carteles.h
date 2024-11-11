@@ -60,4 +60,5 @@ void mostrarRondaColor(int ronda);
 void mostrarNroTiradaColor(int cDtiradas);
 void mostrarNroTiradasMasUnoColor(int cDtiradas);
 void FelitacionesColor(int puntajeTotal );
+void mostrarPrimerTurnoColor(std::string jugador1);
 
