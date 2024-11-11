@@ -102,3 +102,93 @@
 
 1730904345 c:\users\emili\documents\programación i\ejercicios\trabajosenclase\greedgroupx\greedgroupx\dados.h
 
+1731172277 source:c:\users\raull\onedrive\documentos\utn\2 cuatrimestre\programacion\greed\greedgroupx\funciones.cpp
+	<iostream>
+	"rlutil.h"
+	<string>
+	"funciones.h"
+	"dados.h"
+
+1731172277 c:\users\raull\onedrive\documentos\utn\2 cuatrimestre\programacion\greed\greedgroupx\rlutil.h
+	<iostream>
+	<string>
+	<cstdio>
+	<stdio.h>
+	<string.h>
+	<windows.h>
+	<conio.h>
+	<termios.h>
+	<unistd.h>
+	<sys/ioctl.h>
+	<sys/types.h>
+	<sys/time.h>
+
+1731172277 c:\users\raull\onedrive\documentos\utn\2 cuatrimestre\programacion\greed\greedgroupx\funciones.h
+
+1731197599 c:\users\raull\onedrive\documentos\utn\2 cuatrimestre\programacion\greed\greedgroupx\dados.h
+
+1731172277 source:c:\users\raull\onedrive\documentos\utn\2 cuatrimestre\programacion\greed\greedgroupx\main.cpp
+	<iostream>
+	<ctime>
+	"funciones.h"
+	"rlutil.h"
+	"ranking.h"
+	"carteles.h"
+	"modoJuego.h"
+	"dados.h"
+	<iomanip>
+
+1731172277 c:\users\raull\onedrive\documentos\utn\2 cuatrimestre\programacion\greed\greedgroupx\ranking.h
+
+1731197599 c:\users\raull\onedrive\documentos\utn\2 cuatrimestre\programacion\greed\greedgroupx\carteles.h
+	<iostream>
+	<ctime>
+	"funciones.h"
+	"rlutil.h"
+	"modoJuego.h"
+	"carteles.h"
+
+1731172277 c:\users\raull\onedrive\documentos\utn\2 cuatrimestre\programacion\greed\greedgroupx\modojuego.h
+	<iostream>
+	<ctime>
+	"funciones.h"
+	"rlutil.h"
+	"carteles.h"
+
+1731197599 source:c:\users\raull\onedrive\documentos\utn\2 cuatrimestre\programacion\greed\greedgroupx\modojuego.cpp
+	<iostream>
+	<ctime>
+	"funciones.h"
+	"rlutil.h"
+	"carteles.h"
+	"dados.h"
+
+1731172277 source:c:\users\raull\onedrive\documentos\utn\2 cuatrimestre\programacion\greed\greedgroupx\ranking.cpp
+	<iostream>
+	<ctime>
+	"funciones.h"
+	"rlutil.h"
+	"ranking.h"
+	"carteles.h"
+	"modoJuego.h"
+	"dados.h"
+	<iomanip>
+
+1731172277 source:c:\users\raull\onedrive\documentos\utn\2 cuatrimestre\programacion\greed\greedgroupx\rlutil.cpp
+
+1731173482 source:c:\users\raull\onedrive\documentos\utn\2 cuatrimestre\programacion\greed\greedgroupx\carteles.cpp
+	<iostream>
+	<string>
+	"funciones.h"
+	"ranking.h"
+	"rlutil.h"
+	"carteles.h"
+	"modoJuego.h"
+
+1731197599 source:c:\users\raull\onedrive\documentos\utn\2 cuatrimestre\programacion\greed\greedgroupx\dados.cpp
+	<iostream>
+	"rlutil.h"
+	"dados.h"
+	<cstdlib>
+	<ctime>
+

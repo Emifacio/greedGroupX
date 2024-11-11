@@ -9,26 +9,65 @@ using namespace std;
 
 void dibujarDado(int numero, int columna, int fila)
 {
-    dibujarCuadrado(columna,fila);
-    dibujarPuntos(numero,columna,fila);
-    dibujarSombra(columna,fila);
+    rlutil::hidecursor();
+    for(int x=0; x<15; x++)
+    {
+        if(x%2==0)
+        {
+            dibujarCuadrado(columna,fila);
+            dibujarPuntos(numero,columna,fila);
+            dibujarSombra(columna,fila);
+        }
+        else
+        {
+            dibujarPuntos(numero,columna,fila);
+            dibujarSombra(columna,fila);
+            dibujarCuadrado(columna,fila);
 
+
+        }
+
+        rlutil::msleep(100);
+    }
 }
 ///dados color
 void dibujarDadoColor(int numero, int columna, int fila, int color, int colorPoint)
 {
-    rlutil::setColor(color);
-    dibujarCuadradoColor(columna,fila);
-    rlutil::setColor(colorPoint);
-    rlutil::setBackgroundColor(color);
-    dibujarPuntosColor(numero,columna,fila);
-    rlutil::setColor(rlutil::GREY);
-    rlutil::setBackgroundColor(rlutil::BLACK);
-    dibujarSombra(columna,fila);
+    for(int x=0; x<11; x++)
+    {
+        if(x%2==0)
+        {
+            rlutil::setColor(color);
+            dibujarCuadradoColor(columna,fila);
+            rlutil::setColor(colorPoint);
+            rlutil::setBackgroundColor(color);
+            dibujarPuntosColor(numero,columna,fila);
+            rlutil::setColor(rlutil::GREY);
+            rlutil::setBackgroundColor(rlutil::BLACK);
+            dibujarSombra(columna,fila);
+        }
+        else
+        {
+            dibujarPuntosColor(numero,columna,fila);
+            rlutil::setBackgroundColor(rlutil::BLACK);
+            dibujarSombra(columna,fila);
+            rlutil::setColor(color);
+            dibujarCuadradoColor(columna,fila);
+            rlutil::setColor(colorPoint);
+            rlutil::setBackgroundColor(color);
+            rlutil::setColor(rlutil::GREY);
 
+        }
+
+        rlutil::msleep(100);
+    }
 }
 
-void dibujarPuntos(int numero, int columna, int fila){
+
+
+
+void dibujarPuntos(int numero, int columna, int fila)
+{
     rlutil::setColor(rlutil::BLACK);
     rlutil::setBackgroundColor(rlutil::WHITE);
     switch(numero)
@@ -38,35 +77,40 @@ void dibujarPuntos(int numero, int columna, int fila){
         cout<< (char) 254;
         break;
     case 2:
-        if(rand()%2){
-        rlutil::locate(columna+1,fila);
-        cout<< (char) 220;
-        rlutil::locate(columna+5,fila+2);
-        cout<< (char) 223;
-        }else
+        if(rand()%2)
         {
-        rlutil::locate(columna+1,fila+2);
-        cout<< (char) 223;
-        rlutil::locate(columna+5,fila);
-        cout<< (char) 220;
+            rlutil::locate(columna+1,fila);
+            cout<< (char) 220;
+            rlutil::locate(columna+5,fila+2);
+            cout<< (char) 223;
+        }
+        else
+        {
+            rlutil::locate(columna+1,fila+2);
+            cout<< (char) 223;
+            rlutil::locate(columna+5,fila);
+            cout<< (char) 220;
 
         }
         break;
     case 3:
-        if(rand()%2){
-        rlutil::locate(columna+3,fila+1);
-        cout<< (char) 254;
-        rlutil::locate(columna+1,fila);
-        cout<< (char) 220;
-        rlutil::locate(columna+5,fila+2);
-        cout<< (char) 223;
-        }else{
-        rlutil::locate(columna+3,fila+1);
-        cout<< (char) 254;
-        rlutil::locate(columna+1,fila+2);
-        cout<< (char) 223;
-        rlutil::locate(columna+5,fila);
-        cout<< (char) 220;
+        if(rand()%2)
+        {
+            rlutil::locate(columna+3,fila+1);
+            cout<< (char) 254;
+            rlutil::locate(columna+1,fila);
+            cout<< (char) 220;
+            rlutil::locate(columna+5,fila+2);
+            cout<< (char) 223;
+        }
+        else
+        {
+            rlutil::locate(columna+3,fila+1);
+            cout<< (char) 254;
+            rlutil::locate(columna+1,fila+2);
+            cout<< (char) 223;
+            rlutil::locate(columna+5,fila);
+            cout<< (char) 220;
         }
         break;
     case 4:
@@ -92,32 +136,35 @@ void dibujarPuntos(int numero, int columna, int fila){
         cout<< (char) 223;
         break;
     case 6:
-        if(rand()%2){
-        rlutil::locate(columna+1,fila);
-        cout<< (char) 220;
-        rlutil::locate(columna+3,fila);
-        cout<< (char) 220;
-        rlutil::locate(columna+5,fila);
-        cout<< (char) 220;
-        rlutil::locate(columna+1,fila+2);
-        cout<< (char) 223;
-        rlutil::locate(columna+3,fila+2);
-        cout<< (char) 223;
-        rlutil::locate(columna+5,fila+2);
-        cout<< (char) 223;
-        }else{
-        rlutil::locate(columna+1,fila);
-        cout<< (char) 220;
-        rlutil::locate(columna+5,fila);
-        cout<< (char) 220;
-        rlutil::locate(columna+1,fila+2);
-        cout<< (char) 223;
-        rlutil::locate(columna+5,fila+2);
-        cout<< (char) 223;
-        rlutil::locate(columna+1,fila+1);
-        cout<< (char) 254;
-        rlutil::locate(columna+5,fila+1);
-        cout<< (char) 254;
+        if(rand()%2)
+        {
+            rlutil::locate(columna+1,fila);
+            cout<< (char) 220;
+            rlutil::locate(columna+3,fila);
+            cout<< (char) 220;
+            rlutil::locate(columna+5,fila);
+            cout<< (char) 220;
+            rlutil::locate(columna+1,fila+2);
+            cout<< (char) 223;
+            rlutil::locate(columna+3,fila+2);
+            cout<< (char) 223;
+            rlutil::locate(columna+5,fila+2);
+            cout<< (char) 223;
+        }
+        else
+        {
+            rlutil::locate(columna+1,fila);
+            cout<< (char) 220;
+            rlutil::locate(columna+5,fila);
+            cout<< (char) 220;
+            rlutil::locate(columna+1,fila+2);
+            cout<< (char) 223;
+            rlutil::locate(columna+5,fila+2);
+            cout<< (char) 223;
+            rlutil::locate(columna+1,fila+1);
+            cout<< (char) 254;
+            rlutil::locate(columna+5,fila+1);
+            cout<< (char) 254;
         }
         break;
 
@@ -125,7 +172,8 @@ void dibujarPuntos(int numero, int columna, int fila){
 
 }
 
-void dibujarPuntosColor(int numero, int columna, int fila){
+void dibujarPuntosColor(int numero, int columna, int fila)
+{
     switch(numero)
     {
     case 1:
@@ -133,35 +181,40 @@ void dibujarPuntosColor(int numero, int columna, int fila){
         cout<< (char) 254;
         break;
     case 2:
-        if(rand()%2){
-        rlutil::locate(columna+1,fila);
-        cout<< (char) 220;
-        rlutil::locate(columna+5,fila+2);
-        cout<< (char) 223;
-        }else
+        if(rand()%2)
         {
-        rlutil::locate(columna+1,fila+2);
-        cout<< (char) 223;
-        rlutil::locate(columna+5,fila);
-        cout<< (char) 220;
+            rlutil::locate(columna+1,fila);
+            cout<< (char) 220;
+            rlutil::locate(columna+5,fila+2);
+            cout<< (char) 223;
+        }
+        else
+        {
+            rlutil::locate(columna+1,fila+2);
+            cout<< (char) 223;
+            rlutil::locate(columna+5,fila);
+            cout<< (char) 220;
 
         }
         break;
     case 3:
-        if(rand()%2){
-        rlutil::locate(columna+3,fila+1);
-        cout<< (char) 254;
-        rlutil::locate(columna+1,fila);
-        cout<< (char) 220;
-        rlutil::locate(columna+5,fila+2);
-        cout<< (char) 223;
-        }else{
-        rlutil::locate(columna+3,fila+1);
-        cout<< (char) 254;
-        rlutil::locate(columna+1,fila+2);
-        cout<< (char) 223;
-        rlutil::locate(columna+5,fila);
-        cout<< (char) 220;
+        if(rand()%2)
+        {
+            rlutil::locate(columna+3,fila+1);
+            cout<< (char) 254;
+            rlutil::locate(columna+1,fila);
+            cout<< (char) 220;
+            rlutil::locate(columna+5,fila+2);
+            cout<< (char) 223;
+        }
+        else
+        {
+            rlutil::locate(columna+3,fila+1);
+            cout<< (char) 254;
+            rlutil::locate(columna+1,fila+2);
+            cout<< (char) 223;
+            rlutil::locate(columna+5,fila);
+            cout<< (char) 220;
         }
         break;
     case 4:
@@ -187,32 +240,35 @@ void dibujarPuntosColor(int numero, int columna, int fila){
         cout<< (char) 223;
         break;
     case 6:
-        if(rand()%2){
-        rlutil::locate(columna+1,fila);
-        cout<< (char) 220;
-        rlutil::locate(columna+3,fila);
-        cout<< (char) 220;
-        rlutil::locate(columna+5,fila);
-        cout<< (char) 220;
-        rlutil::locate(columna+1,fila+2);
-        cout<< (char) 223;
-        rlutil::locate(columna+3,fila+2);
-        cout<< (char) 223;
-        rlutil::locate(columna+5,fila+2);
-        cout<< (char) 223;
-        }else{
-        rlutil::locate(columna+1,fila);
-        cout<< (char) 220;
-        rlutil::locate(columna+5,fila);
-        cout<< (char) 220;
-        rlutil::locate(columna+1,fila+2);
-        cout<< (char) 223;
-        rlutil::locate(columna+5,fila+2);
-        cout<< (char) 223;
-        rlutil::locate(columna+1,fila+1);
-        cout<< (char) 254;
-        rlutil::locate(columna+5,fila+1);
-        cout<< (char) 254;
+        if(rand()%2)
+        {
+            rlutil::locate(columna+1,fila);
+            cout<< (char) 220;
+            rlutil::locate(columna+3,fila);
+            cout<< (char) 220;
+            rlutil::locate(columna+5,fila);
+            cout<< (char) 220;
+            rlutil::locate(columna+1,fila+2);
+            cout<< (char) 223;
+            rlutil::locate(columna+3,fila+2);
+            cout<< (char) 223;
+            rlutil::locate(columna+5,fila+2);
+            cout<< (char) 223;
+        }
+        else
+        {
+            rlutil::locate(columna+1,fila);
+            cout<< (char) 220;
+            rlutil::locate(columna+5,fila);
+            cout<< (char) 220;
+            rlutil::locate(columna+1,fila+2);
+            cout<< (char) 223;
+            rlutil::locate(columna+5,fila+2);
+            cout<< (char) 223;
+            rlutil::locate(columna+1,fila+1);
+            cout<< (char) 254;
+            rlutil::locate(columna+5,fila+1);
+            cout<< (char) 254;
         }
         break;
 
@@ -220,7 +276,8 @@ void dibujarPuntosColor(int numero, int columna, int fila){
 
 }
 
-void dibujarSombra( int columna, int fila){
+void dibujarSombra( int columna, int fila)
+{
 ///sombras
     rlutil::setColor(rlutil::GREY);
     rlutil::setBackgroundColor(rlutil::BLACK);
@@ -278,22 +335,47 @@ void dibujarCuadradoColor(int columna, int fila)
 
 
 
-int tirarDado(int columna, int fila){
-int dado=rand()%6+1;
+int tirarDado(int columna, int fila)
+{
+    int dado=rand()%6+1;
 
-for(int x=0;x<20;x++){
-    dibujarDado(rand()%6+1,columna,fila);
-    rlutil::msleep(10);
+    for(int x=0; x<20; x++)
+    {
+        dibujarDado(rand()%6+1,columna,fila);
+        rlutil::msleep(10);
+    }
+    dibujarDado(dado,columna,fila);
+
+
+    return dado;
 }
-dibujarDado(dado,columna,fila);
 
-
-return dado;
-}
-
- void dibujarBloqueadores(int vD[])
+void dibujarBloqueadores(int vD[])
 {
 
     dibujarDadoColor(vD[0],80,8,12,15);
     dibujarDadoColor(vD[1],90,9,12,15);
 }
+
+///dibuja los dados de los bloqueadores despues de la tirada
+void dibujarDadoQuieto(int numero, int columna, int fila, int color, int colorPoint)
+{
+
+    rlutil::setColor(color);
+    dibujarCuadradoColor(columna,fila);
+    rlutil::setColor(colorPoint);
+    rlutil::setBackgroundColor(color);
+    dibujarPuntosColor(numero,columna,fila);
+    rlutil::setColor(rlutil::GREY);
+    rlutil::setBackgroundColor(rlutil::BLACK);
+    dibujarSombra(columna,fila);
+
+}
+
+void dibujarBloqueadoresQuieto(int vD[])
+{
+
+    dibujarDadoQuieto(vD[0],80,8,12,15);
+    dibujarDadoQuieto(vD[1],90,9,12,15);
+}
+
