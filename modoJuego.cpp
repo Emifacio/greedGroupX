@@ -24,7 +24,7 @@ void modoDosJugadores() {
 
     int x, ronda, aPt = 0, aP[3] = {}, aPt2 = 0, aP2[3] = {};
 
-    mostrarPrimerTurno(jugador1);
+    mostrarPrimerTurnoColor(jugador1);
 
         ///Ronda1
         ronda = 0;
@@ -53,12 +53,16 @@ void modoDosJugadores() {
             aPt2 += aP2[x];
         }
         if(aPt > aPt2) {
-            mostrarGanador(jugador1);
+            mostrarGanadorColor(jugador1);
         } else {
-            mostrarGanador(jugador2);
+            mostrarGanadorColor(jugador2);
             }
     mostrarTotalPtsAmbosJugadores(jugador1, jugador2, aPt, aPt2);
-    mostrarMsjFinalJuego();
+    rlutil::msleep(2000);
+    system("cls");
+    rlutil::setColor(rlutil::WHITE);
+    rlutil::setBackgroundColor(rlutil::BLACK);
+    mostrarMsjFinalJuegoColor();
     cout << "Presione cualquier tecla para continuar ... " << endl;
     rlutil::anykey();
     rlutil::cls();
