@@ -8,21 +8,7 @@
 using namespace std;
 
 
-/*
 
-// Esta funci�n genera los "dados bloqueadores" que son 2 dados aleatorios.
-void tiradaBloqueadores(int v[], int t){
-
-    t=2;
-
-    int x, dado;
-      for(x=0; x<2; x++){
-        dado = tirarDado(); // Genera un n�mero aleatorio entre 1 y 6
-        v[x] = dado; // Guarda el dado generado en el vector `v`
-        //cout << "Dado " << x + 1 << " = " << v[x] << endl; // Muestra el valor de cada dado bloqueador
-        }
-    }
-*/
 
     ///funcion tirada bloqueadores
 void tiradaBloqueadores(int v[], int t)
@@ -83,18 +69,6 @@ void tiradaDeDados(int vD[], int tam)
     rlutil::msleep(1000);
 }
 
-/*
-// Esta funci�n genera los 5 dados que va a tirar el jugador.
-void tiradaDeDados(int vD[], int tam){
-    tam = 5; // Define que el jugador lanza 5 dados
-    int x;
-    for (x = 0; x < tam; x++) // Itera cinco veces para generar cinco dados
-    {
-        vD[x] = tirarDadito(); // Genera un n�mero aleatorio entre 1 y 6 para cada dado
-    //cout << "Dado " << x + 1 << " = " << vD[x] << endl; // Muestra el valor de cada dado
-    }
-}
-*/
 
 
 bool dadosIguales(int vD[], int t){

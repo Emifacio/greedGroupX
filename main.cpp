@@ -22,7 +22,7 @@ int main(){
         procesarSelection(selection);
     } while (selection != 5);
 
-    cout << "Gracias por jugar. ¡Hasta la próxima!" << endl;
+
 
     return 0;
 }

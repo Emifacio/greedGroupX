@@ -188,7 +188,7 @@ void procesarSelection(int selection)
         mostrarBarraDivisoraLarga();
         cout << "Gracias por jugar GreedX, espero verte pronto nuevamente!" << endl;
         mostrarBarraDivisoraLarga();
-        rlutil::msleep(500);
+        rlutil::msleep(1500);
         rlutil::cls();
         break;
     default:
@@ -558,7 +558,7 @@ void mostrarGanadorColor(string jugador)
 
 }
 
- main
+
 
 void mostrarMsjFinalJuegoColor()
 {
@@ -635,23 +635,7 @@ void imprimirPatronAlternadoColor(int posicionC,int posicionF)
 
             rlutil::setColor(rlutil::LIGHTBLUE);
             rlutil::setBackgroundColor(rlutil::YELLOW);
-        }
-        else
-        {
-            rlutil::setColor(rlutil::YELLOW);
-            rlutil::setBackgroundColor(rlutil::LIGHTBLUE);
-
-            rlutil::setColor(rlutil::BLACK);
-            rlutil::setBackgroundColor(rlutil::BLACK);
-        }
-        else
-        {
-            rlutil::setColor(rlutil::WHITE);
-            rlutil::setBackgroundColor(rlutil::BLACK);
-main
-        }
-
-        rlutil::locate(posicionC,posicionF);
+            rlutil::locate(posicionC,posicionF);
         for (int i = 0; i < fila; i++)
         {
 
@@ -670,7 +654,41 @@ main
             }
             cout << endl;
         }
-        rlutil::msleep(10);
+        }
+        else
+        {
+            rlutil::setColor(rlutil::YELLOW);
+            rlutil::setBackgroundColor(rlutil::LIGHTBLUE);
+            rlutil::locate(posicionC,posicionF);
+        for (int i = 0; i < fila; i++)
+        {
+
+            for (int j = 0; j < columna; j++)
+            {
+                // Condición para alternar espacios y asteriscos
+                if ((i + j) % 2 == 0)
+                {
+
+                    cout << "*";
+                }
+                else
+                {
+                    cout << " ";
+                }
+            }
+            cout << endl;
+        }
+
+        }
+
+
+            rlutil::setColor(rlutil::WHITE);
+            rlutil::setBackgroundColor(rlutil::BLACK);
+
+
+
+
+        rlutil::msleep(400);
     }
 }
 
@@ -706,7 +724,7 @@ void mostrarMsjCambioJugadorColor(string jugador)
         cout << "   -------------------------------------" << endl;
         cout << endl;
 
- 
+
         rlutil::msleep(150);
         rlutil::setColor(rlutil::WHITE);
         rlutil::setBackgroundColor(rlutil::BLACK);
