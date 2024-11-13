@@ -495,6 +495,71 @@ void mostrarCreditos()
 
 ///Funciones colores
 
+void mostrarGanadorColor(string jugador)
+{
+    int posicionC=2;
+    int posicionF=2;
+    rlutil::setColor(rlutil::LIGHTBLUE);
+    rlutil::setBackgroundColor(rlutil::YELLOW);
+
+    rlutil::locate(posicionC,posicionF);
+    cout << " EL JUGADOR QUE CONSIGUIO EL MEJOR PUNTAJE FUE : ... " << endl;
+    //cout << endl;
+
+    imprimirPatronAlternadoColor(1,4);
+    for(int x=0; x<10; x++)
+    {
+        if(x%2==0)
+        {
+            rlutil::setColor(rlutil::LIGHTBLUE);
+            rlutil::setBackgroundColor(rlutil::YELLOW);
+            rlutil::locate(posicionC,25);
+            cout << "               ** " <<  jugador << "          !!! ** " << endl;
+            //cout << endl;
+            //cout << endl;
+            rlutil::locate(posicionC,26);
+            cout << " ********************************************        " << endl;
+            //cout << endl;
+            rlutil::locate(posicionC,27);
+            cout <<"    "<< jugador << " #GANASTE! #     FELICITACIONES!!!" << endl;
+            //cout << endl;
+            rlutil::locate(posicionC,28);
+            cout << " ********************************************        " << endl;
+            cout << endl;
+        }
+        else
+        {
+            rlutil::setColor(rlutil::YELLOW);
+            rlutil::setBackgroundColor(rlutil::LIGHTBLUE);
+            //cout << endl;
+            //cout << endl;
+            rlutil::locate(posicionC,25);
+            cout << "               ** " <<  jugador << "          !!! ** " << endl;
+            //cout << endl;
+            //cout << endl;
+            rlutil::locate(posicionC,26);
+            cout << " ********************************************        " << endl;
+            //cout << endl;
+            rlutil::locate(posicionC,27);
+            cout <<"    "<< jugador << " #GANASTE! #     FELICITACIONES!!!" << endl;
+            //cout << endl;
+            rlutil::locate(posicionC,28);
+            cout << " ********************************************        " << endl;
+            cout << endl;
+        }
+
+        cout << endl;
+
+        //imprimirPatronAlternadoColor(20,35);
+        rlutil::msleep(200);
+    }
+    rlutil::setColor(rlutil::WHITE);
+    rlutil::setBackgroundColor(rlutil::BLACK);
+
+}
+
+ main
+
 void mostrarMsjFinalJuegoColor()
 {
     int posicionC=80;
@@ -506,31 +571,52 @@ void mostrarMsjFinalJuegoColor()
         {
             rlutil::setColor(rlutil::LIGHTBLUE);
             rlutil::setBackgroundColor(rlutil::YELLOW);
+            rlutil::locate(posicionC,posicionF);
+
+            cout << endl;
+            rlutil::locate(posicionC,21);
+            cout << "                *    *    *                  " << endl;
+            cout << endl;
+            rlutil::locate(posicionC,22);
+            cout << "           EL JUEGO HA FINALIZADO            "<<endl;
+            cout << endl;
+            rlutil::locate(posicionC,23);
+            cout << "                *    *    *                  " << endl;
+            cout << endl;
+            rlutil::locate(posicionC,24);
+            cout << "            GRACIAS POR JUGAR!!!             " << endl;
+            cout << endl;
+            rlutil::locate(posicionC,25);
+            cout << "                *    *    *                  " << endl;
+            cout << endl;
+            rlutil::msleep(100);
+
         }
         else
         {
             rlutil::setColor(rlutil::YELLOW);
             rlutil::setBackgroundColor(rlutil::LIGHTBLUE);
-        }
-        rlutil::locate(posicionC,posicionF);
+            rlutil::locate(posicionC,posicionF);
 
-        cout << endl;
-        rlutil::locate(posicionC,21);
-        cout << "                *    *    *                  " << endl;
-        cout << endl;
-        rlutil::locate(posicionC,22);
-        cout << "           EL JUEGO HA FINALIZADO            "<<endl;
-        cout << endl;
-        rlutil::locate(posicionC,23);
-        cout << "                *    *    *                  " << endl;
-        cout << endl;
-        rlutil::locate(posicionC,24);
-        cout << "            GRACIAS POR JUGAR!!!             " << endl;
-        cout << endl;
-        rlutil::locate(posicionC,25);
-        cout << "                *    *    *                  " << endl;
-        cout << endl;
-        rlutil::msleep(100);
+            cout << endl;
+            rlutil::locate(posicionC,21);
+            cout << "                *    *    *                  " << endl;
+            cout << endl;
+            rlutil::locate(posicionC,22);
+            cout << "           EL JUEGO HA FINALIZADO            "<<endl;
+            cout << endl;
+            rlutil::locate(posicionC,23);
+            cout << "                *    *    *                  " << endl;
+            cout << endl;
+            rlutil::locate(posicionC,24);
+            cout << "            GRACIAS POR JUGAR!!!             " << endl;
+            cout << endl;
+            rlutil::locate(posicionC,25);
+            cout << "                *    *    *                  " << endl;
+            cout << endl;
+            rlutil::msleep(100);
+        }
+
 
     }
     rlutil::setColor(rlutil::WHITE);
@@ -538,13 +624,23 @@ void mostrarMsjFinalJuegoColor()
 }
 void imprimirPatronAlternadoColor(int posicionC,int posicionF)
 {
-    int fila=10;
-    int columna=208;
 
-    for(int x=0; x<15; x++)
+    int fila=20;
+    int columna=70;
+
+    for(int x=0; x<10; x++)
     {
         if(x%2==0)
         {
+
+            rlutil::setColor(rlutil::LIGHTBLUE);
+            rlutil::setBackgroundColor(rlutil::YELLOW);
+        }
+        else
+        {
+            rlutil::setColor(rlutil::YELLOW);
+            rlutil::setBackgroundColor(rlutil::LIGHTBLUE);
+
             rlutil::setColor(rlutil::BLACK);
             rlutil::setBackgroundColor(rlutil::BLACK);
         }
@@ -552,6 +648,7 @@ void imprimirPatronAlternadoColor(int posicionC,int posicionF)
         {
             rlutil::setColor(rlutil::WHITE);
             rlutil::setBackgroundColor(rlutil::BLACK);
+main
         }
 
         rlutil::locate(posicionC,posicionF);
@@ -579,35 +676,42 @@ void imprimirPatronAlternadoColor(int posicionC,int posicionF)
 
 void mostrarMsjCambioJugadorColor(string jugador)
 {
-    int posicionC=80;
-    int posicionF=20;
+    int posicionC=5;
+    int posicionF=2;
     for(int x=0; x<20; x++)
     {
         if(x%2==0)
         {
             rlutil::setColor(rlutil::YELLOW);
-            rlutil::setBackgroundColor(rlutil::BLUE);
+            rlutil::setBackgroundColor(rlutil::LIGHTBLUE);
         }
         else
         {
-            rlutil::setColor(rlutil::RED);
-            rlutil::setBackgroundColor(rlutil::LIGHTGREEN);
+            rlutil::setColor(rlutil::LIGHTBLUE);
+            rlutil::setBackgroundColor(rlutil::YELLOW);
         }
 
         cout << endl;
         rlutil::locate(posicionC,posicionF);
         cout << "            *   *   *                   "<<endl;
         cout << endl;
-        rlutil::locate(posicionC,21);
+        rlutil::locate(posicionC,3);
         cout << "   -------------------------------------" << endl;
-        rlutil::locate(posicionC,22);
-        cout << "       ES EL TURNO DE " << jugador << "!               " << endl;
+        rlutil::locate(posicionC,4);
+        cout << "       ES EL TURNO DE " << jugador << " !       " << endl;
         cout << endl;
-        rlutil::locate(posicionC,23);
+        rlutil::locate(posicionC,5);
         cout << "           BUENA SUERTE!                "<< endl;
-        rlutil::locate(posicionC,24);
+        rlutil::locate(posicionC,6);
         cout << "   -------------------------------------" << endl;
         cout << endl;
+
+ 
+        rlutil::msleep(150);
+        rlutil::setColor(rlutil::WHITE);
+        rlutil::setBackgroundColor(rlutil::BLACK);
+        rlutil::cls();
+
 
         rlutil::msleep(50);
     }
@@ -838,6 +942,66 @@ void FelitacionesColor(int puntajeTotal )
 
     }
 
+}
+
+void mostrarPrimerTurnoColor(string jugador1)
+{
+    for (int i = 0; i < 15; i++)
+    {
+
+        if (i % 2 == 0)
+        {
+            rlutil::setColor(rlutil::YELLOW);
+            rlutil::locate(5,3);
+            cout << "           ==================================="<< endl;
+            rlutil::locate(5,4);
+            cout << "           ||                               ||"<< endl;
+            rlutil::locate(5,5);
+            cout << "                  Es el Turno de " << jugador1 <<endl;
+            rlutil::locate(5,6);
+            cout << endl;
+            cout << "           ||           A JUGAR!!           ||"<< endl;
+            rlutil::locate(5,7);
+            cout << "           ||                               ||"<<endl;
+            rlutil::locate(5,8);
+            cout << "           ==================================="<< endl;
+            cout << endl;
+            cout << endl;
+            cout << endl;
+            rlutil::locate(5,11);
+            cout << "           Presiona una tecla para comenzar..." << endl;
+            Sleep(300);
+        }
+        else
+        {
+            rlutil::setColor(rlutil::LIGHTBLUE);
+            rlutil::locate(5,3);
+            cout << "           ==================================="<< endl;
+            rlutil::locate(5,4);
+            cout << "           ||                               ||"<< endl;
+            rlutil::locate(5,5);
+            cout << "                  Es el Turno de " << jugador1 <<endl;
+            rlutil::locate(5,6);
+            cout << endl;
+            cout << "           ||           A JUGAR!!           ||"<< endl;
+            rlutil::locate(5,7);
+            cout << "           ||                               ||"<<endl;
+            rlutil::locate(5,8);
+            cout << "           ==================================="<< endl;
+            cout << endl;
+            cout << endl;
+            cout << endl;
+            rlutil::locate(5,11);
+            cout << "           Presiona una tecla para comenzar..." << endl;
+            Sleep(300);
+        }
+
+
+    }
+
+    Sleep(300);
+    rlutil::setColor(rlutil::WHITE);
+    rlutil::cls();
 }
 
 
