@@ -59,7 +59,7 @@ void dibujarDadoColor(int numero, int columna, int fila, int color, int colorPoi
 
         }
 
-        rlutil::msleep(100);
+        rlutil::msleep(50);
     }
 }
 
@@ -342,7 +342,7 @@ int tirarDado(int columna, int fila)
     for(int x=0; x<20; x++)
     {
         dibujarDado(rand()%6+1,columna,fila);
-        rlutil::msleep(10);
+        rlutil::msleep(5);
     }
     dibujarDado(dado,columna,fila);
 

@@ -13,12 +13,12 @@ void modoDosJugadores() {
     string jugador1, jugador2;
 
     pedirNombre(jugador1, jugador2);
-    rlutil::msleep(1000);
+    rlutil::msleep(500);
     rlutil::cls();
     mostrarBarraDivisoraLarga();
    cout << "                Cargando datos para tu partida..." << endl;
    mostrarBarraDivisoraLarga();
-    rlutil::msleep(1000);
+    rlutil::msleep(500);
     rlutil::cls();
     srand(time(0));
 
@@ -28,23 +28,18 @@ void modoDosJugadores() {
 
         ///Ronda1
         ronda = 0;
-        sonidoRonda();
         codigoRonda(jugador1, ronda, aPt, aP);
         mostrarMsjCambioJugadorColor(jugador2);
         codigoRonda(jugador2, ronda, aPt2, aP2);
         mostrarMsjCambioJugadorColor(jugador1);
         ///Ronda2
         ronda = 1;
-        sonidoRonda();
-        Beep(1568, 100); Sleep(8);
         codigoRonda(jugador1, ronda, aPt, aP);
         mostrarMsjCambioJugadorColor(jugador2);
         codigoRonda(jugador2, ronda, aPt2, aP2);
         mostrarMsjCambioJugadorColor(jugador1);
         ///Ronda3
         ronda = 2;
-        sonidoRonda();
-        Beep(1568, 100); Sleep(8);
         codigoRonda(jugador1, ronda, aPt, aP);
         mostrarMsjCambioJugadorColor(jugador2);
         codigoRonda(jugador2, ronda, aPt2, aP2);
@@ -71,8 +66,6 @@ void modoDosJugadores() {
     cout << "Presione cualquier tecla para continuar ... " << endl;
     rlutil::anykey();
     rlutil::cls();
-    int selection = mostrarMenu();
-    procesarSelection(selection);
  }
 
 
@@ -95,13 +88,10 @@ void modoUnJugador(){
      rlutil::cls();
 
         ronda = 0;
-        sonidoRonda();
         codigoRonda(jugador, ronda, aPt, aP);
-         ronda = 1;
-         sonidoRonda();
+        ronda = 1;
         codigoRonda(jugador, ronda, aPt, aP);
-         ronda = 2;
-         sonidoRonda();
+        ronda = 2;
         codigoRonda(jugador, ronda, aPt, aP);
         for(x = 0; x < 3; x++) {
         aPt += aP[x];
@@ -109,31 +99,30 @@ void modoUnJugador(){
 
     ///cout << "Felicitaciones!!! Tu puntaje total para las 3 rondas  fue de : " << aPt << "!!!" << endl;
     FelitacionesColor(aPt);
-    mostrarMsjFinalJuegoColor();
+    mostrarMsjFinalJuego();
     cout << "Presione cualquier tecla para continuar ... " << endl;
     rlutil::anykey();
     rlutil::cls();
-    int selection = mostrarMenu();
-    procesarSelection(selection);
 }
 
 
  /// Funcionalidad de la ronda
 
-void codigoRonda(string jugador, int& ronda, int aPt, int aP[]){
+void codigoRonda(string jugador, int ronda, int aPt, int aP[]){
         srand(time(0));
         int tam = 2, t = 5, vB[2] = {}, vD[t] = {}, cD = 0, puntaje = 0, cDtiradas = 1;
         bool duplicar;
         char pregunta = 'S';
 
-        mostrarRonda(ronda);
-        mostrarNroTirada(cDtiradas);
+        //mostrarRondaColor(ronda);
+        mostrarNroTiradaColor(cDtiradas, ronda);
         mostrarTituloDadosBloqueadores();
         rlutil::locate(1,9);
         tiradaBloqueadores(vB, tam);
         rlutil::locate(1,11);
         mostrarDados(vB,tam);
         mostrarTituloTiradaDados();
+        playSpiral(800, 6, 60);
         tiradaDeDados(vD,t);
         rlutil::locate(1,17);
         mostrarDados(vD, t);
@@ -170,14 +159,15 @@ void codigoRonda(string jugador, int& ronda, int aPt, int aP[]){
             rlutil::msleep(2000);
             rlutil::cls();
             if( pregunta == 'S') {
-            mostrarRonda(ronda);
-            mostrarNroTiradasMasUno(cDtiradas);
+           // mostrarRondaColor(ronda);
+            mostrarNroTiradasMasUnoColor(cDtiradas, ronda);
             mostrarTituloDadosBloqueadores();
             rlutil::locate(1,11);
             mostrarDados(vB, tam);
             rlutil::locate(1,13);
             dibujarBloqueadoresQuieto(vB);
             mostrarTituloTiradaDados();
+            playSpiral(800, 6, 60);
             tiradaDeDados(vD, t);
             rlutil::locate(1,17);
             cDtiradas++;
@@ -208,6 +198,6 @@ void codigoRonda(string jugador, int& ronda, int aPt, int aP[]){
 
                     }
                   } while(pregunta != 'N');
-                  rlutil::msleep(2000);
+                  rlutil::msleep(1000);
                 system("cls");
             }

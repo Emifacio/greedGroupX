@@ -9,4 +9,4 @@
 
 void modoDosJugadores() ;
 void modoUnJugador();
-void codigoRonda(std::string jugador, int& ronda, int aPt, int aP[]);
+void codigoRonda(std::string jugador, int ronda, int aPt, int aP[]);
