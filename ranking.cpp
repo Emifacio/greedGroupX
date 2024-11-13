@@ -242,7 +242,7 @@ void menuEstadisticas() {
         cout << "2 - Mostrar Ranking" << endl;
         cout << "3 - Agregar Nombre y Puntaje" << endl;
         cout << "0 - Volver al menu principal" << endl;
-        cout << "Seleccione una opción: ";
+        cout << "Seleccione una opcion: ";
         cin >> opcion;
         rlutil::msleep(1000);
 
@@ -265,7 +265,7 @@ void menuEstadisticas() {
                 rankear = false;
                 break;
             default:
-                cout << "Opción no válida. Intente de nuevo." << endl;
+                cout << "Opción no valida. Intente de nuevo." << endl;
                 rlutil::msleep(1000);
                 break;
         }
