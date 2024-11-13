@@ -14,14 +14,15 @@ using namespace std;
 int main(){
 
 
+     int selection;
      mostrarmostrarGreed();
-
      rlutil::cls();
+     do {
+        selection = mostrarMenu();
+        procesarSelection(selection);
+    } while (selection != 5);
 
-    int selection = mostrarMenu();
-    procesarSelection( selection);
+    cout << "Gracias por jugar. ¡Hasta la próxima!" << endl;
 
-    selection = mostrarMenu();
-    procesarSelection( selection);
     return 0;
 }

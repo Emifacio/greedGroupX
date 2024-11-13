@@ -10,9 +10,12 @@
 
 /**Etiquetas de funciones de mostrares para
 mostrar durante el programa.*/
+void sonidoMostrarGreed();
+void playSpiral(int startFreq, int steps, int duration);
 void sonidoEleccion();
 void sonidoRonda();
-void mostrarmostrarGreed() ;
+void sonidoPuntaje();
+void mostrarmostrarGreed();
 void pedirNombre(std::string& jugador1, std::string& jugador2);
 int mostrarMenu();
 void procesarSelection(int selection);
@@ -57,7 +60,7 @@ void mostrarResumenPuntajeColor(int puntaje, int ronda, int aP[]);
 int mostrarMenuColor();
 void mostrarCreditos();
 void mostrarRondaColor(int ronda);
-void mostrarNroTiradaColor(int cDtiradas);
-void mostrarNroTiradasMasUnoColor(int cDtiradas);
+void mostrarNroTiradaColor(int cDtiradas, int ronda);
+void mostrarNroTiradasMasUnoColor(int cDtiradas, int ronda);
 void FelitacionesColor(int puntajeTotal );
-
+void mostrarMsjSumaCeroColor();
