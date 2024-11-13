@@ -127,7 +127,7 @@
 
 1731197599 c:\users\raull\onedrive\documentos\utn\2 cuatrimestre\programacion\greed\greedgroupx\dados.h
 
-1731172277 source:c:\users\raull\onedrive\documentos\utn\2 cuatrimestre\programacion\greed\greedgroupx\main.cpp
+1731529816 source:c:\users\raull\onedrive\documentos\utn\2 cuatrimestre\programacion\greed\greedgroupx\main.cpp
 	<iostream>
 	<ctime>
 	"funciones.h"
@@ -140,7 +140,7 @@
 
 1731172277 c:\users\raull\onedrive\documentos\utn\2 cuatrimestre\programacion\greed\greedgroupx\ranking.h
 
-1731253864 c:\users\raull\onedrive\documentos\utn\2 cuatrimestre\programacion\greed\greedgroupx\carteles.h
+1731530048 c:\users\raull\onedrive\documentos\utn\2 cuatrimestre\programacion\greed\greedgroupx\carteles.h
 	<iostream>
 	<ctime>
 	"funciones.h"
@@ -148,14 +148,14 @@
 	"modoJuego.h"
 	"carteles.h"
 
-1731172277 c:\users\raull\onedrive\documentos\utn\2 cuatrimestre\programacion\greed\greedgroupx\modojuego.h
+1731529816 c:\users\raull\onedrive\documentos\utn\2 cuatrimestre\programacion\greed\greedgroupx\modojuego.h
 	<iostream>
 	<ctime>
 	"funciones.h"
 	"rlutil.h"
 	"carteles.h"
 
-1731258210 source:c:\users\raull\onedrive\documentos\utn\2 cuatrimestre\programacion\greed\greedgroupx\modojuego.cpp
+1731529816 source:c:\users\raull\onedrive\documentos\utn\2 cuatrimestre\programacion\greed\greedgroupx\modojuego.cpp
 	<iostream>
 	<ctime>
 	"funciones.h"
@@ -176,7 +176,7 @@
 
 1731172277 source:c:\users\raull\onedrive\documentos\utn\2 cuatrimestre\programacion\greed\greedgroupx\rlutil.cpp
 
-1731262358 source:c:\users\raull\onedrive\documentos\utn\2 cuatrimestre\programacion\greed\greedgroupx\carteles.cpp
+1731530021 source:c:\users\raull\onedrive\documentos\utn\2 cuatrimestre\programacion\greed\greedgroupx\carteles.cpp
 	<iostream>
 	<string>
 	"funciones.h"
@@ -185,7 +185,7 @@
 	"carteles.h"
 	"modoJuego.h"
 
-1731252719 source:c:\users\raull\onedrive\documentos\utn\2 cuatrimestre\programacion\greed\greedgroupx\dados.cpp
+1731529816 source:c:\users\raull\onedrive\documentos\utn\2 cuatrimestre\programacion\greed\greedgroupx\dados.cpp
 	<iostream>
 	"rlutil.h"
 	"dados.h"
