@@ -29,19 +29,19 @@ void modoDosJugadores() {
         ///Ronda1
         ronda = 0;
         codigoRonda(jugador1, ronda, aPt, aP);
-        mostrarMsjCambioJugador(jugador2);
+        mostrarMsjCambioJugadorColor(jugador2);
         codigoRonda(jugador2, ronda, aPt2, aP2);
-        mostrarMsjCambioJugador(jugador1);
+        mostrarMsjCambioJugadorColor(jugador1);
         ///Ronda2
         ronda = 1;
         codigoRonda(jugador1, ronda, aPt, aP);
-        mostrarMsjCambioJugador(jugador2);
+        mostrarMsjCambioJugadorColor(jugador2);
         codigoRonda(jugador2, ronda, aPt2, aP2);
-        mostrarMsjCambioJugador(jugador1);
+        mostrarMsjCambioJugadorColor(jugador1);
         ///Ronda3
         ronda = 2;
         codigoRonda(jugador1, ronda, aPt, aP);
-        mostrarMsjCambioJugador(jugador2);
+        mostrarMsjCambioJugadorColor(jugador2);
         codigoRonda(jugador2, ronda, aPt2, aP2);
 
     cout << "Presione cualquier tecla para continuar ... " << endl;

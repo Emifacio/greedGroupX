@@ -19,7 +19,7 @@
 	"funciones.h"
 	"dados.h"
 
-1731532708 source:c:\users\emili\documents\programación i\ejercicios\trabajosenclase\greedgroupx\greedgroupx\carteles.cpp
+1731536306 source:c:\users\emili\documents\programación i\ejercicios\trabajosenclase\greedgroupx\greedgroupx\carteles.cpp
 	<iostream>
 	<string>
 	"funciones.h"
@@ -38,7 +38,7 @@
 	"modoJuego.h"
 	"carteles.h"
 
-1730988739 source:c:\users\emili\documents\programación i\ejercicios\trabajosenclase\greedgroupx\greedgroupx\ranking.cpp
+1731536609 source:c:\users\emili\documents\programación i\ejercicios\trabajosenclase\greedgroupx\greedgroupx\ranking.cpp
 	<iostream>
 	<ctime>
 	"funciones.h"
@@ -85,7 +85,7 @@
 	"rlutil.h"
 	"carteles.h"
 
-1731530952 source:c:\users\emili\documents\programación i\ejercicios\trabajosenclase\greedgroupx\greedgroupx\modojuego.cpp
+1731535963 source:c:\users\emili\documents\programación i\ejercicios\trabajosenclase\greedgroupx\greedgroupx\modojuego.cpp
 	<iostream>
 	<ctime>
 	"funciones.h"
