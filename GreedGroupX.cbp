@@ -45,6 +45,8 @@
 		<Unit filename="ranking.h" />
 		<Unit filename="rlutil.cpp" />
 		<Unit filename="rlutil.h" />
+		<Unit filename="sonidos.cpp" />
+		<Unit filename="sonidos.h" />
 		<Extensions>
 			<code_completion>
 				<search_path add="C:\Users\emili\Documents\programación I\Ejercicios\trabajosEnClase\GreedGroupX\greedGroupX\" />

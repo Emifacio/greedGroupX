@@ -12,14 +12,14 @@
 
 1730904345 c:\users\emili\documents\programación i\ejercicios\trabajosenclase\greedgroupx\greedgroupx\funciones.h
 
-1730904345 source:c:\users\emili\documents\programación i\ejercicios\trabajosenclase\greedgroupx\greedgroupx\funciones.cpp
+1731758771 source:c:\users\emili\documents\programación i\ejercicios\trabajosenclase\greedgroupx\greedgroupx\funciones.cpp
 	<iostream>
 	"rlutil.h"
 	<string>
 	"funciones.h"
 	"dados.h"
 
-1731536306 source:c:\users\emili\documents\programación i\ejercicios\trabajosenclase\greedgroupx\greedgroupx\carteles.cpp
+1731758756 source:c:\users\emili\documents\programación i\ejercicios\trabajosenclase\greedgroupx\greedgroupx\carteles.cpp
 	<iostream>
 	<string>
 	"funciones.h"
@@ -30,15 +30,17 @@
 
 1731537122 c:\users\emili\documents\programación i\ejercicios\trabajosenclase\greedgroupx\greedgroupx\ranking.h
 
-1731530952 c:\users\emili\documents\programación i\ejercicios\trabajosenclase\greedgroupx\greedgroupx\carteles.h
+1731758756 c:\users\emili\documents\programación i\ejercicios\trabajosenclase\greedgroupx\greedgroupx\carteles.h
 	<iostream>
 	<ctime>
 	"funciones.h"
 	"rlutil.h"
 	"modoJuego.h"
+	"ranking.h"
 	"carteles.h"
+	"sonidos.h"
 
-1731536609 source:c:\users\emili\documents\programación i\ejercicios\trabajosenclase\greedgroupx\greedgroupx\ranking.cpp
+1731758845 source:c:\users\emili\documents\programación i\ejercicios\trabajosenclase\greedgroupx\greedgroupx\ranking.cpp
 	<iostream>
 	<ctime>
 	"funciones.h"
@@ -78,14 +80,16 @@
 	<sys/types.h>
 	<sys/time.h>
 
-1731365040 c:\users\emili\documents\programación i\ejercicios\trabajosenclase\greedgroupx\greedgroupx\modojuego.h
+1731758756 c:\users\emili\documents\programación i\ejercicios\trabajosenclase\greedgroupx\greedgroupx\modojuego.h
 	<iostream>
 	<ctime>
 	"funciones.h"
 	"rlutil.h"
+	"ranking.h"
 	"carteles.h"
+	"sonidos.h"
 
-1731535963 source:c:\users\emili\documents\programación i\ejercicios\trabajosenclase\greedgroupx\greedgroupx\modojuego.cpp
+1731539868 source:c:\users\emili\documents\programación i\ejercicios\trabajosenclase\greedgroupx\greedgroupx\modojuego.cpp
 	<iostream>
 	<ctime>
 	"funciones.h"
@@ -191,4 +195,23 @@
 	"dados.h"
 	<cstdlib>
 	<ctime>
+
+1731758754 c:\users\emili\documents\programación i\ejercicios\trabajosenclase\greedgroupx\greedgroupx\sonidos.h
+	<iostream>
+	<ctime>
+	"funciones.h"
+	"rlutil.h"
+	"modoJuego.h"
+	"ranking.h"
+	"carteles.h"
+
+1731758633 source:c:\users\emili\documents\programación i\ejercicios\trabajosenclase\greedgroupx\greedgroupx\sonidos.cpp
+	<iostream>
+	<string>
+	"funciones.h"
+	"ranking.h"
+	"rlutil.h"
+	"carteles.h"
+	"modoJuego.h"
+	"ranking.h"
 
