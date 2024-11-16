@@ -4,17 +4,13 @@
 #include "funciones.h"
 #include "rlutil.h"
 #include "modoJuego.h"
-//#include "ranking.h"
+#include "ranking.h"
 #include "carteles.h"
-
+#include "sonidos.h"
 
 /**Etiquetas de funciones de mostrares para
 mostrar durante el programa.*/
-void sonidoMostrarGreed();
-void playSpiral(int startFreq, int steps, int duration);
-void sonidoEleccion();
-void sonidoRonda();
-void sonidoPuntaje();
+
 void mostrarmostrarGreed();
 void pedirNombre(std::string& jugador1, std::string& jugador2);
 int mostrarMenu();

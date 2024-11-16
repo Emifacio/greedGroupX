@@ -73,7 +73,7 @@ void modoDosJugadores() {
 
 void modoUnJugador(){
 
- srand(time(0));
+ srand(time(0));// en el main
 
     string jugador;
     int x, ronda, aPt=0, aP[3]= {};

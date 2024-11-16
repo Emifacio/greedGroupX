@@ -10,59 +10,6 @@ using namespace std;
 //#include "ranking.h"
 
 
-void playSpiral(int startFreq, int steps, int duration) {
-    for (int i = 0; i < steps; ++i) {
-        Beep(startFreq + (i * 50), duration);
-        Sleep(25);
-    }
-}
-
-
-void sonidoEleccion()
-{
-    Beep(1175, 50);
-    Sleep(4);
-    Beep(1046, 50);
-    Sleep(3);
-}
-
-
-void sonidoRonda()
-{
-    Beep(1568, 100);
-    Sleep(7);
-    Beep(1175, 50);
-    Sleep(3);
-    Beep(1046, 50);
-    Sleep(2);
-    Beep(988, 60);
-    Sleep(1);
-    Beep(880, 150);
-    Sleep(10);
-}
-
-void sonidoPuntaje()
-{
-    Beep(659, 100);
-    Sleep(15);
-    Beep(659, 100);
-    Sleep(15);
-    Beep(784, 300);
-}
-
-void sonidoMostrarGreed(){
-        Beep(1568, 100);
-        Sleep(8);
-        Beep(1175, 50);
-        Sleep(4);
-        Beep(1046, 50);
-        Sleep(3);
-        Beep(988, 60);
-        Sleep(2);
-        Beep(880, 150);
-        Sleep(20);
-        }
-
 void mostrarmostrarGreed()
 {
     int c = 15;
@@ -200,24 +147,6 @@ void procesarSelection(int selection)
     }
 }
 
-void mostrarPrimerTurno(string jugador1)
-{
-    cout << endl;
-    cout << "           ==================================="<< endl;
-    cout << "           ||                               ||"<< endl;
-    cout << "                  Es el Turno de " << jugador1 <<endl;
-    cout << endl;
-    cout << "           ||           A JUGAR!!           ||"<< endl;
-    cout << "           ||                               ||"<<endl;
-    cout << "           ==================================="<< endl;
-    cout << endl;
-    cout << endl;
-    cout << endl;
-    cout << "           Presiona una tecla para comenzar..." << endl;
-    rlutil::anykey();
-    rlutil::cls();
-}
-
 void mostrarTituloDadosBloqueadores()
 {
     cout << endl;
@@ -225,28 +154,7 @@ void mostrarTituloDadosBloqueadores()
     cout << "==================================="<<endl;
 }
 
-void mostrarRonda(int ronda)
-{
-    cout << endl;
-    cout << "       ********************"<< endl;
-    cout << "       ** Ronda Nro : " << ronda + 1 << "  **" <<endl;
-}
 
-void mostrarNroTirada(int cDtiradas)
-{
-    cout <<"       **                **" << endl;
-    cout << "       ** Tirada Nro : " <<  cDtiradas << " **" <<endl;
-    cout << "       ********************" << endl;
-    cout << endl;
-}
-
-void mostrarNroTiradasMasUno(int cDtiradas)
-{
-    cout <<"       **                **" << endl;
-    cout << "       ** Tirada Nro : " <<  cDtiradas+1 << " **" <<endl;
-    cout << "       ********************" << endl;
-    cout << endl;
-}
 
 void mostrarTituloTiradaDados()
 {
@@ -258,24 +166,6 @@ void mostrarTituloTiradaDados()
 
 }
 
-
-void mostrarEspacioPDados()
-{
-    cout << endl;
-    cout << endl;
-    cout << endl;
-    cout << endl;
-    cout << endl;
-    cout << endl;
-    cout << endl;
-    cout << endl;
-    cout << endl;
-    cout << endl;
-    cout << endl;
-    cout << endl;
-    cout << endl;
-    cout << endl;
-}
 
 void mostrarTituloDadosQSuman()
 {
@@ -343,24 +233,6 @@ void mostrarPuntajeRonda(int ronda, int aP[])
     cout << endl;
 }
 
-void mostrarMsjCambioJugador(string jugador)
-{
-
-    cout << "Cambio el turno...  " << jugador << " presiona una tecla si estas listo!!!" << endl;
-    rlutil::anykey();
-    rlutil::cls();
-    cout << endl;
-    cout << "           *   *   *                   "<<endl;
-    cout << endl;
-    cout << "   -----------------------------" << endl;
-    cout << "       ES EL TURNO DE " << jugador << "!" << endl;
-    cout << endl;
-    cout << "           BUENA SUERTE!"<< endl;
-    cout << "   -----------------------------" << endl;
-    cout << endl;
-    rlutil::msleep(750);
-    rlutil::cls();
-}
 
 void mostrarMsjSumaCero()
 {
@@ -389,54 +261,15 @@ void mostrarTotalPtsAmbosJugadores(string jugador1, string jugador2,int acumulad
 {
     cout << endl;
     cout << "        === Resultados Finales ===" << endl;
-    cout << "            *******************" << endl;
+    cout << endl;
     cout << endl;
     cout << "       Puntaje total de " << jugador1 << " : " << acumuladoPuntajeTotalJugador1 << "pts" << endl;
     cout << endl;
     cout << "       Puntaje total de " << jugador2 << " : " << acumuladoPuntajeTotalJugador2 << "pts" << endl;
     cout << endl;
+    rlutil::msleep(1000);
+    rlutil::anykey();
 }
-
-/*void imprimirPatronAlternado(int tamano)
-{
-    for (int i = 0; i < tamano; i++)
-    {
-        for (int j = 0; j < tamano; j++)
-        {
-            // Condición para alternar espacios y asteriscos
-            if ((i + j) % 2 == 0)
-            {
-                cout << " *";
-            }
-            else
-            {
-                cout << "  ";
-            }
-        }
-        cout << endl;
-    }
-}
-void mostrarGanador(string jugador)
-{
-    cout << endl;
-    cout << "EL JUGADOR QUE CONSIGUIO EL MEJOR PUNTAJE FUE : ..." << endl;
-    cout << endl;
-    rlutil::msleep(2000);
-    imprimirPatronAlternado(26);
-    rlutil::msleep(2000);
-    cout << endl;
-    cout << endl;
-    cout << "               ** " <<  jugador << "!!! **" << endl;
-    cout << endl;
-    cout << endl;
-    cout << " ********************************************" << endl;
-    cout << endl;
-    cout <<"    "<< jugador << " #GANASTE! #FELICITACIONES!!!" << endl;
-    cout << endl;
-    cout << " ********************************************" << endl;
-    cout << endl;
-}
-*/
 
 void mostrarMsjFinalJuego()
 {
@@ -916,7 +749,7 @@ void mostrarNroTiradaColor(int cDtiradas, int ronda)
         rlutil::locate(7,6);
         cout << "       ********************" << endl;
         cout << endl;
-        Sleep(50);
+        Sleep(25);
          rlutil::setColor(rlutil::WHITE);
         rlutil::setBackgroundColor(rlutil::BLACK);
 
